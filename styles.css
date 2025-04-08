@@ -7,7 +7,7 @@
 
 /* reset styles */
 html {
-   font-size: 12px;
+   font-size: 14px;
 }
 article, body, div, footer, header, h1, h2, p {
    border: 0;
@@ -16,7 +16,7 @@ article, body, div, footer, header, h1, h2, p {
 }
 
 /* headings */
-h1, h2 {
+h1, h2, h3 {
    padding: 0.4em;
    text-align: center;
    font-family: "JetBrains Mono", "Times New Roman", Times, serif;
@@ -28,6 +28,12 @@ h1 {
 }
 h2 {
    font-size: 2.4em;
+}
+h3 {
+   font-size: 1.8em;
+   margin: 0em;
+   text-align: left;
+   padding: 16.8px;
 }
 
 /* body */
@@ -46,6 +52,7 @@ p {
    line-height: 1.4em;
 }
 
+
 /* main content */
 article {
    background-color: #1E2527;
@@ -53,6 +60,7 @@ article {
 article p {
    padding: 0 1em 1.2em;
 }
+/*
 article p:first-line {
    font-weight: bold;
 }
@@ -61,6 +69,8 @@ article p:first-letter {
    float: top;
    line-height: 0.9em;
 }
+*/
+
 .italic{
    font-style: italic;
 }
@@ -69,6 +79,9 @@ article p:first-letter {
 }
 .underline {
    text-decoration: underline;
+}
+ul {
+   font-size: 1.2em;
 }
 
 /* footer section */
