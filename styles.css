@@ -70,12 +70,22 @@ article p:first-letter {
    line-height: 0.9em;
 }
 */
-
+aside {
+   background-color: lightblue;
+   color: #000;
+   padding: 1em 0;
+}
+aside p {
+   border-bottom: 1px solid black;
+   border-top: 1px solid black;
+   padding: 0.4em 0.5em;
+   margin: 0 0.6em;
+}
 .italic{
    font-style: italic;
 }
 .bold {
-   font-weight: bold;
+   font-weight: bold;   
 }
 .underline {
    text-decoration: underline;
