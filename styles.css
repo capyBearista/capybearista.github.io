@@ -61,8 +61,14 @@ article p:first-letter {
    float: top;
    line-height: 0.9em;
 }
-.title{
+.italic{
    font-style: italic;
+}
+.bold {
+   font-weight: bold;
+}
+.underline {
+   text-decoration: underline;
 }
 
 /* footer section */
@@ -75,9 +81,6 @@ footer {
 }
 footer p {
    margin: 0.4em;
-}
-.accent {
-   font-weight: bold;
 }
 
 /* print styles */
