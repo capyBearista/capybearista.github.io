@@ -38,7 +38,7 @@ h3 {
 
 /* body */
 body {
-   max-width: 640px;
+   max-width: 100em;
    margin: 0 auto;
    border-left: 1px solid #ffffff;
    border-right: 1px solid #ffffff;
