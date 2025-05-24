@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>Arjun's Coding Portfolio - Home</title>
+      <title>Arjun's Coding Portfolio - Obsidian Script</title>
       <!-- 
-        Coding Portfolio main page 
-        Filename: index.html
+        Coding Portfolio obsidian script project page 
+        Filename: obsidian-script.html
 
         Author:   Arjun Pramanik
         Date:     10 May 2025
@@ -38,20 +38,19 @@
       </nav>
       <article>
          <div>
-            <p>Hey there! Welcome to my project portfolio. What you see here is a collection of the projects I am most proud of!</p>  
-            <h2 id="contentstart" id="main">Project Previews</h2>
-               <h3 id="home-server">Home Server</h3>
+            <h2 id="contentstart" id="main">Obsidian Markdown Converter</h2>
+               <h3 id="process">My Development Process</h3>
                <figure>
-                  <a href="home-server.html"><img src="images/server-sample.png" width="302" height="403" alt="output of htop command on Ubuntu Server, showcasing programs running on the home server"></a>
-                  <figcaption><p class="italic">The output of the htop command on my server! You can see some of the programs running.</p></figcaption>
+                  <img src="images/python.png" width="300" height="300" alt="the logo for the Python programming language"></a>
+                  <figcaption><p>Python's logo.</p></figcaption>
                </figure>
-               <p>My first real project! I built a home server to stop ads in their track when using my home network. I also set up a streaming service so that my family can watch uploaded movies and shows whenever they please.</p>
-               <h3 id="obsidian-script">Obsidian to GitHub Wiki Converter</h3>
-               <figure>
-                  <a href="obsidian-script.html"><img src="images/obsidian.png" width="300" height="300" alt="the logo of the note-taking app Obsidian, a purple shard with curved edges as an artistic recreation of the real-life material"></a>
-                  <figcaption><p class="italic">The logo of the note-taking app Obsidian.</p></figcaption>
-               </figure>
-               <p>My second project. There isn&apos;t much to this project aside from a script that capitalizes Git&apos;s hooks and functionalities.  The script converts the content of Markdown files to a format suitable for GitHub&apos;s Wiki system.</p>
+               <p>What does this script do? Well, GitHub has an included "Wifi" feature, which lets each repository have its very own... wiki! However, I wanted to be able to write the pages using something else, a note-taking application called Obsidian. So I started developing this Python script, which acts as a post-commit hook in Git. It essentially converts my notes writting in Obsidian to a format that GitHub Wiki likes and uploads it automatically. It was a sort of arduous process, but well worth it. These are the steps I took: </p>
+               <ol>
+                  <li><p><span class="bold">Identifying the best language to the program in. </span>I found Python to be pretty great for this. It's not too hard to learn.</p></li>
+                  <li><p><span class="bold">Writing the bulk of the program. </span>The whole process was admittedly kind of confusing because regular expressions has never been my strong point...</p></li>
+                  <li><p><span class="bold">Troubleshooting. </span>There were quite a lot of strange errors here and there! Git is finicky so this stage had plenty of hairpulling and looking things up on Google.</p></li>
+                  <li><p><span class="bold">Finishing! </span>Except there's always more work to be done... For example, I want to make it so changes on GitHub Wiki are reflected in Obsidian.</p></li>
+               </ol>
          </div>
       </article>
       <aside>

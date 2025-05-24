@@ -1,124 +1,178 @@
-﻿/* 
+/* 
+   Coding Portfolio style sheet 
    Filename: styles.css
 
    Author:   Arjun Pramanik
-   Date:     Feb 18 2025  
-*/
+   Date:     10 May 2025
+ */
 
 /* reset styles */
 html {
-   font-size: 14px;
+   font-size: 16px;
 }
-article, body, div, footer, header, h1, h2, p {
+article, div, figcaption, figure, footer, h1, h2, h3, header, nav, p, li, ul {
    border: 0;
    padding: 0;
    margin: 0;
 }
-
-/* headings */
-h1, h2, h3 {
-   padding: 0.4em;
-   text-align: center;
-   font-family: "JetBrains Mono", "Times New Roman", Times, serif;
+img {
+   max-width: 100%;
+   height: auto;
+   width: auto;
 }
-h1 {
-   color: ivory;
-   background-color: rgb(25, 43, 119);
-   font-size: 3em;
-}
-h2 {
-   font-size: 2.4em;
-}
-h3 {
-   font-size: 1.8em;
-   margin: 0em;
-   text-align: left;
-   padding: 16.8px;
+ul {
+   list-style-type: none;
 }
 
-/* body */
+/* document-wide styles */
 body {
-   max-width: 100em;
    margin: 0 auto;
-   border-left: 1px solid #ffffff;
-   border-right: 1px solid #ffffff;
-   color: #E0E2E4;
-   background-color: #1E2527;
-   font-family: 'Segoe UI', Arial, sans-serif;
-   box-shadow: 0 10px 6px -6px #c8e9ff
+   font-family: 'JetBrains Mono', 'Times New Roman', Times, serif;
+   max-width: 100em;
+   border-left: 2px solid #fff;
+   border-right: 2px solid #fff;
+   border-bottom: 2px solid #fff;
+   background-color: #1a1a1a;
+   box-shadow: 0 10px 6px -6px #cbf7ff;
 }
 p {
-   font-size: 1.2em;
-   line-height: 1.4em;
+   font-family: 'Bitter', 'Times New Roman', Times, serif;
+   font-size: 14px;
 }
 
+/* skip navigation link */
+p.skipnavigation a {
+   position: absolute;
+   left: -100px;
+}
+p.skipnavigation a:focus {
+   z-index: 2;
+}
+
+/* header section */
+h1 {
+   text-align: center;
+   font-weight: 500;
+   background-color: rgb(231, 231, 231);
+   font-size: 2em;
+}
+
+/* site navigation bar */
+nav.sitenavigation {
+   text-align: center;
+   background-color: lightblue;
+}
+nav.sitenavigation p {
+   margin: 0.5em 0.5em;
+   display:inline-block;
+   font-weight: 700;
+   font-size: 16px;
+}
+nav.sitenavigation a:link {
+   color: rgb(41, 41, 41);
+}
+nav.sitenavigation a:visited {
+   color: #0011ff;
+}
+nav.sitenavigation a:hover, nav.sitenavigation a:focus{
+   color: white;
+}
 
 /* main content */
 article {
-   background-color: #1E2527;
+   margin: 0 auto;
+   padding: 1.4em;
+   background: #122666;
+   background: url("images/background.jpg");
+}
+article div {
+   max-width: 800px;
+   margin: 0 auto;
+   padding: 1em 3% 1em;
+   background-color: rgb(165, 223, 247);
+   overflow: auto;
+   opacity: 75%;
+   border-radius: 10px;
+}
+h2 {
+   padding: 0.4em 0 0.4em;
+   font-size: 1.6em;
+   font-weight: 800px;
+}
+h3 {
+   padding: 0.4em 0;
+   font-size: 1.2em;
+   font-weight: 800px;
+   clear: both;
 }
 article p {
-   padding: 0 1em 1.2em;
+   padding: 0.4em 0;
 }
-/*
-article p:first-line {
-   font-weight: bold;
+article figcaption {
+   text-align: center;
 }
-article p:first-letter {
-   font-size: 1.4em;
-   float: top;
-   line-height: 0.9em;
+article figure {
+   max-width: 40%;
+   float: right;
 }
-*/
 aside {
    background-color: lightblue;
    color: #000;
    padding: 1em 0;
 }
 aside p {
-   border-bottom: 1px solid black;
    border-top: 1px solid black;
-   padding: 0.4em 0.5em;
+   border-bottom: 1px solid black;
+   padding: 0.4em 0.4em;
    margin: 0 0.6em;
+   text-align: center;
+}
+ul, ol {
+   margin-top: 0em;
+}
+ul li {
+   margin-left: 10px;
+   list-style-type: circle;
+}
+ol li{
+   margin-left: 10px;
 }
 .italic{
    font-style: italic;
 }
 .bold {
-   font-weight: bold;   
+   font-weight: bold;
 }
 .underline {
    text-decoration: underline;
-}
-ul {
-   font-size: 1.2em;
-   margin-top: 0em;
 }
 
 /* footer section */
 footer {
    padding: 0.6em;
-   color: #E0E2E4;
-   background-color: rgb(25, 43, 119);
    text-align: center;
-   font-family: "JetBrains Mono", "Times New Roman", Times, serif;
+   background-color: rgb(231, 231, 231);
+}
+footer img {
+   max-width: 8px;
 }
 footer p {
-   margin: 0.4em;
+   font-family: 'JetBrains Mono', 'Times New Roman', Times, serif;
 }
 
 /* print styles */
 @media print {
    body, h1, article, footer {
-      color: #000;
-      background-color: #fff;
+      color: rgb(0,0,0);
+      background: rgb(255,255,255);
    }
    body {
       max-width: 100%;
-      border: 0;
-      box-shadow: none;
+   }
+   nav {
+      display: none;
    }
 }
 @page {
-   margin: 1in;
+   margin: 0.75in;
 }
