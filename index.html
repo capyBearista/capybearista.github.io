@@ -1,63 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <title>capyBearista's Coding Portfolio - Home</title>
-      <!-- 
-        Coding Portfolio main page 
-        Filename: index.html
 
-        Author:   capyBearista
-        Date:     10 May 2025
-        Last Updated: 25 May 2025
-      -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width">
+<head>
+  <title>capyBearista's Coding Portfolio - Home</title>
+  <!-- 
+      Coding Portfolio main page 
+      Filename: index.html
+      Author:   capyBearista
+      Date:     10 May 2025
+      Last Updated: 09 July 2025
+    -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
 
-      <!--adding JetBrains Mono AND Roboto font from Google Fonts-->
-      <!--copy/pasted necessary embed code from Google Fonts-->
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" type="text/css">
+  <!-- Google Fonts: JetBrains Mono, Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet">
 
-      <link rel="stylesheet" href="styles.css">
-      <link rel="shortcut icon" href="images/favicon.ico">
-      <link rel="apple-touch-icon" href="images/web-app-icon.png">
-      <link rel="icon" sizes="192x192" href="images/web-app-icon.png">
-   </head>
-   <body>
-      <p class="skipnavigation"><a href="#contentstart">Skip navigation</a></p> 
-      <header>
-         <h1>capyBearista's Coding Portfolio</h1>
-      </header>
-      <!--navigation bar-->
-      <nav class="sitenavigation">
-         <p><a href="index.html">Home</a></p>
-         <p><a href="home-server.html">Home Server</a></p>
-         <p><a href="obsidian-script.html">Obsidian Markdown Converter</a></p>
-      </nav>
-      <article>
-         <div>
-            <p>Hey there! Welcome to my project portfolio. What you see here is a collection of the projects I am most proud of!</p>  
-            <h2 id="contentstart" id="main">Project Previews</h2>
-               <h3 id="home-server">Home Server</h3>
-               <figure>
-                  <a href="home-server.html"><img src="images/server-sample.png" width="302" height="403" alt="output of htop command on Ubuntu Server, showcasing programs running on the home server"></a>
-                  <figcaption><p class="italic">The output of the htop command on my server! You can see some of the programs running.</p></figcaption>
-               </figure>
-               <p>My first real project! I built a home server to stop ads in their track when using my home network. I also set up a streaming service so that my family can watch uploaded movies and shows whenever they please.</p>
-               <h3 id="obsidian-script">Obsidian to GitHub Wiki Converter</h3>
-               <figure>
-                  <a href="obsidian-script.html"><img src="images/obsidian.png" width="300" height="300" alt="the logo of the note-taking app Obsidian, a purple shard with curved edges as an artistic recreation of the real-life material"></a>
-                  <figcaption><p class="italic">The logo of the note-taking app Obsidian.</p></figcaption>
-               </figure>
-               <p>My second project. There isn&apos;t much to this project aside from a script that capitalizes Git&apos;s hooks and functionalities.  The script converts the content of Markdown files to a format suitable for GitHub&apos;s Wiki system.</p>
-         </div>
-      </article>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="apple-touch-icon" href="images/web-app-icon.png">
+  <link rel="icon" sizes="192x192" href="images/web-app-icon.png">
+</head>
+
+<body>
+  <p class="skipnavigation"><a href="#contentstart">Skip navigation</a></p>
+
+  <div class="main-content">
+    <header>
+      <h1>capyBearista's Coding Portfolio</h1>
+    </header>
+    <main>
+      <section>
+        <p>Hey there! Welcome to my project portfolio. What you see here is a collection of the projects I am most proud
+          of!</p>
+        <h2 id="contentstart">Project Previews</h2>
+        <a href="home-server.html" class="project-link">
+          <article class="project-preview">
+            <div class="project-preview-content">
+              <h3 id="home-server">Home Server</h3>
+              <p>My first real project! I built a home server to stop ads in their track when using my home network. I
+                also set up a streaming service so that my family can watch uploaded movies and shows whenever they
+                please.</p>
+            </div>
+            <figure>
+              <img src="images/server-sample.png" width="302" height="403"
+                alt="output of htop command on Ubuntu Server, showcasing programs running on the home server">
+              <figcaption>
+                <p class="italic small-caption">The output of the htop command on my server! You can see some of the
+                  programs running.</p>
+              </figcaption>
+            </figure>
+          </article>
+        </a>
+        <a href="obsidian-script.html" class="project-link">
+          <article class="project-preview">
+            <div class="project-preview-content">
+              <h3 id="obsidian-script">Obsidian to GitHub Wiki Converter</h3>
+              <p>My second project. There isn&apos;t much to this project aside from a script that capitalizes
+                Git&apos;s hooks and functionalities. The script converts the content of Markdown files to a format
+                suitable for GitHub&apos;s Wiki system.</p>
+            </div>
+            <figure>
+              <img src="images/obsidian.png" width="300" height="300"
+                alt="the logo of the note-taking app Obsidian, a purple shard with curved edges as an artistic recreation of the real-life material">
+              <figcaption>
+                <p class="italic small-caption">The logo of the note-taking app Obsidian.</p>
+              </figcaption>
+            </figure>
+          </article>
+        </a>
+      </section>
       <aside>
-         <p>Please feel free to contact me if you have any questions about my projects! I'd be happy to explain how they work or address any bugs and concerns.</p>
+        <p>Please feel free to contact me if you have any questions about my projects! I'd be happy to explain how they
+          work or address any bugs and concerns.</p>
       </aside>
-      <footer>
-         <p><span class="bold">capyBearista</span> <img src="images/flourish.png" alt=""> capyBearista@gmail.com</p>
-      </footer>
-   </body>
+    </main>
+    <footer>
+      <p><span class="bold">capyBearista</span> &nbsp;|&nbsp; <a
+          href="mailto:capyBearista@gmail.com">capyBearista@gmail.com</a> &nbsp;|&nbsp; <a
+          href="https://github.com/capybearista" target="_blank" rel="noopener">GitHub</a></p>
+    </footer>
+  </div>
+</body>
+
 </html>
