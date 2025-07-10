@@ -1,62 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <title>capyBearista's Coding Portfolio - Obsidian Script</title>
-      <!-- 
-        Coding Portfolio obsidian script project page 
-        Filename: obsidian-script.html
 
-        Author:   capyBearista
-        Date:     10 May 2025
-        Last Updated: 25 May 2025
-      -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width">
+<head>
+  <title>capyBearista's Coding Portfolio - Obsidian Script</title>
+  <!-- 
+    Coding Portfolio obsidian script project page 
+    Filename: obsidian-script.html
+    Author:   capyBearista
+    Date:     10 May 2025
+    Last Updated: 25 May 2025
+  -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
 
-      <!--adding JetBrains Mono AND Roboto font from Google Fonts-->
-      <!--copy/pasted necessary embed code from Google Fonts-->
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" type="text/css">
+  <!-- Google Fonts: JetBrains Mono, Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="apple-touch-icon" href="images/web-app-icon.png">
+  <link rel="icon" sizes="192x192" href="images/web-app-icon.png">
+</head>
 
-      <link rel="stylesheet" href="styles.css">
-      <link rel="shortcut icon" href="images/favicon.ico">
-      <link rel="apple-touch-icon" href="images/web-app-icon.png">
-      <link rel="icon" sizes="192x192" href="images/web-app-icon.png">
-   </head>
-   <body>
-      <p class="skipnavigation"><a href="#contentstart">Skip navigation</a></p> 
-      <header>
-         <h1>capyBearista's Coding Portfolio</h1>
-      </header>
-      <!--navigation bar-->
-      <nav class="sitenavigation">
-         <p><a href="index.html">Home</a></p>
-         <p><a href="home-server.html">Home Server</a></p>
-         <p><a href="obsidian-script.html">Obsidian Markdown Converter</a></p>
-      </nav>
-      <article>
-         <div>
-            <h2 id="contentstart" id="main">Obsidian Markdown Converter</h2>
-               <h3 id="process">My Development Process</h3>
-               <figure>
-                  <img src="images/python.png" width="300" height="300" alt="the logo for the Python programming language"></a>
-                  <figcaption><p>Python's logo.</p></figcaption>
-               </figure>
-               <p>What does this script do? Well, GitHub has an included "Wiki" feature, which lets each repository have its very own... wiki! However, I wanted to be able to write the pages using something else, a note-taking application called Obsidian. So I started developing this Python script, which acts as a post-commit hook in Git. It essentially converts my notes writting in Obsidian to a format that GitHub Wiki likes and uploads it automatically. It was a sort of arduous process, but well worth it. These are the steps I took: </p>
-               <ol>
-                  <li><p><span class="bold">Identifying the best language to the program in. </span>I found Python to be pretty great for this. It's not too hard to learn.</p></li>
-                  <li><p><span class="bold">Writing the bulk of the program. </span>The whole process was admittedly kind of confusing because regular expressions has never been my strong point...</p></li>
-                  <li><p><span class="bold">Troubleshooting. </span>There were quite a lot of strange errors here and there! Git is finicky so this stage had plenty of hairpulling and looking things up on Google.</p></li>
-                  <li><p><span class="bold">Finishing! </span>Except there's always more work to be done... For example, I want to make it so changes on GitHub Wiki are reflected in Obsidian.</p></li>
-               </ol>
-         </div>
-      </article>
+<body>
+  <p class="skipnavigation"><a href="#contentstart">Skip navigation</a></p>
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-header">
+      <span class="sidebar-title">capyBearista</span>
+    </div>
+    <ul class="sidebar-nav">
+      <li><a href="index.html"><img src="images/icons/home.svg" alt="Home" class="sidebar-icon">Home</a></li>
+      <li><a href="home-server.html"><img src="images/icons/server_build.svg" alt="Home Server"
+            class="sidebar-icon">Home Server</a></li>
+      <li><a href="obsidian-script.html"><img src="images/icons/sync_script.svg" alt="Obsidian Script"
+            class="sidebar-icon">Obsidian Script</a></li>
+    </ul>
+    <div class="sidebar-footer">
+      <a href="mailto:capyBearista@gmail.com" class="sidebar-contact">Email</a>
+      <a href="https://github.com/capybearista" target="_blank" rel="noopener" class="sidebar-contact">GitHub</a>
+    </div>
+  </nav>
+  <!-- Main content -->
+  <div class="main-content">
+    <header>
+      <h1>capyBearista's Coding Portfolio</h1>
+    </header>
+    <main>
+      <section>
+        <h2 id="contentstart">Obsidian Markdown Converter</h2>
+        <h3 id="process">My Development Process</h3>
+        <figure>
+          <img src="images/python.png" width="300" height="300" alt="the logo for the Python programming language">
+          <figcaption>
+            <p>Python's logo.</p>
+          </figcaption>
+        </figure>
+        <p>What does this script do? Well, GitHub has an included "Wiki" feature, which lets each repository have its
+          very own... wiki! However, I wanted to be able to write the pages using something else, a note-taking
+          application called Obsidian. So I started developing this Python script, which acts as a post-commit hook in
+          Git. It essentially converts my notes writting in Obsidian to a format that GitHub Wiki likes and uploads it
+          automatically. It was a sort of arduous process, but well worth it. These are the steps I took: </p>
+        <ol>
+          <li>
+            <p><span class="bold">Identifying the best language to the program in. </span>I found Python to be pretty
+              great for this. It's not too hard to learn.</p>
+          </li>
+          <li>
+            <p><span class="bold">Writing the bulk of the program. </span>The whole process was admittedly kind of
+              confusing because regular expressions has never been my strong point...</p>
+          </li>
+          <li>
+            <p><span class="bold">Troubleshooting. </span>There were quite a lot of strange errors here and there! Git
+              is finicky so this stage had plenty of hairpulling and looking things up on Google.</p>
+          </li>
+          <li>
+            <p><span class="bold">Finishing! </span>Except there's always more work to be done... For example, I want to
+              make it so changes on GitHub Wiki are reflected in Obsidian.</p>
+          </li>
+        </ol>
+      </section>
+      <!-- Aside -->
       <aside>
-         <p>Please feel free to contact me if you have any questions about my projects! I'd be happy to explain how they work or address any bugs and concerns.</p>
+        <p>Please feel free to contact me if you have any questions about my projects! I'd be happy to explain how they
+          work or address any bugs and concerns.</p>
       </aside>
-      <footer>
-         <p><span class="bold">capyBearista</span> <img src="images/flourish.png" alt=""> capyBearista@gmail.com</p>
-      </footer>
-   </body>
+    </main>
+    <!-- Footer -->
+    <footer>
+      <p><span class="bold">capyBearista</span> &nbsp;|&nbsp; <a
+          href="mailto:capyBearista@gmail.com">capyBearista@gmail.com</a> &nbsp;|&nbsp; <a
+          href="https://github.com/capybearista" target="_blank" rel="noopener">GitHub</a></p>
+    </footer>
+  </div>
+</body>
+
 </html>
