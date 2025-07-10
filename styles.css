@@ -302,6 +302,31 @@ li {
 }
 
 /*
+  Make entire project card clickable
+*/
+.project-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 2em;
+  border-radius: var(--border-radius);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.project-link:focus,
+.project-link:hover {
+  box-shadow: 0 8px 32px 0 rgba(0, 188, 212, 0.25);
+  outline: none;
+  transform: translateY(-2px) scale(1.01);
+}
+
+.small-caption {
+  font-size: 0.85em;
+  opacity: 0.8;
+}
+
+
+/*
   BEAUTIFIED FOOTER
   - Gradient background, accent border, flex layout
   - Responsive stacking on mobile
