@@ -830,39 +830,24 @@ h2 {
   and appears below the main content. Enhanced with glass effects.
 */
 aside {
-  margin-top: 2em;
+  margin-top: 3em;
   align-self: stretch;
-  background: var(--card-bg);
-  backdrop-filter: var(--glass-backdrop);
-  -webkit-backdrop-filter: var(--glass-backdrop);
-  border: 1px solid var(--glass-border);
+  background: transparent;
   color: var(--text-secondary);
-  padding: 2em 1.5em;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
+  padding: 1em 1.5em 2em 1.5em;
+  border-radius: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
   font-size: 1em;
   animation: slideInUp 0.8s ease-out 1.2s both;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: none;
   position: relative;
-  overflow: hidden;
 }
 
-/* Liquid effect for aside */
-aside::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0, 188, 212, 0.05), transparent);
-  animation: liquidFlow 4s ease-in-out infinite;
-}
+
 
 /* Hover effect for aside */
 aside:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px 0 rgba(0, 188, 212, 0.15);
+  /* No hover effects */
 }
 
 /*
