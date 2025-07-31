@@ -1,126 +1,197 @@
 /*
-  CSS custom properties (variables) for easy theming and color management
+  ========================================
+  CAPYBEARISTA'S PORTFOLIO - STYLESHEET
+  ========================================
+  
+  This CSS file contains all the styling for the portfolio website.
+  It uses CSS custom properties (variables) for easy theming and includes both dark and light theme support.
+  
+  Filename: styles.css
+  Author:   capyBearista
+  Last Updated: 31 July 2025
+*/
+
+/*
+  ========================================
+  CSS CUSTOM PROPERTIES (VARIABLES)
+  ========================================
+  
+  CSS variables allow us to define colors and values once,
+  then reuse them throughout the stylesheet. This makes it
+  easy to change the entire color scheme by updating just
+  the variables.
 */
 :root {
-  /* Dark theme (default) */
-  --background: #181c24;
-  --sidebar-bg: #232936;
-  --sidebar-accent: #00bcd4;
-  --sidebar-hover: #263445;
-  --text-main: #e3eaf2;
-  --text-secondary: #b0bac9;
-  --accent: #00bcd4;
-  --card-bg: #232936cc;
-  --shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.25);
-  --border-radius: 12px;
-  --transition: 0.3s cubic-bezier(.4, 0, .2, 1);
-  --figure-bg: #222;
+  /* Dark theme colors (default) */
+  --background: #181c24;        /* Main page background - dark blue-gray */
+  --sidebar-bg: #232936;        /* Sidebar background - slightly lighter */
+  --sidebar-accent: #00bcd4;    /* Accent color for sidebar - cyan */
+  --sidebar-hover: #263445;     /* Sidebar hover state - lighter gray */
+  --text-main: #e3eaf2;         /* Main text color - light gray */
+  --text-secondary: #b0bac9;    /* Secondary text - lighter gray */
+  --accent: #00bcd4;            /* Primary accent color - cyan */
+  --card-bg: #232936cc;         /* Card background - semi-transparent */
+  --shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.25);  /* Default shadow */
+  --border-radius: 12px;        /* Rounded corners for elements */
+  --transition: 0.3s cubic-bezier(.4, 0, .2, 1); /* Smooth transitions */
+  --figure-bg: #222;            /* Background for image containers */
   
-  /* Animation variables */
+  /* Animation timing variables */
   --animation-duration: 0.3s;
   --animation-timing: cubic-bezier(0.4, 0, 0.2, 1);
-  --bounce-timing: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  --slide-timing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --bounce-timing: cubic-bezier(0.68, -0.55, 0.265, 1.55);  /* Bouncy effect */
+  --slide-timing: cubic-bezier(0.25, 0.46, 0.45, 0.94);     /* Smooth slide */
 }
 
-/* Light theme */
+/*
+  ========================================
+  LIGHT THEME OVERRIDE
+  ========================================
+  
+  When the .theme-light class is applied to the HTML element,
+  these variables override the dark theme colors above.
+*/
 .theme-light {
-  --background: #f8fafc;
-  --sidebar-bg: #ffffff;
-  --sidebar-accent: #0891b2;
-  --sidebar-hover: #f1f5f9;
-  --text-main: #1e293b;
-  --text-secondary: #64748b;
-  --accent: #0891b2;
-  --card-bg: #ffffffcc;
-  --shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.1);
-  --figure-bg: #f8fafc;
+  --background: #f8fafc;        /* Light background - off-white */
+  --sidebar-bg: #ffffff;        /* White sidebar */
+  --sidebar-accent: #0891b2;    /* Darker cyan for light theme */
+  --sidebar-hover: #f1f5f9;     /* Light gray hover */
+  --text-main: #1e293b;         /* Dark text for light background */
+  --text-secondary: #64748b;    /* Medium gray secondary text */
+  --accent: #0891b2;            /* Darker cyan accent */
+  --card-bg: #ffffffcc;         /* Semi-transparent white */
+  --shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.1);  /* Lighter shadow */
+  --figure-bg: #f8fafc;         /* Light background for images */
 }
 
-/* Smooth theme transitions */
+/*
+  ========================================
+  SMOOTH THEME TRANSITIONS
+  ========================================
+  
+  This rule applies smooth transitions to all elements when
+  switching between dark and light themes. The transition
+  affects background colors, text colors, borders, and shadows.
+*/
 * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Theme toggle button styles */
+/*
+  ========================================
+  THEME TOGGLE BUTTON STYLES
+  ========================================
+  
+  The theme toggle button appears in the sidebar and allows
+  users to switch between dark and light themes.
+*/
 .theme-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border: none;
-  background: transparent;
-  color: var(--text-main);
-  cursor: pointer;
-  border-radius: var(--border-radius);
-  margin: 1rem auto;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  display: flex;                 /* Makes the button a flex container */
+  align-items: center;           /* Centers content vertically */
+  justify-content: center;       /* Centers content horizontally */
+  width: 40px;                  /* Fixed width */
+  height: 40px;                 /* Fixed height */
+  border: none;                 /* Removes default button border */
+  background: transparent;       /* Transparent background */
+  color: var(--text-main);      /* Text color matches theme */
+  cursor: pointer;              /* Shows pointer cursor on hover */
+  border-radius: var(--border-radius);  /* Rounded corners */
+  margin: 1rem auto;            /* Center the button with margin */
+  transition: all 0.3s ease;    /* Smooth transitions */
+  position: relative;           /* For positioning child elements */
+  overflow: hidden;             /* Hides overflow content */
 }
 
+/* Hover effect for the theme toggle button */
 .theme-toggle:hover {
-  background: var(--sidebar-hover);
-  transform: scale(1.05);
+  background: var(--sidebar-hover);  /* Background color on hover */
+  transform: scale(1.05);            /* Slightly larger on hover */
 }
 
+/* Focus state for keyboard accessibility */
 .theme-toggle:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
+  outline: 2px solid var(--accent);  /* Cyan outline when focused */
+  outline-offset: 2px;               /* Space between button and outline */
 }
 
+/* Styles for the SVG icons inside the toggle button */
 .theme-toggle svg {
-  width: 20px;
+  width: 20px;                  /* Icon size */
   height: 20px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease;  /* Smooth rotation animation */
 }
 
+/* Rotate icon slightly on hover */
 .theme-toggle:hover svg {
   transform: rotate(15deg);
 }
 
+/*
+  ========================================
+  THEME TOGGLE ICON VISIBILITY
+  ========================================
+  
+  These rules control which icon (sun or moon) is visible
+  based on the current theme.
+*/
 .theme-toggle .icon-sun {
-  display: none;
+  display: none;                /* Sun icon hidden by default (dark theme) */
 }
 
 .theme-toggle .icon-moon {
-  display: block;
+  display: block;               /* Moon icon visible by default */
 }
 
+/* Show sun icon in light theme */
 .theme-light .theme-toggle .icon-sun {
   display: block;
 }
 
+/* Hide moon icon in light theme */
 .theme-light .theme-toggle .icon-moon {
   display: none;
 }
 
-/* Theme toggle container */
+/*
+  ========================================
+  THEME TOGGLE CONTAINER
+  ========================================
+  
+  This container holds the theme toggle button and provides
+  spacing and a border separator.
+*/
 .theme-toggle-container {
-  padding: 0 1.5rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid var(--sidebar-hover);
-  padding-bottom: 1rem;
+  padding: 0 1.5rem;           /* Horizontal padding */
+  margin-bottom: 1rem;         /* Space below the container */
+  border-bottom: 1px solid var(--sidebar-hover);  /* Separator line */
+  padding-bottom: 1rem;        /* Space below the separator */
 }
 
 /*
-  Animation Keyframes
+  ========================================
+  ANIMATION KEYFRAMES
+  ========================================
+  
+  Keyframes define custom animations that can be applied
+  to elements. These create smooth entrance effects.
 */
+
+/* Slide in from left animation */
 @keyframes slideInLeft {
   from {
-    transform: translateX(-100%);
-    opacity: 0;
+    transform: translateX(-100%);  /* Start off-screen to the left */
+    opacity: 0;                    /* Start invisible */
   }
   to {
-    transform: translateX(0);
-    opacity: 1;
+    transform: translateX(0);       /* End at normal position */
+    opacity: 1;                    /* End fully visible */
   }
 }
 
+/* Slide in from right animation */
 @keyframes slideInRight {
   from {
-    transform: translateX(100%);
+    transform: translateX(100%);   /* Start off-screen to the right */
     opacity: 0;
   }
   to {
@@ -129,9 +200,10 @@
   }
 }
 
+/* Slide in from bottom animation */
 @keyframes slideInUp {
   from {
-    transform: translateY(50px);
+    transform: translateY(50px);   /* Start 50px below normal position */
     opacity: 0;
   }
   to {
@@ -140,9 +212,10 @@
   }
 }
 
+/* Slide in from top animation */
 @keyframes slideInDown {
   from {
-    transform: translateY(-50px);
+    transform: translateY(-50px);  /* Start 50px above normal position */
     opacity: 0;
   }
   to {
@@ -151,6 +224,7 @@
   }
 }
 
+/* Simple fade in animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -160,67 +234,73 @@
   }
 }
 
+/* Scale in animation with bounce effect */
 @keyframes scaleIn {
   from {
-    transform: scale(0.8);
+    transform: scale(0.8);         /* Start at 80% size */
     opacity: 0;
   }
   to {
-    transform: scale(1);
+    transform: scale(1);           /* End at full size */
     opacity: 1;
   }
 }
 
+/* Bouncy entrance animation */
 @keyframes bounceIn {
   0% {
-    transform: scale(0.3);
+    transform: scale(0.3);         /* Start very small */
     opacity: 0;
   }
   50% {
-    transform: scale(1.05);
+    transform: scale(1.05);        /* Overshoot to 105% */
   }
   70% {
-    transform: scale(0.9);
+    transform: scale(0.9);         /* Bounce back to 90% */
   }
   100% {
-    transform: scale(1);
+    transform: scale(1);           /* Settle at normal size */
     opacity: 1;
   }
 }
 
+/* Typewriter effect animation */
 @keyframes typewriter {
   from {
-    width: 0;
+    width: 0;                      /* Start with no width */
   }
   to {
-    width: 100%;
+    width: 100%;                   /* End at full width */
   }
 }
 
+/* Glowing effect animation */
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 5px rgba(0, 188, 212, 0.3);
+    box-shadow: 0 0 5px rgba(0, 188, 212, 0.3);  /* Subtle glow */
   }
   50% {
-    box-shadow: 0 0 20px rgba(0, 188, 212, 0.6);
+    box-shadow: 0 0 20px rgba(0, 188, 212, 0.6); /* Bright glow */
   }
 }
 
+/* Floating animation for subtle movement */
 @keyframes float {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(0px);    /* Normal position */
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-10px);  /* Float up 10px */
   }
 }
 
+/* Pulsing animation for loading states */
 @keyframes pulse {
   0% {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.05);
+    transform: scale(1.05);        /* Scale up 5% */
   }
   100% {
     transform: scale(1);
@@ -228,506 +308,618 @@
 }
 
 /*
-  Reset and base styles
+  ========================================
+  RESET AND BASE STYLES
+  ========================================
+  
+  These rules set up the basic styling for the entire page
+  and ensure consistent behavior across browsers.
 */
+
+/* Set the base font size for the entire page */
 html {
-  font-size: 16px;
-  box-sizing: border-box;
+  font-size: 16px;               /* 1rem = 16px */
+  box-sizing: border-box;        /* Include padding in element width */
 }
 
+/* Apply border-box to all elements */
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+  box-sizing: inherit;           /* Inherit border-box from html */
 }
 
+/* Main body styling */
 body {
-  margin: 0;
-  font-family: 'JetBrains Mono', 'Roboto', monospace;
-  background: var(--background);
-  color: var(--text-main);
-  min-height: 100vh;
-  display: flex;
-  overflow-x: hidden; /* Prevent horizontal scroll during animations */
+  margin: 0;                     /* Remove default margins */
+  font-family: 'JetBrains Mono', 'Roboto', monospace;  /* Font stack */
+  background: var(--background); /* Use theme background color */
+  color: var(--text-main);       /* Use theme text color */
+  min-height: 100vh;             /* Full viewport height */
+  display: flex;                 /* Flexbox layout */
+  overflow-x: hidden;            /* Prevent horizontal scrolling during animations */
 }
 
-/* Respect reduced motion preferences */
+/*
+  ========================================
+  ACCESSIBILITY: REDUCED MOTION
+  ========================================
+  
+  Respect user preferences for reduced motion.
+  This helps users with vestibular disorders.
+*/
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;      /* Almost instant animations */
+    animation-iteration-count: 1 !important;    /* Only play once */
+    transition-duration: 0.01ms !important;     /* Almost instant transitions */
   }
 }
 
 /*
-  Accessibility: Skip navigation link for keyboard users
-  Taken from https://www.geeksforgeeks.org/html/how-to-add-skip-navigation-links-for-better-web-accessibility-in-html/
+  ========================================
+  ACCESSIBILITY: SKIP NAVIGATION
+  ========================================
+  
+  This provides a hidden link for keyboard users
+  to skip directly to the main content.
 */
 .skipnavigation a {
-  position: absolute;
-  top: -100px;
+  position: absolute;             /* Position off-screen */
+  top: -100px;                   /* Move above viewport */
   left: 10px;
-  background-color: #333;
-  color: #fff;
+  background-color: #333;         /* Dark background */
+  color: #fff;                   /* White text */
   padding: 10px;
   text-decoration: none;
-  z-index: 999;
-  transition: top 0.3s;
+  z-index: 999;                  /* High z-index to stay on top */
+  transition: top 0.3s;          /* Smooth transition when focused */
 }
 
+/* Show the skip link when focused */
 .skipnavigation a:focus {
-  top: 0;
+  top: 0;                        /* Move into viewport */
 }
 
 /*
+  ========================================
   SIDEBAR STYLES
+  ========================================
+  
+  The sidebar contains navigation links and the theme toggle.
+  It's fixed to the left side of the screen.
 */
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 240px;
-  background: var(--sidebar-bg);
-  box-shadow: var(--shadow);
-  display: flex;
-  flex-direction: column;
-  z-index: 100;
-  transition: var(--transition);
-  animation: slideInLeft 0.8s var(--bounce-timing);
+  position: fixed;               /* Fixed position - stays in place */
+  top: 0;                       /* Align to top of screen */
+  left: 0;                      /* Align to left of screen */
+  height: 100vh;                /* Full viewport height */
+  width: 240px;                 /* Fixed width */
+  background: var(--sidebar-bg); /* Theme background color */
+  box-shadow: var(--shadow);     /* Drop shadow */
+  display: flex;                 /* Flexbox for vertical layout */
+  flex-direction: column;        /* Stack children vertically */
+  z-index: 100;                 /* High z-index to stay on top */
+  transition: var(--transition); /* Smooth transitions */
+  animation: slideInLeft 0.8s var(--bounce-timing);  /* Entrance animation */
 }
 
+/* Sidebar header with title */
 .sidebar-header {
-  padding: 2rem 1.5rem 1rem 1.5rem;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--accent);
-  letter-spacing: 1px;
-  animation: fadeIn 0.6s ease-out 0.3s both;
+  padding: 2rem 1.5rem 1rem 1.5rem;  /* Spacing around content */
+  font-family: 'Roboto', sans-serif;  /* Different font for title */
+  font-size: 1.5rem;                 /* Larger font size */
+  font-weight: 700;                   /* Bold text */
+  color: var(--accent);               /* Accent color */
+  letter-spacing: 1px;                /* Space between letters */
+  animation: fadeIn 0.6s ease-out 0.3s both;  /* Fade in animation */
 }
 
+/* Title text styling */
 .sidebar-title {
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
+  display: flex;                 /* Flexbox for alignment */
+  align-items: center;           /* Center vertically */
+  gap: 0.5em;                   /* Space between elements */
 }
 
+/* Navigation list container */
 .sidebar-nav {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  flex: 1 1 auto;
+  list-style: none;              /* Remove bullet points */
+  padding: 0;                    /* Remove default padding */
+  margin: 0;                     /* Remove default margin */
+  flex: 1 1 auto;               /* Take up remaining space */
 }
 
+/* Individual navigation items */
 .sidebar-nav li {
-  margin: 0.5em 0;
-  opacity: 0;
-  animation: slideInUp 0.5s ease-out both;
+  margin: 0.5em 0;               /* Vertical spacing between items */
+  opacity: 0;                    /* Start invisible for animation */
+  animation: slideInUp 0.5s ease-out both;  /* Slide up animation */
 }
 
+/* Stagger the animation timing for each nav item */
 .sidebar-nav li:nth-child(1) { animation-delay: 0.4s; }
 .sidebar-nav li:nth-child(2) { animation-delay: 0.5s; }
 .sidebar-nav li:nth-child(3) { animation-delay: 0.6s; }
 
+/* Navigation link styling */
 .sidebar-nav a {
-  display: flex;
-  align-items: center;
-  gap: 1em;
-  color: var(--text-main);
-  text-decoration: none;
-  font-size: 1.1em;
-  padding: 0.75em 2em;
-  border-radius: var(--border-radius);
-  transition: background var(--transition), color var(--transition), transform 0.2s ease;
-  position: relative;
-  overflow: hidden;
+  display: flex;                 /* Flexbox for icon + text alignment */
+  align-items: center;           /* Center vertically */
+  gap: 1em;                     /* Space between icon and text */
+  color: var(--text-main);      /* Theme text color */
+  text-decoration: none;         /* Remove underline */
+  font-size: 1.1em;             /* Slightly larger text */
+  padding: 0.75em 2em;          /* Padding around text */
+  border-radius: var(--border-radius);  /* Rounded corners */
+  transition: background var(--transition), color var(--transition), transform 0.2s ease;  /* Smooth transitions */
+  position: relative;            /* For pseudo-element positioning */
+  overflow: hidden;              /* Hide overflow for effects */
 }
 
+/* Hover and focus states for navigation links */
 .sidebar-nav a:hover,
 .sidebar-nav a:focus {
-  background: var(--sidebar-hover);
-  color: var(--accent);
-  transform: translateX(10px);
+  background: var(--sidebar-hover);  /* Background color change */
+  color: var(--accent);             /* Text color change */
+  transform: translateX(10px);       /* Slide right slightly */
 }
 
+/* Shimmer effect on hover */
 .sidebar-nav a::before {
-  content: '';
-  position: absolute;
+  content: '';                   /* Required for pseudo-element */
+  position: absolute;            /* Position relative to link */
   left: 0;
   top: 0;
   height: 100%;
-  width: 0;
-  background: linear-gradient(90deg, transparent, rgba(0, 188, 212, 0.2), transparent);
-  transition: width 0.3s ease;
+  width: 0;                      /* Start with no width */
+  background: linear-gradient(90deg, transparent, rgba(0, 188, 212, 0.2), transparent);  /* Gradient effect */
+  transition: width 0.3s ease;   /* Smooth width transition */
 }
 
+/* Expand shimmer on hover */
 .sidebar-nav a:hover::before {
-  width: 100%;
+  width: 100%;                   /* Full width */
 }
 
 /*
-  Icon styling for sidebar
+  ========================================
+  SIDEBAR ICON STYLING
+  ========================================
+  
+  Icons in the sidebar navigation get special styling
+  and hover effects.
 */
 .sidebar-icon {
-  width: 1.5em;
+  width: 1.5em;                  /* Icon size */
   height: 1.5em;
-  margin-right: 0.8em;
-  vertical-align: middle;
-  display: inline-block;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.10));
-  transition: filter 0.2s, transform 0.2s ease;
+  margin-right: 0.8em;           /* Space between icon and text */
+  vertical-align: middle;        /* Align with text */
+  display: inline-block;         /* Block display for sizing */
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.10));  /* Subtle shadow */
+  transition: filter 0.2s, transform 0.2s ease;  /* Smooth transitions */
 }
 
+/* Icon effects on hover */
 .sidebar-nav a:hover .sidebar-icon,
 .sidebar-nav a:focus .sidebar-icon {
-  filter: drop-shadow(0 2px 6px var(--accent));
-  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 2px 6px var(--accent));  /* Glowing shadow */
+  transform: scale(1.1) rotate(5deg);             /* Scale and rotate */
 }
 
+/* Sidebar footer with contact links */
 .sidebar-footer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 1.5em 0.5em;
-  border-top: 1px solid #2e3748;
-  animation: slideInUp 0.6s ease-out 0.7s both;
+  display: flex;                 /* Flexbox for horizontal layout */
+  justify-content: space-around; /* Distribute space evenly */
+  align-items: center;           /* Center vertically */
+  padding: 1.5em 0.5em;         /* Padding around content */
+  border-top: 1px solid #2e3748; /* Separator line */
+  animation: slideInUp 0.6s ease-out 0.7s both;  /* Entrance animation */
 }
 
+/* Contact link styling */
 .sidebar-contact {
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-size: 1.5em;
-  transition: color var(--transition), transform 0.2s ease;
+  color: var(--text-secondary);  /* Secondary text color */
+  text-decoration: none;         /* Remove underline */
+  font-size: 1.5em;             /* Larger font for icons */
+  transition: color var(--transition), transform 0.2s ease;  /* Smooth transitions */
 }
 
+/* Contact link hover effects */
 .sidebar-contact:hover,
 .sidebar-contact:focus {
-  color: var(--accent);
-  transform: scale(1.1);
+  color: var(--accent);          /* Accent color on hover */
+  transform: scale(1.1);         /* Slightly larger */
 }
 
 /*
-  MAIN CONTENT
+  ========================================
+  MAIN CONTENT AREA
+  ========================================
+  
+  The main content area takes up the space to the right
+  of the sidebar and contains the page content.
 */
 .main-content {
-  margin-left: 240px;
-  flex: 1 1 auto;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background: transparent;
-  transition: margin-left var(--transition);
+  margin-left: 240px;            /* Space for sidebar */
+  flex: 1 1 auto;               /* Take up remaining space */
+  min-height: 100vh;             /* Full viewport height */
+  display: flex;                 /* Flexbox for vertical layout */
+  flex-direction: column;        /* Stack children vertically */
+  background: transparent;       /* No background */
+  transition: margin-left var(--transition);  /* Smooth sidebar transitions */
 }
 
+/* Page header styling */
 header {
-  padding: 2.5rem 2rem 1rem 2rem;
-  text-align: left;
-  animation: slideInDown 0.8s ease-out 0.2s both;
+  padding: 2.5rem 2rem 1rem 2rem;  /* Spacing around header */
+  text-align: left;                 /* Left-align text */
+  animation: slideInDown 0.8s ease-out 0.2s both;  /* Entrance animation */
 }
 
+/* Main page title */
 h1 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 2.2em;
-  font-weight: 700;
-  color: var(--accent);
-  margin: 0;
-  position: relative;
+  font-family: 'Roboto', sans-serif;  /* Different font for title */
+  font-size: 2.2em;                  /* Large font size */
+  font-weight: 700;                   /* Bold text */
+  color: var(--accent);               /* Accent color */
+  margin: 0;                          /* Remove default margin */
+  position: relative;                 /* For pseudo-element positioning */
 }
 
+/* Animated underline for title */
 h1::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
+  content: '';                        /* Required for pseudo-element */
+  position: absolute;                 /* Position relative to title */
+  bottom: -5px;                       /* 5px below text */
   left: 0;
-  width: 0;
-  height: 3px;
-  background: var(--accent);
-  animation: typewriter 1s ease-out 1s forwards;
+  width: 0;                           /* Start with no width */
+  height: 3px;                        /* Underline height */
+  background: var(--accent);          /* Accent color */
+  animation: typewriter 1s ease-out 1s forwards;  /* Typewriter animation */
 }
 
+/* Main content container */
 main {
-  flex-direction: column;
-  gap: 2em;
-  padding: 0 2rem 2rem 2rem;
+  flex-direction: column;             /* Stack children vertically */
+  gap: 2em;                          /* Space between sections */
+  padding: 0 2rem 2rem 2rem;         /* Padding around content */
 }
 
+/* Content sections */
 section {
-  flex: none;
-  animation: fadeIn 0.8s ease-out 0.4s both;
+  flex: none;                         /* Don't grow or shrink */
+  animation: fadeIn 0.8s ease-out 0.4s both;  /* Fade in animation */
 }
 
+/* Paragraph text in sections */
 section p {
-  animation: slideInUp 0.6s ease-out 0.6s both;
+  animation: slideInUp 0.6s ease-out 0.6s both;  /* Slide up animation */
 }
 
+/* Section headings */
 h2 {
-  font-family: 'Roboto', sans-serif;
-  color: var(--text-main);
-  font-size: 1.5em;
-  margin-top: 1.5em;
-  margin-bottom: 1em;
-  animation: slideInUp 0.6s ease-out 0.8s both;
+  font-family: 'Roboto', sans-serif;  /* Different font for headings */
+  color: var(--text-main);            /* Theme text color */
+  font-size: 1.5em;                   /* Medium font size */
+  margin-top: 1.5em;                  /* Space above heading */
+  margin-bottom: 1em;                 /* Space below heading */
+  animation: slideInUp 0.6s ease-out 0.8s both;  /* Slide up animation */
 }
 
 /*
-  ASIDE (Contact/Info box below projects)
+  ========================================
+  ASIDE (CONTACT/INFO BOX)
+  ========================================
+  
+  The aside element contains additional information
+  and appears below the main content.
 */
 aside {
-  margin-top: 2em;
-  align-self: stretch;
-  background: var(--sidebar-bg);
-  color: var(--text-secondary);
-  padding: 2em 1.5em;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
-  font-size: 1em;
-  animation: slideInUp 0.8s ease-out 1.2s both;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 2em;                    /* Space above aside */
+  align-self: stretch;                /* Full width */
+  background: var(--sidebar-bg);      /* Theme background */
+  color: var(--text-secondary);       /* Secondary text color */
+  padding: 2em 1.5em;                /* Padding around content */
+  border-radius: var(--border-radius); /* Rounded corners */
+  box-shadow: var(--shadow);          /* Drop shadow */
+  font-size: 1em;                     /* Normal font size */
+  animation: slideInUp 0.8s ease-out 1.2s both;  /* Entrance animation */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Smooth transitions */
 }
 
+/* Hover effect for aside */
 aside:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 32px 0 rgba(0, 188, 212, 0.15);
+  transform: translateY(-5px);        /* Lift up slightly */
+  box-shadow: 0 8px 32px 0 rgba(0, 188, 212, 0.15);  /* Enhanced shadow */
 }
 
 /*
+  ========================================
   PROJECT PREVIEW CARDS
-  - Flex row: text left, image right
-  - Responsive stacking
+  ========================================
+  
+  These cards appear on the home page and showcase
+  each project with an image and description.
 */
 .project-preview {
-  background: var(--card-bg);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
-  margin-bottom: 2em;
-  padding: 2em 2em 1em 2em;
-  transition: box-shadow var(--transition);
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 2em;
+  background: var(--card-bg);         /* Semi-transparent background */
+  border-radius: var(--border-radius); /* Rounded corners */
+  box-shadow: var(--shadow);          /* Drop shadow */
+  margin-bottom: 2em;                 /* Space between cards */
+  padding: 2em 2em 1em 2em;          /* Padding around content */
+  transition: box-shadow var(--transition);  /* Smooth shadow transitions */
+  display: flex;                      /* Flexbox for horizontal layout */
+  flex-direction: row;                /* Stack children horizontally */
+  align-items: flex-start;            /* Align to top */
+  gap: 2em;                          /* Space between content and image */
 }
 
+/* Hover effect for project cards */
 .project-preview:hover {
-  box-shadow: 0 8px 32px 0 rgba(0, 188, 212, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 188, 212, 0.15);  /* Enhanced shadow */
 }
 
+/* Project card content area */
 .project-preview-content {
-  flex: 2 1 0;
-  min-width: 0;
+  flex: 2 1 0;                       /* Take up 2 parts of space */
+  min-width: 0;                       /* Allow shrinking */
 }
 
+/* Project card headings */
 .project-preview h3 {
-  font-family: 'Roboto', sans-serif;
-  color: var(--accent);
-  font-size: 1.3em;
-  margin-top: 0;
+  font-family: 'Roboto', sans-serif;  /* Different font for headings */
+  color: var(--accent);               /* Accent color */
+  font-size: 1.3em;                   /* Medium font size */
+  margin-top: 0;                      /* Remove top margin */
 }
 
+/* Project card image container */
 .project-preview figure {
-  flex: 1 1 180px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  margin: 0;
-  max-width: 220px;
-  width: 100%;
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.18);
-  background: var(--figure-bg);
+  flex: 1 1 180px;                   /* Take up 1 part, minimum 180px */
+  display: flex;                      /* Flexbox for vertical layout */
+  flex-direction: column;             /* Stack children vertically */
+  align-items: center;                /* Center horizontally */
+  justify-content: flex-start;        /* Align to top */
+  margin: 0;                          /* Remove default margin */
+  max-width: 220px;                   /* Maximum width */
+  width: 100%;                        /* Full width up to max */
+  border-radius: var(--border-radius); /* Rounded corners */
+  overflow: hidden;                   /* Hide overflow */
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.18);  /* Drop shadow */
+  background: var(--figure-bg);       /* Theme background color */
 }
 
+/* Project card images */
 .project-preview img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: auto;
-  border-radius: var(--border-radius);
-  object-fit: contain;
-  background: var(--figure-bg);
+  display: block;                     /* Block display */
+  width: 100%;                        /* Full width */
+  height: auto;                       /* Maintain aspect ratio */
+  aspect-ratio: auto;                 /* Natural aspect ratio */
+  border-radius: var(--border-radius); /* Rounded corners */
+  object-fit: contain;                /* Fit within container */
+  background: var(--figure-bg);       /* Theme background color */
 }
 
+/* Project card captions */
 .project-preview figcaption {
-  font-size: 0.95em;
-  color: var(--text-secondary);
-  text-align: center;
-  margin-top: 0.5em;
+  font-size: 0.95em;                 /* Slightly smaller text */
+  color: var(--text-secondary);       /* Secondary text color */
+  text-align: center;                 /* Center text */
+  margin-top: 0.5em;                 /* Space above caption */
 }
 
+/* Regular paragraph and list text */
 p,
 li {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1em;
-  color: var(--text-main);
-  line-height: 1.7;
+  font-family: 'JetBrains Mono', monospace;  /* Monospace font */
+  font-size: 1em;                   /* Normal font size */
+  color: var(--text-main);          /* Theme text color */
+  line-height: 1.7;                 /* Comfortable line spacing */
 }
 
+/* Text utility classes */
 .italic {
-  font-style: italic;
+  font-style: italic;                /* Italic text */
 }
 
 .bold {
-  font-weight: bold;
+  font-weight: bold;                 /* Bold text */
 }
 
 .underline {
-  text-decoration: underline;
+  text-decoration: underline;        /* Underlined text */
 }
 
 /*
-  Make entire project card clickable
+  ========================================
+  PROJECT LINK STYLING
+  ========================================
+  
+  The entire project card is clickable and links
+  to the detailed project page.
 */
 .project-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  margin-bottom: 2em;
-  border-radius: var(--border-radius);
-  transition: box-shadow var(--transition), transform var(--transition);
+  display: block;                     /* Block display */
+  text-decoration: none;              /* Remove underline */
+  color: inherit;                     /* Inherit text color */
+  margin-bottom: 2em;                 /* Space below link */
+  border-radius: var(--border-radius); /* Rounded corners */
+  transition: box-shadow var(--transition), transform var(--transition);  /* Smooth transitions */
 }
 
+/* Hover and focus effects for project links */
 .project-link:focus,
 .project-link:hover {
-  box-shadow: 0 8px 32px 0 rgba(0, 188, 212, 0.25);
-  outline: none;
-  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 8px 32px 0 rgba(0, 188, 212, 0.25);  /* Enhanced shadow */
+  outline: none;                      /* Remove default focus outline */
+  transform: translateY(-2px) scale(1.01);  /* Lift and scale slightly */
 }
 
+/* Small caption text */
 .small-caption {
-  font-size: 0.85em;
-  opacity: 0.8;
+  font-size: 0.85em;                 /* Smaller font size */
+  opacity: 0.8;                      /* Slightly transparent */
 }
 
 /*
-  BEAUTIFIED FOOTER
-  - Gradient background, accent border, flex layout
-  - Responsive stacking on mobile
+  ========================================
+  FOOTER STYLING
+  ========================================
+  
+  The footer appears at the bottom of each page
+  and contains contact information.
 */
 footer {
-  background: linear-gradient(90deg, #232936 0%, #263445 100%);
-  color: var(--text-main);
-  text-align: center;
-  padding: 2em 0 2em 0;
-  font-size: 1.15em;
-  border-top: 2px solid var(--accent);
-  margin-top: auto;
-  letter-spacing: 0.03em;
-  box-shadow: 0 -2px 16px 0 rgba(0, 188, 212, 0.08);
-  transition: background 0.3s;
-  animation: slideInUp 0.8s ease-out 1.4s both;
+  background: linear-gradient(90deg, #232936 0%, #263445 100%);  /* Gradient background */
+  color: var(--text-main);           /* Theme text color */
+  text-align: center;                 /* Center text */
+  padding: 2em 0 2em 0;              /* Vertical padding */
+  font-size: 1.15em;                 /* Slightly larger text */
+  border-top: 2px solid var(--accent); /* Accent border */
+  margin-top: auto;                   /* Push to bottom */
+  letter-spacing: 0.03em;            /* Slight letter spacing */
+  box-shadow: 0 -2px 16px 0 rgba(0, 188, 212, 0.08);  /* Top shadow */
+  transition: background 0.3s;        /* Smooth background transitions */
+  animation: slideInUp 0.8s ease-out 1.4s both;  /* Entrance animation */
 }
 
+/* Footer paragraph styling */
 footer p {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5em;
+  margin: 0;                          /* Remove default margin */
+  padding: 0;                         /* Remove default padding */
+  display: flex;                      /* Flexbox for horizontal layout */
+  flex-wrap: wrap;                    /* Wrap on small screens */
+  justify-content: center;            /* Center content */
+  align-items: center;                /* Center vertically */
+  gap: 1.5em;                        /* Space between elements */
 }
 
+/* Bold text in footer */
 footer .bold {
-  font-weight: 700;
-  color: var(--accent);
-  margin-right: 0.5em;
-  letter-spacing: 0.05em;
+  font-weight: 700;                   /* Bold text */
+  color: var(--accent);               /* Accent color */
+  margin-right: 0.5em;                /* Space after bold text */
+  letter-spacing: 0.05em;            /* Letter spacing */
 }
 
+/* Footer links */
 footer a {
-  color: var(--accent);
-  text-decoration: none;
-  margin: 0 0.3em;
-  font-weight: 500;
-  transition: color 0.2s, text-decoration 0.2s, transform 0.2s ease;
-  padding: 0.1em 0.3em;
-  border-radius: 4px;
-  position: relative;
-  overflow: hidden;
+  color: var(--accent);               /* Accent color */
+  text-decoration: none;              /* Remove underline */
+  margin: 0 0.3em;                   /* Horizontal spacing */
+  font-weight: 500;                   /* Medium font weight */
+  transition: color 0.2s, text-decoration 0.2s, transform 0.2s ease;  /* Smooth transitions */
+  padding: 0.1em 0.3em;              /* Padding around text */
+  border-radius: 4px;                 /* Rounded corners */
+  position: relative;                 /* For pseudo-element positioning */
+  overflow: hidden;                   /* Hide overflow */
 }
 
+/* Underline effect for footer links */
 footer a::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
+  content: '';                        /* Required for pseudo-element */
+  position: absolute;                 /* Position relative to link */
+  bottom: 0;                          /* Align to bottom */
   left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--accent);
-  transition: width 0.3s ease;
+  width: 0;                           /* Start with no width */
+  height: 2px;                        /* Underline height */
+  background: var(--accent);          /* Accent color */
+  transition: width 0.3s ease;        /* Smooth width transition */
 }
 
+/* Expand underline on hover */
 footer a:hover::before {
-  width: 100%;
+  width: 100%;                        /* Full width */
 }
 
+/* Footer link hover effects */
 footer a:hover,
 footer a:focus {
-  color: #fff;
-  background: var(--accent);
-  text-decoration: underline;
-  transform: translateY(-2px);
+  color: #fff;                        /* White text */
+  background: var(--accent);          /* Accent background */
+  text-decoration: underline;         /* Underline */
+  transform: translateY(-2px);        /* Lift slightly */
 }
 
-/* Mobile optimizations */
+/*
+  ========================================
+  MOBILE RESPONSIVENESS
+  ========================================
+  
+  These styles ensure the site works well on
+  mobile devices and smaller screens.
+*/
 @media (max-width: 600px) {
+  /* Stack footer content vertically on mobile */
   footer p {
-    flex-direction: column;
-    gap: 0.7em;
+    flex-direction: column;           /* Vertical layout */
+    gap: 0.7em;                      /* Reduced spacing */
   }
   
   /* Reduce animation intensity on mobile */
   .project-preview:hover {
-    transform: translateY(-4px) scale(1.01);
+    transform: translateY(-4px) scale(1.01);  /* Smaller hover effect */
   }
   
+  /* Reduce sidebar hover effect on mobile */
   .sidebar-nav a:hover {
-    transform: translateX(5px);
+    transform: translateX(5px);       /* Smaller slide effect */
   }
   
   /* Disable some hover effects on touch devices */
   @media (hover: none) {
     .project-preview:hover {
-      transform: none;
+      transform: none;                /* No hover effect */
     }
     
     .sidebar-nav a:hover {
-      transform: none;
+      transform: none;                /* No hover effect */
     }
   }
 }
 
-/* Scroll-triggered animation classes */
+/*
+  ========================================
+  SCROLL-TRIGGERED ANIMATIONS
+  ========================================
+  
+  These classes are applied to elements that should
+  animate when they come into view during scrolling.
+*/
 .fade-in-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: 0;                         /* Start invisible */
+  transform: translateY(30px);        /* Start 30px below */
+  transition: opacity 0.6s ease, transform 0.6s ease;  /* Smooth transitions */
 }
 
 .fade-in-on-scroll.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1;                         /* End visible */
+  transform: translateY(0);           /* End at normal position */
 }
 
 .scale-in-on-scroll {
-  opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: 0;                         /* Start invisible */
+  transform: scale(0.9);             /* Start at 90% size */
+  transition: opacity 0.6s ease, transform 0.6s ease;  /* Smooth transitions */
 }
 
 .scale-in-on-scroll.visible {
-  opacity: 1;
-  transform: scale(1);
+  opacity: 1;                         /* End visible */
+  transform: scale(1);               /* End at full size */
 }
 
-/* Loading animation for images */
+/*
+  ========================================
+  LOADING ANIMATIONS
+  ========================================
+  
+  These classes provide loading states for
+  images and other content.
+*/
 .image-loading {
-  animation: pulse 1.5s ease-in-out infinite;
+  animation: pulse 1.5s ease-in-out infinite;  /* Continuous pulse */
 }
 

@@ -2,44 +2,118 @@
 <html lang="en">
 
 <head>
+  <!-- 
+    ========================================
+    PAGE HEADER - METADATA AND RESOURCES
+    ========================================
+    
+    The <head> section contains metadata about the page,
+    links to external resources like CSS and fonts,
+    and other information that doesn't appear on the page.
+  -->
+  
+  <!-- Page title that appears in browser tab -->
   <title>capyBearista's Coding Portfolio - Home</title>
+  
+  <!-- 
+    File information and author details
+    This comment block helps identify the file and its purpose
+  -->
   <!-- 
       Coding Portfolio main page 
       Filename: index.html
       Author:   capyBearista
       Date:     10 May 2025
-      Last Updated: 09 July 2025
+      Last Updated: 31 July 2025
     -->
+  
+  <!-- Character encoding - tells browser how to interpret text -->
   <meta charset="utf-8">
+  
+  <!-- 
+    Viewport meta tag - essential for responsive design
+    This ensures the page scales properly on mobile devices
+  -->
   <meta name="viewport" content="width=device-width">
 
+  <!-- 
+    ========================================
+    EXTERNAL RESOURCES
+    ========================================
+    
+    These links load external resources like fonts and stylesheets.
+    The preconnect links help improve loading performance.
+  -->
+  
   <!-- Google Fonts: JetBrains Mono, Roboto -->
+  <!-- Preconnect to Google Fonts for faster loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Load the actual font files -->
   <link
     href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Roboto:wght@400;700&display=swap"
     rel="stylesheet">
 
+  <!-- Link to custom CSS stylesheet -->
   <link rel="stylesheet" href="styles.css">
+  
+  <!-- 
+    ========================================
+    FAVICON AND APP ICONS
+    ========================================
+    
+    These icons appear in browser tabs, bookmarks, and when the site is saved to a mobile home screen.
+  -->
   <link rel="shortcut icon" href="images/favicon.ico">
   <link rel="apple-touch-icon" href="images/web-app-icon.png">
   <link rel="icon" sizes="192x192" href="images/web-app-icon.png">
 </head>
 
-<!-- Sidebar -->
+<!-- 
+  ========================================
+  PAGE BODY - VISIBLE CONTENT
+  ========================================
+  
+  The <body> section contains all the visible content that users see on the page.
+-->
 <body>
+  <!-- 
+    ========================================
+    ACCESSIBILITY: SKIP NAVIGATION
+    ========================================
+    
+    This hidden link allows keyboard users to skip directly to the main content, improving accessibility.
+  -->
   <p class="skipnavigation"><a href="#contentstart">Skip navigation</a></p>
   
-
-  
+  <!-- 
+    ========================================
+    SIDEBAR NAVIGATION
+    ========================================
+    
+    The sidebar contains navigation links and the theme toggle.
+    It's fixed to the left side of the screen.
+  -->
   <nav class="sidebar">
+    <!-- Sidebar header with site title -->
     <div class="sidebar-header">
       <span class="sidebar-title">capyBearista</span>
     </div>
     
-    <!-- Theme Toggle -->
+    <!-- 
+      ========================================
+      THEME TOGGLE BUTTON
+      ========================================
+      
+      This button allows users to switch between dark and light themes. It uses SVG icons for the sun and moon symbols.
+    -->
     <div class="theme-toggle-container">
+      <!-- 
+        The button has an aria-label for screen readers and contains both sun and moon icons that show/hide based on the current theme.
+      -->
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">
+        <!-- Sun icon - visible in light theme -->
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="12" cy="12" r="5"/>
           <line x1="12" y1="1" x2="12" y2="3"/>
@@ -51,43 +125,116 @@
           <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
         </svg>
+        <!-- Moon icon - visible in dark theme -->
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
         </svg>
       </button>
     </div>
     
+    <!-- 
+      ========================================
+      NAVIGATION MENU
+      ========================================
+      
+      This unordered list contains links to all pages in the portfolio. Each link has an icon and text label.
+    -->
     <ul class="sidebar-nav">
+      <!-- Home page link -->
       <li><a href="index.html"><img src="images/icons/home.svg" alt="Home" class="sidebar-icon">Home</a></li>
+      <!-- Home Server project page link -->
       <li><a href="home-server.html"><img src="images/icons/server_build.svg" alt="Home Server"
             class="sidebar-icon">Home Server</a></li>
+      <!-- Obsidian Script project page link -->
       <li><a href="obsidian-script.html"><img src="images/icons/sync_script.svg" alt="Obsidian Script"
             class="sidebar-icon">Obsidian Script</a></li>
     </ul>
+    
+    <!-- 
+      ========================================
+      SIDEBAR FOOTER - CONTACT LINKS
+      ========================================
+      
+      The footer contains contact information and external links like GitHub.
+    -->
     <div class="sidebar-footer">
       <a href="mailto:capyBearista@gmail.com" class="sidebar-contact">Email</a>
       <a href="https://github.com/capybearista" target="_blank" rel="noopener" class="sidebar-contact">GitHub</a>
     </div>
   </nav>
 
+  <!-- 
+    ========================================
+    MAIN CONTENT AREA
+    ========================================
+    
+    This div contains all the main page content that appears to the right of the sidebar.
+  -->
   <div class="main-content">
+    <!-- 
+      ========================================
+      PAGE HEADER
+      ========================================
+      
+      The header contains the main page title and any introductory content.
+    -->
     <header>
       <h1>capyBearista's Coding Portfolio</h1>
     </header>
+    
+    <!-- 
+      ========================================
+      MAIN CONTENT
+      ========================================
+      
+      The <main> element contains the primary content of the page.
+    -->
     <main>
+      <!-- 
+        ========================================
+        WELCOME SECTION
+        ========================================
+        
+        This section introduces the portfolio and explains what visitors will find.
+      -->
       <section>
+        <!-- Welcome message -->
         <p>Hey there! Welcome to my project portfolio. What you see here is a collection of the projects I am most proud
           of!</p>
+        
+        <!-- 
+          ========================================
+          PROJECT PREVIEWS SECTION
+          ========================================
+          
+          This section showcases each project with
+          a card that includes an image and description.
+        -->
         <h2 id="contentstart">Project Previews</h2>
+        
+        <!-- 
+          ========================================
+          HOME SERVER PROJECT CARD
+          ========================================
+          
+          This card links to the detailed home server
+          project page and includes a preview image.
+        -->
         <a href="home-server.html" class="project-link">
           <article class="project-preview">
+            <!-- Project description and details -->
             <div class="project-preview-content">
               <h3 id="home-server">Home Server</h3>
               <p>My first real project! I built a home server to stop ads in their track when using my home network. I
                 also set up a streaming service so that my family can watch uploaded movies and shows whenever they
                 please.</p>
             </div>
+            
+            <!-- Project image with caption -->
             <figure>
+              <!-- 
+                The image shows a screenshot of the server running htop command, to demonstrate the server's functionality.
+              -->
               <img src="images/server-sample.png" width="302" height="403"
                 alt="output of htop command on Ubuntu Server, showcasing programs running on the home server">
               <figcaption>
@@ -97,15 +244,29 @@
             </figure>
           </article>
         </a>
+        
+        <!-- 
+          ========================================
+          OBSIDIAN SCRIPT PROJECT CARD
+          ========================================
+          
+          This card links to the detailed obsidian script project page.
+        -->
         <a href="obsidian-script.html" class="project-link">
           <article class="project-preview">
+            <!-- Project description and details -->
             <div class="project-preview-content">
               <h3 id="obsidian-script">Obsidian to GitHub Wiki Converter</h3>
               <p>My second project. There isn&apos;t much to this project aside from a script that capitalizes
                 Git&apos;s hooks and functionalities. The script converts the content of Markdown files to a format
                 suitable for GitHub&apos;s Wiki system.</p>
             </div>
+            
+            <!-- Project image with caption -->
             <figure>
+              <!-- 
+                The image shows the Obsidian logo, representing the note-taking app used in this project.
+              -->
               <img src="images/obsidian.png" width="300" height="300"
                 alt="the logo of the note-taking app Obsidian, a purple shard with curved edges as an artistic recreation of the real-life material">
               <figcaption>
@@ -115,11 +276,27 @@
           </article>
         </a>
       </section>
+      
+      <!-- 
+        ========================================
+        CONTACT ASIDE
+        ========================================
+        
+        This aside element contains additional information and contact details.
+      -->
       <aside>
         <p>Please feel free to contact me if you have any questions about my projects! I'd be happy to explain how they
           work or address any bugs and concerns.</p>
       </aside>
     </main>
+    
+    <!-- 
+      ========================================
+      PAGE FOOTER
+      ========================================
+      
+      The footer contains contact information and appears at the bottom of the page.
+    -->
     <footer>
       <p><span class="bold">capyBearista</span> &nbsp;|&nbsp; <a
           href="mailto:capyBearista@gmail.com">capyBearista@gmail.com</a> &nbsp;|&nbsp; <a
@@ -127,22 +304,55 @@
     </footer>
   </div>
 
-  <!-- JavaScript for enhanced animations and interactions -->
+  <!-- 
+    ========================================
+    JAVASCRIPT FOR ENHANCED INTERACTIONS
+    ========================================
+    
+    This script adds interactive features like theme switching, animations, and performance optimizations.
+  -->
   <script>
-    // Performance optimization: Use requestAnimationFrame for smooth animations
+    // 
+    // ========================================
+    // PERFORMANCE OPTIMIZATION
+    // ========================================
+    //
+    // requestAnimationFrame provides smooth 60fps animations by syncing with the browser's refresh rate. The fallback ensures compatibility with older browsers.
+    //
     const raf = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.msRequestAnimationFrame || function(callback) { setTimeout(callback, 16); };
 
-    // Check for reduced motion preference
+    // 
+    // ========================================
+    // ACCESSIBILITY: REDUCED MOTION
+    // ========================================
+    //
+    // Check if the user prefers reduced motion.
+    // This helps users with vestibular disorders.
+    //
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Theme management
+    // 
+    // ========================================
+    // THEME MANAGEMENT SYSTEM
+    // ========================================
+    //
+    // This object handles all theme-related functionality including switching themes, saving preferences, and detecting system preferences.
+    //
     const themeManager = {
+      // 
+      // Initialize the theme system
+      // This sets up the toggle button, loads saved preferences, and watches for system theme changes.
+      //
       init() {
         this.setupToggle();
         this.loadTheme();
         this.watchSystemPreference();
       },
 
+      // 
+      // Set up the theme toggle button
+      // Adds a click event listener to the toggle button so users can switch themes.
+      //
       setupToggle() {
         const toggle = document.getElementById('themeToggle');
         if (toggle) {
@@ -150,6 +360,10 @@
         }
       },
 
+      // 
+      // Load the appropriate theme
+      // Checks localStorage for saved preferences, falls back to system preference if none saved.
+      //
       loadTheme() {
         const savedTheme = localStorage.getItem('theme');
         const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -161,6 +375,10 @@
         }
       },
 
+      // 
+      // Apply a specific theme
+      // Removes existing theme classes and adds the new one, then saves the preference to localStorage.
+      //
       setTheme(theme) {
         document.documentElement.classList.remove('theme-light', 'theme-dark');
         if (theme === 'light') {
@@ -171,12 +389,20 @@
         localStorage.setItem('theme', theme);
       },
 
+      // 
+      // Toggle between light and dark themes
+      // Determines current theme and switches to the opposite.
+      //
       toggleTheme() {
         const currentTheme = document.documentElement.classList.contains('theme-light') ? 'light' : 'dark';
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         this.setTheme(newTheme);
       },
 
+      // 
+      // Watch for system theme changes
+      // Listens for changes in system color scheme preference and updates the theme if user hasn't manually set one.
+      //
       watchSystemPreference() {
         const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
         mediaQuery.addEventListener('change', (e) => {
@@ -188,17 +414,22 @@
       }
     };
 
-    // Initialize theme manager
+    // Initialize the theme manager when the page loads
     themeManager.init();
 
-
-
-    // Intersection Observer for scroll-triggered animations
+    // 
+    // ========================================
+    // SCROLL-TRIGGERED ANIMATIONS
+    // ========================================
+    //
+    // Intersection Observer watches for elements entering the viewport and triggers animations.
+    //
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0.1,                    // Trigger when 10% of element is visible
+      rootMargin: '0px 0px -50px 0px'   // Trigger 50px before element enters viewport
     };
 
+    // Create the observer that will trigger animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting && !prefersReducedMotion) {
@@ -207,16 +438,26 @@
       });
     }, observerOptions);
 
-    // Observe elements for scroll animations
+    // 
+    // ========================================
+    // APPLY SCROLL ANIMATIONS TO ELEMENTS
+    // ========================================
+    //
+    // Find elements that should animate on scroll and add the appropriate CSS classes.
+    //
     const scrollElements = document.querySelectorAll('.project-preview, aside, section');
     scrollElements.forEach(el => {
       el.classList.add('fade-in-on-scroll');
       observer.observe(el);
     });
 
-
-
-    // Smooth scroll for anchor links
+    // 
+    // ========================================
+    // SMOOTH SCROLLING FOR ANCHOR LINKS
+    // ========================================
+    //
+    // Makes internal page links scroll smoothly instead of jumping instantly.
+    //
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -230,7 +471,13 @@
       });
     });
 
-    // Add loading animation to images
+    // 
+    // ========================================
+    // IMAGE LOADING ANIMATIONS
+    // ========================================
+    //
+    // Adds visual feedback when images load and handles loading errors gracefully.
+    //
     const images = document.querySelectorAll('img');
     images.forEach(img => {
       img.addEventListener('load', () => {
@@ -242,7 +489,13 @@
       });
     });
 
-    // Performance monitoring
+    // 
+    // ========================================
+    // PERFORMANCE MONITORING
+    // ========================================
+    //
+    // Monitors frame rate and reduces animation intensity if performance drops.
+    //
     let frameCount = 0;
     let lastTime = performance.now();
 
@@ -266,14 +519,21 @@
       raf(checkPerformance);
     }
 
-    // Start performance monitoring
+    // Start performance monitoring if animations are enabled
     if (!prefersReducedMotion) {
       raf(checkPerformance);
     }
 
-    // Add click feedback animations
+    // 
+    // ========================================
+    // CLICK FEEDBACK ANIMATIONS
+    // ========================================
+    //
+    // Adds ripple effects when users click on interactive elements.
+    //
     document.addEventListener('click', (e) => {
       if (!prefersReducedMotion && e.target.matches('a, button, .project-preview')) {
+        // Create a ripple element
         const ripple = document.createElement('div');
         ripple.style.position = 'absolute';
         ripple.style.borderRadius = '50%';
@@ -282,6 +542,7 @@
         ripple.style.animation = 'ripple 0.6s linear';
         ripple.style.pointerEvents = 'none';
         
+        // Calculate ripple position and size
         const rect = e.target.getBoundingClientRect();
         const size = Math.max(rect.width, rect.height);
         const x = e.clientX - rect.left - size / 2;
@@ -291,16 +552,24 @@
         ripple.style.left = x + 'px';
         ripple.style.top = y + 'px';
         
+        // Add ripple to the clicked element
         e.target.style.position = 'relative';
         e.target.appendChild(ripple);
         
+        // Remove ripple after animation completes
         setTimeout(() => {
           ripple.remove();
         }, 600);
       }
     });
 
-    // Add ripple animation keyframe dynamically
+    // 
+    // ========================================
+    // DYNAMIC CSS ANIMATION
+    // ========================================
+    //
+    // Add the ripple animation keyframe to the page dynamically.
+    //
     const style = document.createElement('style');
     style.textContent = `
       @keyframes ripple {
@@ -312,19 +581,31 @@
     `;
     document.head.appendChild(style);
 
-    // Page load completion animation
+    // 
+    // ========================================
+    // PAGE LOAD COMPLETION
+    // ========================================
+    //
+    // Add a class to the body when the page has finished loading for additional styling.
+    //
     window.addEventListener('load', () => {
       if (!prefersReducedMotion) {
         document.body.classList.add('loaded');
       }
     });
 
-    // Mobile touch optimizations
+    // 
+    // ========================================
+    // MOBILE TOUCH OPTIMIZATIONS
+    // ========================================
+    //
+    // Reduce animation intensity on touch devices and add touch-specific feedback.
+    //
     if ('ontouchstart' in window) {
       // Reduce animation intensity on touch devices
       document.body.style.setProperty('--animation-duration', '0.2s');
       
-      // Add touch feedback
+      // Add touch feedback for interactive elements
       document.addEventListener('touchstart', (e) => {
         if (e.target.matches('a, button, .project-preview')) {
           e.target.style.transform = 'scale(0.98)';
