@@ -80,12 +80,38 @@
   --glass-bg: rgba(255, 255, 255, 0.25);
 }
 
+/* Light theme background override */
+.theme-light body::before {
+  background: 
+    /* Base gradient layer - lighter and brighter */
+    linear-gradient(135deg, 
+      #ffffff 0%, 
+      #f8fafc 25%, 
+      #f1f5f9 50%, 
+      #e2e8f0 75%, 
+      #ffffff 100%),
+    /* Mid-tone gradient layer with cyan accents */
+    linear-gradient(45deg,
+      transparent 0%,
+      rgba(8, 145, 178, 0.03) 20%,
+      rgba(8, 145, 178, 0.06) 40%,
+      rgba(8, 145, 178, 0.03) 60%,
+      transparent 80%),
+    /* Subtle radial gradient for depth */
+    radial-gradient(circle at 30% 70%, rgba(8, 145, 178, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 70% 30%, rgba(8, 145, 178, 0.05) 0%, transparent 60%),
+    /* Subtle blur effect layer for light theme */
+    radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.015) 0%, transparent 70%);
+  background-blend-mode: soft-light, overlay, normal, normal, multiply, overlay;
+}
+
 /*
   ========================================
-  LIQUID BACKGROUND ANIMATION
+  RICH GRAINY GRADIENT BACKGROUND
   ========================================
   
-  Creates a subtle liquid background effect with floating orbs.
+  Creates a sophisticated grainy gradient background with multiple layers
+  to prevent color banding and provide rich visual depth.
 */
 body::before {
   content: '';
@@ -95,24 +121,27 @@ body::before {
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(circle at 20% 80%, rgba(0, 188, 212, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(0, 188, 212, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(0, 188, 212, 0.08) 0%, transparent 50%);
+    /* Base gradient layer - deeper and darker */
+    linear-gradient(135deg, 
+      #050508 0%, 
+      #0f0f1a 25%, 
+      #0d1420 50%, 
+      #081a2e 75%, 
+      #050508 100%),
+    /* Mid-tone gradient layer with cyan accents */
+    linear-gradient(45deg,
+      transparent 0%,
+      rgba(0, 188, 212, 0.04) 20%,
+      rgba(0, 188, 212, 0.08) 40%,
+      rgba(0, 188, 212, 0.04) 60%,
+      transparent 80%),
+    /* Subtle radial gradient for depth */
+    radial-gradient(circle at 30% 70%, rgba(0, 188, 212, 0.1) 0%, transparent 60%),
+    radial-gradient(circle at 70% 30%, rgba(0, 188, 212, 0.06) 0%, transparent 60%),
+    /* Subtle blur effect layer */
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
   z-index: -1;
-  animation: liquidFloat 20s ease-in-out infinite;
-}
-
-/* Liquid floating animation */
-@keyframes liquidFloat {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(30px, -30px) scale(1.1);
-  }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
+  background-blend-mode: multiply, soft-light, normal, normal, overlay, overlay;
 }
 
 /*
@@ -165,6 +194,7 @@ body::before {
   ========================================
   
   Additional keyframes for liquid-like animations.
+  Note: These are kept for potential future use with other elements.
 */
 @keyframes liquidWave {
   0%, 100% {
@@ -495,9 +525,7 @@ body {
     transition-duration: 0.01ms !important;
   }
   
-  body::before {
-    animation: none;
-  }
+  /* Background is now static, so no animation to disable */
 }
 
 /*
