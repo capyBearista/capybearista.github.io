@@ -853,7 +853,7 @@ aside:hover {
 /* Hover effect for project cards */
 .project-preview:hover {
   box-shadow: 0 12px 40px 0 rgba(0, 188, 212, 0.15);
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-8px) scale(1.00);
 }
 
 /* Project card content area */
@@ -962,7 +962,7 @@ li {
 .project-link:hover {
   box-shadow: 0 12px 40px 0 rgba(0, 188, 212, 0.25);
   outline: none;
-  transform: translateY(-4px) scale(1.02);
+  transform: translateY(-4px) scale(1.01);
 }
 
 /* Small caption text */
@@ -1104,7 +1104,86 @@ footer a:focus {
       transform: none;
     }
   }
-}
+  
+  /*
+    ========================================
+    ENHANCED RESPONSIVE LAYOUT (≤ 900px)
+    ========================================
+    
+    Converts the fixed sidebar into a horizontal top-bar and stacks
+    project preview cards for better readability on small and medium
+    screens.
+  */
+  @media (max-width: 900px) {
+    /* Sidebar becomes top navigation */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      flex-direction: row;
+      align-items: center;
+      padding: 0.5em 0.75em;
+      overflow-x: auto;
+      z-index: 999;
+    }
+    /* Remove shadow so it feels like a top bar */
+    .sidebar {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    /* Adjust header/title spacing */
+    .sidebar-header {
+      padding: 0 0.75em;
+    }
+    /* Move theme toggle inline and remove divider */
+    .theme-toggle-container {
+      margin: 0 0.5em 0 0.5em;
+      border-bottom: none;
+      padding: 0;
+    }
+    /* Horizontal navigation list */
+    .sidebar-nav {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      flex: 1 1 auto;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar-nav li {
+      margin: 0 0.25em;
+      opacity: 1; /* Show instantly */
+      animation: none;
+    }
+    .sidebar-nav a {
+      margin: 0;
+      padding: 0.6em 0.9em;
+      white-space: nowrap;
+    }
+    /* Hide sidebar footer to save space */
+    .sidebar-footer {
+      display: none;
+    }
+    /* Main content now fills full width and is pushed below top bar */
+    .main-content {
+      margin-left: 0;
+      padding-top: 80px; /* Height of the top navigation */
+    }
+    /* Stack project preview card content */
+    .project-preview {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .project-preview figure {
+      max-width: 100%;
+      width: 100%;
+    }
+    .project-preview-content {
+      width: 100%;
+    }
+  }
 
 /*
   ========================================
