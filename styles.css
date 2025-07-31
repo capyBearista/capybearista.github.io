@@ -13,6 +13,135 @@
   --shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.25);
   --border-radius: 12px;
   --transition: 0.3s cubic-bezier(.4, 0, .2, 1);
+  
+  /* Animation variables */
+  --animation-duration: 0.3s;
+  --animation-timing: cubic-bezier(0.4, 0, 0.2, 1);
+  --bounce-timing: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --slide-timing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/*
+  Animation Keyframes
+*/
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(0, 188, 212, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 188, 212, 0.6);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /*
@@ -36,6 +165,18 @@ body {
   color: var(--text-main);
   min-height: 100vh;
   display: flex;
+  overflow-x: hidden; /* Prevent horizontal scroll during animations */
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /*
@@ -73,6 +214,7 @@ body {
   flex-direction: column;
   z-index: 100;
   transition: var(--transition);
+  animation: slideInLeft 0.8s var(--bounce-timing);
 }
 
 .sidebar-header {
@@ -82,6 +224,7 @@ body {
   font-weight: 700;
   color: var(--accent);
   letter-spacing: 1px;
+  animation: fadeIn 0.6s ease-out 0.3s both;
 }
 
 .sidebar-title {
@@ -99,7 +242,13 @@ body {
 
 .sidebar-nav li {
   margin: 0.5em 0;
+  opacity: 0;
+  animation: slideInUp 0.5s ease-out both;
 }
+
+.sidebar-nav li:nth-child(1) { animation-delay: 0.4s; }
+.sidebar-nav li:nth-child(2) { animation-delay: 0.5s; }
+.sidebar-nav li:nth-child(3) { animation-delay: 0.6s; }
 
 .sidebar-nav a {
   display: flex;
@@ -110,13 +259,31 @@ body {
   font-size: 1.1em;
   padding: 0.75em 2em;
   border-radius: var(--border-radius);
-  transition: background var(--transition), color var(--transition);
+  transition: background var(--transition), color var(--transition), transform 0.2s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .sidebar-nav a:hover,
 .sidebar-nav a:focus {
   background: var(--sidebar-hover);
   color: var(--accent);
+  transform: translateX(10px);
+}
+
+.sidebar-nav a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, transparent, rgba(0, 188, 212, 0.2), transparent);
+  transition: width 0.3s ease;
+}
+
+.sidebar-nav a:hover::before {
+  width: 100%;
 }
 
 /*
@@ -129,12 +296,13 @@ body {
   vertical-align: middle;
   display: inline-block;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.10));
-  transition: filter 0.2s;
+  transition: filter 0.2s, transform 0.2s ease;
 }
 
 .sidebar-nav a:hover .sidebar-icon,
 .sidebar-nav a:focus .sidebar-icon {
   filter: drop-shadow(0 2px 6px var(--accent));
+  transform: scale(1.1) rotate(5deg);
 }
 
 .sidebar-footer {
@@ -143,18 +311,20 @@ body {
   align-items: center;
   padding: 1.5em 0.5em;
   border-top: 1px solid #2e3748;
+  animation: slideInUp 0.6s ease-out 0.7s both;
 }
 
 .sidebar-contact {
   color: var(--text-secondary);
   text-decoration: none;
   font-size: 1.5em;
-  transition: color var(--transition);
+  transition: color var(--transition), transform 0.2s ease;
 }
 
 .sidebar-contact:hover,
 .sidebar-contact:focus {
   color: var(--accent);
+  transform: scale(1.1);
 }
 
 /*
@@ -173,6 +343,7 @@ body {
 header {
   padding: 2.5rem 2rem 1rem 2rem;
   text-align: left;
+  animation: slideInDown 0.8s ease-out 0.2s both;
 }
 
 h1 {
@@ -181,6 +352,18 @@ h1 {
   font-weight: 700;
   color: var(--accent);
   margin: 0;
+  position: relative;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--accent);
+  animation: typewriter 1s ease-out 1s forwards;
 }
 
 main {
@@ -191,6 +374,20 @@ main {
 
 section {
   flex: none;
+  animation: fadeIn 0.8s ease-out 0.4s both;
+}
+
+section p {
+  animation: slideInUp 0.6s ease-out 0.6s both;
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-main);
+  font-size: 1.5em;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+  animation: slideInUp 0.6s ease-out 0.8s both;
 }
 
 /*
@@ -205,6 +402,13 @@ aside {
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   font-size: 1em;
+  animation: slideInUp 0.8s ease-out 1.2s both;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+aside:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 32px 0 rgba(0, 188, 212, 0.15);
 }
 
 /*
@@ -273,14 +477,6 @@ aside {
   margin-top: 0.5em;
 }
 
-h2 {
-  font-family: 'Roboto', sans-serif;
-  color: var(--text-main);
-  font-size: 1.5em;
-  margin-top: 1.5em;
-  margin-bottom: 1em;
-}
-
 p,
 li {
   font-family: 'JetBrains Mono', monospace;
@@ -325,7 +521,6 @@ li {
   opacity: 0.8;
 }
 
-
 /*
   BEAUTIFIED FOOTER
   - Gradient background, accent border, flex layout
@@ -342,6 +537,7 @@ footer {
   letter-spacing: 0.03em;
   box-shadow: 0 -2px 16px 0 rgba(0, 188, 212, 0.08);
   transition: background 0.3s;
+  animation: slideInUp 0.8s ease-out 1.4s both;
 }
 
 footer p {
@@ -366,9 +562,26 @@ footer a {
   text-decoration: none;
   margin: 0 0.3em;
   font-weight: 500;
-  transition: color 0.2s, text-decoration 0.2s;
+  transition: color 0.2s, text-decoration 0.2s, transform 0.2s ease;
   padding: 0.1em 0.3em;
   border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+footer a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+footer a:hover::before {
+  width: 100%;
 }
 
 footer a:hover,
@@ -376,11 +589,62 @@ footer a:focus {
   color: #fff;
   background: var(--accent);
   text-decoration: underline;
+  transform: translateY(-2px);
 }
 
+/* Mobile optimizations */
 @media (max-width: 600px) {
   footer p {
     flex-direction: column;
     gap: 0.7em;
   }
+  
+  /* Reduce animation intensity on mobile */
+  .project-preview:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+  
+  .sidebar-nav a:hover {
+    transform: translateX(5px);
+  }
+  
+  /* Disable some hover effects on touch devices */
+  @media (hover: none) {
+    .project-preview:hover {
+      transform: none;
+    }
+    
+    .sidebar-nav a:hover {
+      transform: none;
+    }
+  }
 }
+
+/* Scroll-triggered animation classes */
+.fade-in-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scale-in-on-scroll {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scale-in-on-scroll.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Loading animation for images */
+.image-loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
