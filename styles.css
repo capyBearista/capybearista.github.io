@@ -615,14 +615,19 @@ body {
   font-size: 1.1em;
   padding: 0.75em 2em;
   border-radius: var(--border-radius);
-  transition: background var(--transition), color var(--transition), transform 0.2s ease;
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
   background: var(--glass-bg);
   backdrop-filter: var(--glass-backdrop);
   -webkit-backdrop-filter: var(--glass-backdrop);
-  border: 1px solid transparent;
+  border: 1px solid var(--glass-border);
   margin: 0.5em 1em;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    0 2px 4px rgba(0, 188, 212, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
 }
 
 /* Hover and focus states for navigation links */
@@ -630,8 +635,12 @@ body {
 .sidebar-nav a:focus {
   background: var(--sidebar-hover);
   color: var(--accent);
-  transform: translateX(10px);
+  transform: translateX(6px) translateY(-2px) scale(1.01);
   border-color: var(--glass-border);
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.25),
+    0 3px 6px rgba(0, 188, 212, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 /* Shimmer effect on hover */
@@ -681,13 +690,13 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 1.5em 0.5em;
+  padding: 1em 0.5em;
   border-top: 1px solid var(--glass-border);
   animation: slideInUp 0.6s ease-out 0.7s both;
   background: var(--glass-bg);
   backdrop-filter: var(--glass-backdrop);
   -webkit-backdrop-filter: var(--glass-backdrop);
-  margin: 1em;
+  margin: 0.5em 1em 1em 1em;
   border-radius: var(--border-radius);
 }
 
@@ -695,17 +704,46 @@ body {
 .sidebar-contact {
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 1.5em;
-  transition: color var(--transition), transform 0.2s ease;
-  padding: 0.5em;
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  padding: 0.4em 0.8em;
   border-radius: var(--border-radius);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-backdrop);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+  border: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    0 2px 4px rgba(0, 188, 212, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
 }
 
 /* Contact link hover effects */
 .sidebar-contact:hover,
 .sidebar-contact:focus {
-  color: var(--accent);
-  transform: scale(1.1);
+  color: #fff;
+  background: var(--accent);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 8px 16px rgba(0, 0, 0, 0.3),
+    0 4px 8px rgba(0, 188, 212, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Liquid effect for contact links */
+.sidebar-contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 188, 212, 0.1), transparent);
+  animation: liquidFlow 3s ease-in-out infinite;
 }
 
 /*
