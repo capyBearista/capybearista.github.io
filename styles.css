@@ -17,10 +17,9 @@
   CSS CUSTOM PROPERTIES (VARIABLES)
   ========================================
   
-  CSS variables allow us to define colors and values once,
-  then reuse them throughout the stylesheet. This makes it
-  easy to change the entire color scheme by updating just
-  the variables.
+  CSS variables define the color scheme and design tokens used throughout the site.
+  This makes it easy to maintain consistent styling and switch between themes.
+  All colors, spacing, and animation values are centralized here.
 */
 :root {
   /* Dark theme colors (default) */
@@ -103,11 +102,12 @@
 
 /*
   ========================================
-  RICH GRAINY GRADIENT BACKGROUND
+  DYNAMIC GRADIENT BACKGROUND
   ========================================
   
-  Creates a sophisticated grainy gradient background with multiple layers
-  to prevent color banding and provide rich visual depth.
+  Creates a sophisticated gradient background with multiple layers
+  to provide rich visual depth and prevent color banding.
+  The background adapts to the current theme.
 */
 body::before {
   content: '';
@@ -141,86 +141,22 @@ body::before {
   SMOOTH THEME TRANSITIONS
   ========================================
   
-  This rule applies smooth transitions to all elements when
-  switching between dark and light themes. The transition
-  affects background colors, text colors, borders, and shadows.
+  Applies smooth transitions to all elements when switching between themes.
+  This ensures a pleasant user experience when toggling between dark and light modes.
 */
 * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/*
-  ========================================
-  GLASS EFFECT UTILITY CLASSES
-  ========================================
-  
-  Reusable glass effect classes for consistent glassmorphism styling.
-*/
-.glass {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-backdrop);
-  -webkit-backdrop-filter: var(--glass-backdrop);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
-}
 
-.glass-strong {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-}
-
-.glass-weak {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
-}
 
 /*
   ========================================
   LIQUID ANIMATION KEYFRAMES
   ========================================
   
-  Additional keyframes for liquid-like animations.
-  Note: These are kept for potential future use with other elements.
+  Keyframes for liquid-like animations used in various elements.
 */
-@keyframes liquidWave {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-  }
-  50% {
-    transform: translateY(-10px) scale(1.05);
-  }
-}
-
-@keyframes liquidGlow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(0, 188, 212, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(0, 188, 212, 0.6);
-  }
-}
-
-@keyframes liquidPulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-  50% {
-    transform: scale(1.02);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-}
-
 @keyframes liquidFlow {
   0% {
     background-position: 0% 50%;
@@ -551,7 +487,7 @@ body {
   ========================================
   
   The sidebar contains navigation links and the theme toggle.
-  It's fixed to the left side of the screen. Enhanced with glass effects.
+  It's fixed to the left side of the screen with glass morphism effects.
 */
 .sidebar {
   position: fixed;
@@ -881,7 +817,8 @@ aside:hover {
   ========================================
   
   These cards appear on the home page and showcase
-  each project with an image and description. Enhanced with glass effects.
+  each project with an image and description.
+  They feature glass morphism effects and smooth animations.
 */
 .project-preview {
   background: var(--card-bg);
@@ -1040,7 +977,7 @@ li {
   ========================================
   
   The footer appears at the bottom of each page
-  and contains contact information. Enhanced with glass effects.
+  and contains contact information with glass morphism effects.
 */
 footer {
   background: var(--sidebar-bg);
@@ -1137,8 +1074,8 @@ footer a:focus {
   MOBILE RESPONSIVENESS
   ========================================
   
-  These styles ensure the site works well on
-  mobile devices and smaller screens.
+  These styles ensure the site works well on mobile devices
+  and smaller screens, with optimized touch interactions.
 */
 @media (max-width: 600px) {
   /* Stack footer content vertically on mobile */
@@ -1174,8 +1111,8 @@ footer a:focus {
   SCROLL-TRIGGERED ANIMATIONS
   ========================================
   
-  These classes are applied to elements that should
-  animate when they come into view during scrolling.
+  These classes provide smooth entrance animations
+  for elements as they come into view during scrolling.
 */
 .fade-in-on-scroll {
   opacity: 0;
@@ -1188,71 +1125,11 @@ footer a:focus {
   transform: translateY(0);
 }
 
-.scale-in-on-scroll {
-  opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
 
-.scale-in-on-scroll.visible {
-  opacity: 1;
-  transform: scale(1);
-}
 
-/*
-  ========================================
-  LOADING ANIMATIONS
-  ========================================
-  
-  These classes provide loading states for
-  images and other content.
-*/
-.image-loading {
-  animation: pulse 1.5s ease-in-out infinite;
-}
 
-/*
-  ========================================
-  GLASS EFFECT ENHANCEMENTS
-  ========================================
-  
-  Additional glass effect enhancements for specific elements.
-*/
-.glass-card {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-backdrop);
-  -webkit-backdrop-filter: var(--glass-backdrop);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--border-radius);
-  box-shadow: var(--glass-shadow);
-  transition: all 0.3s ease;
-}
 
-.glass-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px 0 rgba(0, 188, 212, 0.15);
-}
 
-/*
-  ========================================
-  LIQUID ANIMATION UTILITIES
-  ========================================
-  
-  Utility classes for liquid animations.
-*/
-.liquid-float {
-  animation: liquidFloat 4s ease-in-out infinite;
-}
 
-.liquid-wave {
-  animation: liquidWave 3s ease-in-out infinite;
-}
 
-.liquid-glow {
-  animation: liquidGlow 2s ease-in-out infinite;
-}
-
-.liquid-pulse {
-  animation: liquidPulse 3s ease-in-out infinite;
-}
 
