@@ -1,6 +1,7 @@
 # Arjun Pramanik / capyBearista's Portfolio
 
-A modern, responsive portfolio website showcasing coding projects with a focus on accessibility, performance, and user experience. Built with vanilla HTML, CSS, and JavaScript using modern web standards and privacy-respecting analytics.
+Half a portfolio. Half showing off what I'm learning about web development.
+<br>Built with vanilla HTML, CSS, and JavaScript using modern web standards and privacy-respecting analytics.
 
 🌐 **Live Site**: [capybearista.github.io](https://capybearista.github.io)
 
@@ -54,17 +55,17 @@ A Git hook system that automatically transforms Obsidian's markdown syntax into 
 - **HTML5**: Semantic markup with comprehensive SEO and accessibility features
 - **CSS3**: Modern styling with CSS custom properties, glass morphism, and responsive design
 - **JavaScript**: Modular ES6+ code with shared functionality across all pages
-- **Fonts**: Google Fonts (JetBrains Mono, Roboto) with preconnect optimization
+- **Fonts**: Google Fonts (JetBrains Mono, Roboto)
 
 ### Development Tools
 - **No Build Process**: Direct file editing for simplicity and transparency
 - **VS Code**: Primary development environment
-- **Git**: Version control with GitHub Pages hosting
+- **Git**: Version control system
 
 ### Design System
 - **CSS Custom Properties**: Centralized theming system for colors, spacing, and animations
 - **Glass Morphism**: Backdrop-filter effects with semi-transparent backgrounds
-- **Responsive Breakpoints**: Mobile-first design with 600px and 900px breakpoints
+- **Responsive Breakpoints**: Mobile-friendly design with 600px and 900px breakpoints
 - **Animation Framework**: Intersection Observer for performant scroll animations
 
 ## 📁 File Structure
@@ -99,7 +100,7 @@ This site uses **GoatCounter** for analytics, which is designed with privacy in 
 - ✅ GDPR compliant
 - ✅ Public analytics dashboard available
 
-See our [Privacy Policy](privacy.md) for complete details.
+See the [Privacy Policy](privacy.md) for complete details.
 
 ## 🎯 Development Philosophy
 
