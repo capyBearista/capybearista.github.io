@@ -818,7 +818,7 @@ aside:hover {
   
   These cards appear on the home page and showcase
   each project with an image and description.
-  They feature glass morphism effects and smooth animations.
+  They feature glass morphism effects with subtle hover animations.
 */
 .project-preview {
   background: var(--card-bg);
@@ -867,9 +867,28 @@ aside:hover {
 /* Project card headings */
 .project-preview h3 {
   font-family: 'Roboto', sans-serif;
-  color: var(--accent);
   font-size: 1.3em;
   margin-top: 0;
+}
+
+/* Project title links */
+.project-preview h3 a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  margin: -0.2em -0.4em;
+  display: inline-block;
+}
+
+.project-preview h3 a:hover,
+.project-preview h3 a:focus {
+  color: var(--text-main);
+  background: var(--accent);
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 188, 212, 0.3);
 }
 
 /* Project card image container */
@@ -902,20 +921,74 @@ aside:hover {
   border-radius: var(--border-radius);
   object-fit: contain;
   background: var(--figure-bg);
-  transition: transform 0.3s ease;
 }
 
-/* Image hover effect */
-.project-preview:hover img {
-  transform: scale(1.05);
+/*
+  ========================================
+  PROJECT CARD LINKS AND TECHNOLOGY TAGS
+  ========================================
+  
+  Links within project cards for repositories and documentation,
+  plus styling for technology tags that show what tools were used.
+*/
+.project-preview-content a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  border: 1px solid transparent;
 }
 
-/* Project card captions */
-.project-preview figcaption {
-  font-size: 0.95em;
-  color: var(--text-secondary);
-  text-align: center;
-  margin-top: 0.5em;
+.project-preview-content a:hover,
+.project-preview-content a:focus {
+  color: var(--text-main);
+  background: var(--accent);
+  border-color: var(--accent);
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 188, 212, 0.3);
+}
+
+/* Technologies section styling */
+.technologies-section {
+  margin: 1.5em 0;
+  padding: 1em;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-backdrop);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--glass-shadow);
+}
+
+.technologies-section h4 {
+  margin: 0 0 0.75em 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* Technology tags container */
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+/* Individual technology tags */
+.tech-tag {
+  display: inline-block;
+  padding: 0.3em 0.6em;
+  background: var(--accent);
+  color: var(--background);
+  font-size: 0.85em;
+  font-weight: 600;
+  border-radius: 16px;
+  border: 1px solid var(--accent);
+  font-family: 'JetBrains Mono', monospace;
 }
 
 /* Regular paragraph and list text */
@@ -938,31 +1011,6 @@ li {
 
 .underline {
   text-decoration: underline;
-}
-
-/*
-  ========================================
-  PROJECT LINK STYLING
-  ========================================
-  
-  The entire project card is clickable and links
-  to the detailed project page.
-*/
-.project-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  margin-bottom: 2em;
-  border-radius: var(--border-radius);
-  transition: box-shadow var(--transition), transform var(--transition);
-}
-
-/* Hover and focus effects for project links */
-.project-link:focus,
-.project-link:hover {
-  box-shadow: 0 12px 40px 0 rgba(0, 188, 212, 0.25);
-  outline: none;
-  transform: translateY(-4px) scale(1.01);
 }
 
 /* Small caption text */

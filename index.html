@@ -17,6 +17,65 @@
   <title>capyBearista's Portfolio</title>
   
   <!-- 
+    ========================================
+    SEO AND SOCIAL MEDIA META TAGS
+    ========================================
+    
+    These meta tags improve search engine optimization (SEO) and control
+    how the site appears when shared on social media platforms.
+  -->
+  
+  <!-- Primary SEO meta tags -->
+  <meta name="description" content="Arjun Pramanik (capyBearista) - Full-stack developer specializing in home automation, Python scripting, and modern web development. Explore my portfolio of server administration and automation projects.">
+  <meta name="keywords" content="portfolio, web developer, home server, python, automation, docker, linux, javascript, html, css">
+  <meta name="author" content="Arjun Pramanik">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://capybearista.github.io/">
+  <meta property="og:title" content="capyBearista's Programming Portfolio">
+  <meta property="og:description" content="Explore my projects including home server setup, automation scripts, and modern web development work. Full-stack developer specializing in Linux system administration and Python automation.">
+  <meta property="og:image" content="https://capybearista.github.io/images/web-app-icon.png">
+  <meta property="og:site_name" content="capyBearista Portfolio">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://capybearista.github.io/">
+  <meta property="twitter:title" content="capyBearista's Programming Portfolio">
+  <meta property="twitter:description" content="Explore my projects including home server setup, automation scripts, and modern web development work.">
+  <meta property="twitter:image" content="https://capybearista.github.io/images/web-app-icon.png">
+  
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#00bcd4">
+  <link rel="canonical" href="https://capybearista.github.io/">
+  
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Arjun Pramanik",
+    "alternateName": "capyBearista",
+    "jobTitle": "Full-Stack Developer",
+    "description": "Full-stack developer specializing in home automation, Python scripting, and modern web development",
+    "url": "https://capybearista.github.io/",
+    "sameAs": [
+      "https://github.com/capybearista"
+    ],
+    "knowsAbout": [
+      "Web Development",
+      "Python Programming",
+      "Linux System Administration",
+      "Docker",
+      "Home Automation",
+      "JavaScript",
+      "HTML/CSS"
+    ]
+  }
+  </script>
+  
+  <!-- 
     File information and author details
     This comment block helps identify the file and its purpose
   -->
@@ -230,60 +289,99 @@
           HOME SERVER PROJECT CARD
           ========================================
           
-          This card links to the detailed home server
-          project page and includes a preview image.
+          This card contains project details with clickable title
+          that links to the detailed project page.
         -->
-        <a href="home-server.html" class="project-link">
-          <article class="project-preview">
-            <!-- Project description and details -->
-            <div class="project-preview-content">
-              <h3 id="home-server">Home Server</h3>
-              <p>My first real project! I transformed an old laptop into a powerhouse of a home server (maybe "powerhouse" is a bit of an exaggeration) that blocks ads at the network level, streams movies to my family, and hosts Minecraft servers for friends—all while learning Linux, networking, and automation along the way.</p>
+        <article class="project-preview">
+          <!-- Project description and details -->
+          <div class="project-preview-content">
+            <h3 id="home-server"><a href="home-server.html">Home Server</a></h3>
+            <p>My first real project! I transformed an old laptop into a powerhouse of a home server (maybe "powerhouse" is a bit of an exaggeration) that blocks ads at the network level, streams movies to my family, and hosts Minecraft servers for friends—all while learning Linux, networking, and automation along the way.</p>
+            
+            <div class="technologies-section">
+              <h4>🛠️ Technologies Used:</h4>
+              <div class="tech-tags">
+                <span class="tech-tag">Ubuntu Server</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">Docker Compose</span>
+                <span class="tech-tag">Pi-hole</span>
+                <span class="tech-tag">Jellyfin</span>
+                <span class="tech-tag">Minecraft Server</span>
+                <span class="tech-tag">Immich</span>
+                <span class="tech-tag">Portainer</span>
+                <span class="tech-tag">ConvertX</span>
+                <span class="tech-tag">Valheim Server</span>
+              </div>
             </div>
             
-            <!-- Project image with caption -->
-            <figure>
-              <!-- 
-                The image shows a screenshot of the server running htop command, to demonstrate the server's functionality.
-              -->
-              <img src="images/server-sample.png" width="302" height="403"
-                alt="output of htop command on Ubuntu Server, showcasing programs running on the home server">
-              <figcaption>
-                <p class="italic small-caption">The output of the htop command on my server! You can see some of the
-                  programs running.</p>
-              </figcaption>
-            </figure>
-          </article>
-        </a>
+            <p><strong>🔗 Links:</strong> 
+              <a href="https://github.com/capyBearista/home-server" target="_blank" rel="noopener">GitHub Repository</a> |
+              <a href="https://github.com/capyBearista/home-server/wiki" target="_blank" rel="noopener">Documentation Wiki</a>
+            </p>
+          </div>
+          
+          <!-- Project image with caption -->
+          <figure>
+            <!-- 
+              The image shows a screenshot of the server running htop command, to demonstrate the server's functionality.
+            -->
+            <img src="images/server-sample.png" width="302" height="403"
+              loading="lazy"
+              alt="output of htop command on Ubuntu Server, showcasing programs running on the home server">
+            <figcaption>
+              <p class="italic small-caption">The output of the htop command on my server! You can see some of the
+                programs running.</p>
+            </figcaption>
+          </figure>
+        </article>
         
         <!-- 
           ========================================
           OBSIDIAN SCRIPT PROJECT CARD
           ========================================
           
-          This card links to the detailed obsidian script project page.
+          This card contains project details with clickable title
+          that links to the detailed project page.
         -->
-        <a href="obsidian-script.html" class="project-link">
-          <article class="project-preview">
-            <!-- Project description and details -->
-            <div class="project-preview-content">
-              <h3 id="obsidian-script">Obsidian to GitHub Wiki Converter</h3>
-              <p>I really wanted to use Obsidian to write documentation for my home server, but publishing it directly to GitHub Wiki doesn't quite work because of odd discrepancies between Obsidian's markdown syntax and GitHub's. This is a Git hook system that automatically transforms Obsidian's unique link syntax into GitHub Wiki format. It's as simple as writing your notes in Obsidian and committing them; the script automatically converts text to the correct format and pushes changes to the wiki!</p>
+        <article class="project-preview">
+          <!-- Project description and details -->
+          <div class="project-preview-content">
+            <h3 id="obsidian-script"><a href="obsidian-script.html">Obsidian to GitHub Wiki Converter</a></h3>
+            <p>I really wanted to use Obsidian to write documentation for my home server, but publishing it directly to GitHub Wiki doesn't quite work because of odd discrepancies between Obsidian's markdown syntax and GitHub's. This is a Git hook system that automatically transforms Obsidian's unique link syntax into GitHub Wiki format. It's as simple as writing your notes in Obsidian and committing them; the script automatically converts text to the correct format and pushes changes to the wiki!</p>
+            
+            <div class="technologies-section">
+              <h4>🛠️ Technologies Used:</h4>
+              <div class="tech-tags">
+                <span class="tech-tag">Python 3</span>
+                <span class="tech-tag">Git Hooks</span>
+                <span class="tech-tag">Regular Expressions</span>
+                <span class="tech-tag">Bash/Shell Scripting</span>
+                <span class="tech-tag">Markdown</span>
+                <span class="tech-tag">GitHub Wiki</span>
+                <span class="tech-tag">Obsidian</span>
+                <span class="tech-tag">Subprocess</span>
+              </div>
             </div>
             
-            <!-- Project image with caption -->
-            <figure>
-              <!-- 
-                The image shows the Obsidian logo, representing the note-taking app used in this project.
-              -->
-              <img src="images/obsidian.png" width="300" height="300"
-                alt="the logo of the note-taking app Obsidian, a purple shard with curved edges as an artistic recreation of the real-life material">
-              <figcaption>
-                <p class="italic small-caption">The logo of the note-taking app Obsidian.</p>
-              </figcaption>
-            </figure>
-          </article>
-        </a>
+            <p><strong>🔗 Links:</strong> 
+              <a href="https://github.com/capyBearista/obsidian_git_experiment" target="_blank" rel="noopener">GitHub Repository</a> |
+              <a href="https://github.com/capyBearista/obsidian_git_experiment#readme" target="_blank" rel="noopener">Setup Guide</a>
+            </p>
+          </div>
+          
+          <!-- Project image with caption -->
+          <figure>
+            <!-- 
+              The image shows the Obsidian logo, representing the note-taking app used in this project.
+            -->
+            <img src="images/obsidian.png" width="300" height="300"
+              loading="lazy"
+              alt="the logo of the note-taking app Obsidian, a purple shard with curved edges as an artistic recreation of the real-life material">
+            <figcaption>
+              <p class="italic small-caption">The logo of the note-taking app Obsidian.</p>
+            </figcaption>
+          </figure>
+        </article>
       </section>
       
         <!-- 
