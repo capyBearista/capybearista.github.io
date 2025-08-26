@@ -68,16 +68,15 @@ const themeManager = {
 
   // 
   // Load the appropriate theme
-  // Checks localStorage for saved preferences, falls back to system preference if none saved.
+  // Checks localStorage for saved preferences, defaults to dark theme if none saved.
   //
   loadTheme() {
     const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
     if (savedTheme) {
       this.setTheme(savedTheme);
     } else {
-      this.setTheme(systemPrefersDark ? 'dark' : 'light');
+      this.setTheme('dark');
     }
   },
 
