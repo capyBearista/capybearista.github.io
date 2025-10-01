@@ -337,6 +337,229 @@ function setupPageLoadAnimation() {
 
 // 
 // ========================================
+// IMAGE EXPANSION MODAL
+// ========================================
+//
+// Handles the image expansion functionality with modal overlay
+//
+const imageModal = {
+  modal: null,
+  modalContent: null,
+  modalImage: null,
+  modalCaption: null,
+  modalClose: null,
+  
+  // Initialize the modal system
+  init() {
+    this.createModal();
+    this.setupEventListeners();
+    this.makeImagesExpandable();
+  },
+  
+  // Create the modal HTML structure
+  createModal() {
+    // Create modal overlay
+    this.modal = document.createElement('div');
+    this.modal.className = 'image-modal';
+    this.modal.setAttribute('role', 'dialog');
+    this.modal.setAttribute('aria-modal', 'true');
+    this.modal.setAttribute('aria-label', 'Expanded image view');
+    
+    // Create modal content container
+    this.modalContent = document.createElement('div');
+    this.modalContent.className = 'image-modal-content';
+    
+    // Create close button
+    this.modalClose = document.createElement('button');
+    this.modalClose.className = 'image-modal-close';
+    this.modalClose.innerHTML = '×';
+    this.modalClose.setAttribute('aria-label', 'Close expanded image');
+    
+    // Create image element
+    this.modalImage = document.createElement('img');
+    this.modalImage.setAttribute('alt', '');
+    
+    // Create caption element
+    this.modalCaption = document.createElement('div');
+    this.modalCaption.className = 'image-modal-caption';
+    
+    // Assemble modal structure
+    this.modalContent.appendChild(this.modalClose);
+    this.modalContent.appendChild(this.modalImage);
+    this.modalContent.appendChild(this.modalCaption);
+    this.modal.appendChild(this.modalContent);
+    
+    // Add to document
+    document.body.appendChild(this.modal);
+  },
+  
+  // Set up event listeners for modal interactions
+  setupEventListeners() {
+    // Close modal when clicking close button
+    this.modalClose.addEventListener('click', () => this.closeModal());
+    
+    // Close modal when clicking outside content
+    this.modal.addEventListener('click', (e) => {
+      if (e.target === this.modal) {
+        this.closeModal();
+      }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && this.modal.classList.contains('active')) {
+        this.closeModal();
+      }
+    });
+    
+    // Prevent modal content clicks from closing modal
+    this.modalContent.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  },
+  
+  // Make existing images expandable
+  makeImagesExpandable() {
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+      // Skip small icons and already processed images
+      if (img.classList.contains('sidebar-icon') || img.hasAttribute('data-expandable')) {
+        return;
+      }
+      
+      // Add expandable attribute and event listener
+      img.setAttribute('data-expandable', 'true');
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => this.openModal(img));
+      
+      // Add accessibility attributes
+      img.setAttribute('tabindex', '0');
+      img.setAttribute('role', 'button');
+      img.setAttribute('aria-label', `Click to expand image: ${img.alt || 'Image'}`);
+      
+      // Add keyboard support
+      img.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.openModal(img);
+        }
+      });
+      
+      // Add visual indicator on focus
+      img.addEventListener('focus', () => {
+        if (!prefersReducedMotion) {
+          img.style.outline = `2px solid var(--accent)`;
+          img.style.outlineOffset = '2px';
+        }
+      });
+      
+      img.addEventListener('blur', () => {
+        img.style.outline = '';
+        img.style.outlineOffset = '';
+      });
+    });
+  },
+  
+  // Open modal with specified image
+  openModal(sourceImage) {
+    // Store reference to the source image for focus restoration
+    this.sourceImage = sourceImage;
+    
+    // Set loading state
+    this.modalImage.setAttribute('data-loading', 'true');
+    
+    // Set modal image source and alt text
+    this.modalImage.src = sourceImage.src;
+    this.modalImage.alt = sourceImage.alt;
+    
+    // Remove loading state when image loads
+    this.modalImage.addEventListener('load', () => {
+      this.modalImage.removeAttribute('data-loading');
+    }, { once: true });
+    
+    // Set caption from figcaption or alt text
+    const figcaption = sourceImage.closest('figure')?.querySelector('figcaption');
+    if (figcaption) {
+      this.modalCaption.innerHTML = figcaption.innerHTML;
+      this.modalCaption.style.display = 'block';
+    } else if (sourceImage.alt) {
+      this.modalCaption.textContent = sourceImage.alt;
+      this.modalCaption.style.display = 'block';
+    } else {
+      this.modalCaption.style.display = 'none';
+    }
+    
+    // Show modal
+    this.modal.classList.add('active');
+    
+    // Focus management for accessibility
+    setTimeout(() => {
+      this.modalClose.focus();
+    }, 100);
+    
+    // Prevent body scrolling
+    document.body.style.overflow = 'hidden';
+    
+    // Trap focus within modal
+    this.trapFocus();
+  },
+  
+  // Close modal
+  closeModal() {
+    this.modal.classList.remove('active');
+    
+    // Restore body scrolling
+    document.body.style.overflow = '';
+    
+    // Remove focus trap
+    this.removeFocusTrap();
+    
+    // Return focus to source image
+    if (this.sourceImage) {
+      setTimeout(() => {
+        this.sourceImage.focus();
+      }, 100);
+    }
+  },
+  
+  // Trap focus within modal for accessibility
+  trapFocus() {
+    const focusableElements = this.modal.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+    
+    this.focusTrapHandler = (e) => {
+      if (e.key === 'Tab') {
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement.focus();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+          }
+        }
+      }
+    };
+    
+    document.addEventListener('keydown', this.focusTrapHandler);
+  },
+  
+  // Remove focus trap when modal closes
+  removeFocusTrap() {
+    if (this.focusTrapHandler) {
+      document.removeEventListener('keydown', this.focusTrapHandler);
+      this.focusTrapHandler = null;
+    }
+  }
+};
+
+// 
+// ========================================
 // INITIALIZATION FUNCTION
 // ========================================
 //
@@ -353,6 +576,9 @@ function initializePage() {
   setupClickAnimations();
   setupMobileOptimizations();
   setupPageLoadAnimation();
+  
+  // Initialize image expansion modal
+  imageModal.init();
   
   // Add ripple animation
   addRippleAnimation();
