@@ -2,30 +2,11 @@
 <html lang="en">
 
 <head>
-  <!-- 
-    ========================================
-    PAGE HEADER - METADATA AND RESOURCES
-    ========================================
-    
-    The <head> section contains metadata about the page,
-    links to external resources like CSS and fonts,
-    and other information that doesn't appear on the page.
-    This section is essential for SEO, accessibility, and proper page rendering.
-  -->
+  <meta charset="utf-8">
   
-  <!-- Page title that appears in browser tab -->
   <title>capyBearista's Portfolio</title>
   
-  <!-- 
-    ========================================
-    SEO AND SOCIAL MEDIA META TAGS
-    ========================================
-    
-    These meta tags improve search engine optimization (SEO) and control
-    how the site appears when shared on social media platforms.
-  -->
-  
-  <!-- Primary SEO meta tags -->
+  <!-- SEO and Social Media Meta Tags -->
   <meta name="description" content="Arjun Pramanik (capyBearista) - Full-stack developer specializing in home automation, Python scripting, and modern web development. Explore my portfolio of server administration and automation projects.">
   <meta name="keywords" content="portfolio, web developer, home server, python, automation, docker, linux, javascript, html, css">
   <meta name="author" content="Arjun Pramanik">
@@ -39,13 +20,6 @@
   <meta property="og:image" content="https://capybearista.github.io/images/web-app-icon.png">
   <meta property="og:site_name" content="capyBearista Portfolio">
   
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://capybearista.github.io/">
-  <meta property="twitter:title" content="capyBearista's Programming Portfolio">
-  <meta property="twitter:description" content="Explore my projects including home server setup, automation scripts, and modern web development work.">
-  <meta property="twitter:image" content="https://capybearista.github.io/images/web-app-icon.png">
-  
   <!-- Additional SEO -->
   <meta name="theme-color" content="#00bcd4">
   <link rel="canonical" href="https://capybearista.github.io/">
@@ -57,38 +31,22 @@
     "@type": "Person",
     "name": "Arjun Pramanik",
     "alternateName": "capyBearista",
-    "jobTitle": "Full-Stack Developer",
-    "description": "Full-stack developer specializing in home automation, Python scripting, and modern web development",
+    "description": "Undergrad student looking to specialize in AI/ML",
     "url": "https://capybearista.github.io/",
     "sameAs": [
       "https://github.com/capybearista"
-    ],
-    "knowsAbout": [
-      "Web Development",
-      "Python Programming",
-      "Linux System Administration",
-      "Docker",
-      "Home Automation",
-      "JavaScript",
-      "HTML/CSS"
     ]
   }
   </script>
   
   <!-- 
-    File information and author details
-    This comment block helps identify the file and its purpose
-  -->
-  <!-- 
       Coding Portfolio main page 
       Filename: index.html
       Author:   capyBearista
       Date:     10 May 2025
-      Last Updated: 31 July 2025
+      Last Updated: 30 September 2025
     -->
   
-  <!-- Character encoding - tells browser how to interpret text -->
-  <meta charset="utf-8">
   
   <!-- 
     Viewport meta tag - essential for responsive design
@@ -96,87 +54,36 @@
   -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- 
-    ========================================
-    EXTERNAL RESOURCES
-    ========================================
-    
-    These links load external resources like fonts and stylesheets.
-    The preconnect links help improve loading performance by establishing
-    early connections to external domains.
-  -->
-  
-  <!-- Google Fonts: JetBrains Mono, Roboto -->
-  <!-- Preconnect to Google Fonts for faster loading -->
+  <!-- External Resources -->
+  <!-- Google Fonts with preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
-  <!-- Load the actual font files -->
   <link
     href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Roboto:wght@400;700&display=swap"
     rel="stylesheet">
-
-  <!-- Link to custom CSS stylesheet -->
   <link rel="stylesheet" href="styles.css">
   
-  <!-- 
-    ========================================
-    FAVICON AND APP ICONS
-    ========================================
-    
-    These icons appear in browser tabs, bookmarks, and when the site is saved to a mobile home screen.
-    They help with brand recognition and provide visual identity across different platforms.
-  -->
+  <!-- Favicons and App Icons -->
   <link rel="shortcut icon" href="images/favicon.ico">
   <link rel="apple-touch-icon" href="images/web-app-icon.png">
   <link rel="icon" sizes="192x192" href="images/web-app-icon.png">
 </head>
 
-  <!-- 
-    ========================================
-    PAGE BODY - VISIBLE CONTENT
-    ========================================
-    
-    The <body> section contains all the visible content that users see on the page.
-    This includes the sidebar navigation, main content area, and footer.
-  -->
+
 <body>
-  <!-- 
-    ========================================
-    ACCESSIBILITY: SKIP NAVIGATION
-    ========================================
-    
-    This hidden link allows keyboard users to skip directly to the main content, improving accessibility.
-    It's essential for screen reader users and keyboard navigation.
-  -->
+  <!-- Skip navigation for accessibility -->
   <p class="skipnavigation"><a href="#contentstart">Skip navigation</a></p>
   
-  <!-- 
-    ========================================
-    SIDEBAR NAVIGATION
-    ========================================
-    
-    The sidebar contains navigation links and the theme toggle.
-    It's fixed to the left side of the screen and provides consistent navigation across all pages.
-  -->
+  <!-- Sidebar Navigation -->
   <nav class="sidebar">
     <!-- Sidebar header with site title -->
     <div class="sidebar-header">
       <span class="sidebar-title">capyBearista</span>
     </div>
     
-      <!-- 
-    ========================================
-    THEME TOGGLE BUTTON
-    ========================================
-    
-    This button allows users to switch between dark and light themes.
-    It uses SVG icons for the sun and moon symbols and saves user preferences.
-  -->
+    <!-- Theme Toggle Button -->
     <div class="theme-toggle-container">
-      <!-- 
-        The button has an aria-label for screen readers and contains both sun and moon icons that show/hide based on the current theme.
-      -->
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">
         <!-- Sun icon - visible in light theme -->
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -197,14 +104,7 @@
       </button>
     </div>
     
-      <!-- 
-    ========================================
-    NAVIGATION MENU
-    ========================================
-    
-    This unordered list contains links to all pages in the portfolio.
-    Each link has an icon and text label for clear navigation.
-  -->
+    <!-- Navigation Menu -->
     <ul class="sidebar-nav">
       <!-- Home page link -->
       <li><a href="index.html"><img src="images/icons/home.svg" alt="Home" class="sidebar-icon">Home</a></li>
@@ -216,82 +116,29 @@
             class="sidebar-icon">Obsidian Script</a></li>
     </ul>
     
-      <!-- 
-    ========================================
-    SIDEBAR FOOTER - CONTACT LINKS
-    ========================================
-    
-    The footer contains contact information and external links like GitHub.
-    These provide ways for visitors to connect and learn more about the projects.
-  -->
+    <!-- Sidebar Footer -->
     <div class="sidebar-footer">
       <a href="mailto:capyBearista@gmail.com" class="sidebar-contact">Email</a>
       <a href="https://github.com/capybearista" target="_blank" rel="noopener" class="sidebar-contact">GitHub</a>
     </div>
   </nav>
 
-  <!-- 
-    ========================================
-    MAIN CONTENT AREA
-    ========================================
-    
-    This div contains all the main page content that appears to the right of the sidebar.
-    It includes the header, main content sections, and footer.
-  -->
+  <!-- Main Content Area -->
   <div class="main-content">
-      <!-- 
-    ========================================
-    PAGE HEADER
-    ========================================
-    
-    The header contains the main page title and any introductory content.
-    It provides context and sets the tone for the page content.
-  -->
     <header>
       <h1>My Project Portfolio</h1>
     </header>
     
-      <!-- 
-    ========================================
-    MAIN CONTENT
-    ========================================
-    
-    The <main> element contains the primary content of the page.
-    This is the most important content for users and search engines.
-  -->
     <main>
-        <!-- 
-    ========================================
-    WELCOME SECTION
-    ========================================
-    
-    This section introduces the portfolio and explains what visitors will find.
-    It provides context and sets expectations for the content that follows.
-  -->
+      <!-- Welcome Section -->
       <section>
         <!-- Welcome message -->
         <p>👋 Hey there! Welcome to my project portfolio. What you see here is a collection of the projects I am most proud
           of!</p>
         
-          <!-- 
-    ========================================
-    PROJECT PREVIEWS SECTION
-    ========================================
-    
-    This section showcases each project with
-    a card that includes an image and description.
-    Each card links to a detailed project page.
-  -->
         <h2 id="contentstart">Project Previews</h2>
         
-        <!-- 
-          ========================================
-          HOME SERVER PROJECT CARD
-          ========================================
-          
-          This card contains project details with clickable title
-          that links to the detailed project page.
-        -->
+        <!-- Home Server Project Card -->
         <article class="project-preview">
           <!-- Project description and details -->
           <div class="project-preview-content">
@@ -322,9 +169,6 @@
           
           <!-- Project image with caption -->
           <figure>
-            <!-- 
-              The image shows a screenshot of the server running htop command, to demonstrate the server's functionality.
-            -->
             <img src="images/server-sample.png" width="302" height="403"
               loading="lazy"
               alt="output of htop command on Ubuntu Server, showcasing programs running on the home server">
@@ -335,14 +179,7 @@
           </figure>
         </article>
         
-        <!-- 
-          ========================================
-          OBSIDIAN SCRIPT PROJECT CARD
-          ========================================
-          
-          This card contains project details with clickable title
-          that links to the detailed project page.
-        -->
+        <!-- Obsidian Script Project Card -->
         <article class="project-preview">
           <!-- Project description and details -->
           <div class="project-preview-content">
@@ -371,9 +208,6 @@
           
           <!-- Project image with caption -->
           <figure>
-            <!-- 
-              The image shows the Obsidian logo, representing the note-taking app used in this project.
-            -->
             <img src="images/obsidian.png" width="300" height="300"
               loading="lazy"
               alt="the logo of the note-taking app Obsidian, a purple shard with curved edges as an artistic recreation of the real-life material">
@@ -384,51 +218,23 @@
         </article>
       </section>
       
-        <!-- 
-    ========================================
-    CONTACT ASIDE
-    ========================================
-    
-    This aside element contains additional information and contact details.
-    It provides a way for visitors to get in touch and learn more.
-  -->
+      <!-- Contact Aside -->
       <aside>
         <p>Please feel free to contact me if you have any questions about my projects! I'd be happy to explain how they
           work or address any bugs and concerns.</p>
       </aside>
     </main>
     
-      <!-- 
-    ========================================
-    PAGE FOOTER
-    ========================================
-    
-    The footer contains contact information and appears at the bottom of the page.
-    It provides consistent branding and contact details across all pages.
-  -->
+    <!-- Page Footer -->
     <footer>
       <p><span class="bold">capyBearista</span> &nbsp;|&nbsp; <span class="bold">Arjun Pramanik</span></p>
     </footer>
   </div>
 
-  <!-- 
-    ========================================
-    SHARED JAVASCRIPT
-    ========================================
-    
-    This script adds interactive features like theme switching, animations, and performance optimizations.
-    The functionality is shared across all pages to reduce code duplication.
-  -->
+  <!-- Shared JavaScript -->
   <script src="script.js"></script>
   
-  <!-- 
-    ========================================
-    ANALYTICS
-    ========================================
-    
-    GoatCounter privacy-respecting analytics - no cookies, no tracking, no personal data collection.
-    Learn more at: https://www.goatcounter.com/
-  -->
+  <!-- GoatCounter Analytics -->
   <script data-goatcounter="https://capybearista.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
 </body>

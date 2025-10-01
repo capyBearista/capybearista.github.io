@@ -9,7 +9,7 @@
   
   Filename: script.js
   Author:   capyBearista
-  Last Updated: 31 July 2025
+  Last Updated: 30 September 2025
 */
 
 // 
@@ -203,30 +203,31 @@ function setupImageAnimations() {
 // PERFORMANCE MONITORING
 // ========================================
 //
-// Monitors frame rate and reduces animation intensity if performance drops.
+// Monitors performance periodically and reduces animation intensity if needed.
 //
-let frameCount = 0;
-let lastTime = performance.now();
-
 function checkPerformance() {
-  frameCount++;
-  const currentTime = performance.now();
-  
-  if (currentTime - lastTime >= 1000) {
-    const fps = Math.round((frameCount * 1000) / (currentTime - lastTime));
-    
-    // If FPS drops below 30, reduce animation intensity
-    if (fps < 30 && !prefersReducedMotion) {
-      document.body.style.setProperty('--animation-duration', '0.1s');
-      console.log('Performance optimization: Reduced animation duration');
-    }
-    
-    frameCount = 0;
-    lastTime = currentTime;
+  // Simple performance check using requestIdleCallback if available
+  if (window.requestIdleCallback) {
+    window.requestIdleCallback(() => {
+      const now = performance.now();
+      const threshold = 16.67; // Target: 60fps (16.67ms per frame)
+      
+      // Simple check: if we're in an idle period, performance is likely good
+      // If requestIdleCallback isn't being called, performance might be poor
+      if (!prefersReducedMotion && document.body.style.getPropertyValue('--animation-duration') !== '0.1s') {
+        // Only reduce animations if we detect performance issues
+        const memoryInfo = performance.memory;
+        if (memoryInfo && memoryInfo.usedJSHeapSize > memoryInfo.totalJSHeapSize * 0.9) {
+          document.body.style.setProperty('--animation-duration', '0.1s');
+          console.log('Performance optimization: Reduced animation duration due to memory usage');
+        }
+      }
+    });
   }
-  
-  raf(checkPerformance);
 }
+
+// Check performance every 5 seconds instead of every frame
+let performanceCheckInterval;
 
 // 
 // ========================================
@@ -355,9 +356,9 @@ function initializePage() {
   // Add ripple animation
   addRippleAnimation();
   
-  // Start performance monitoring if animations are enabled
+  // Start periodic performance monitoring if animations are enabled
   if (!prefersReducedMotion) {
-    raf(checkPerformance);
+    performanceCheckInterval = setInterval(checkPerformance, 5000);
   }
 }
 

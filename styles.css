@@ -9,7 +9,7 @@
   
   Filename: styles.css
   Author:   capyBearista
-  Last Updated: 31 July 2025
+  Last Updated: 30 September 2025
 */
 
 /*
@@ -73,9 +73,8 @@
   --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);  /* Lighter shadow */
   --figure-bg: rgba(248, 250, 252, 0.6);  /* Semi-transparent light background */
   
-  /* Glass effect properties for light theme */
+  /* Light theme glass overrides */
   --glass-border: rgba(0, 0, 0, 0.1);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
   --glass-bg: rgba(255, 255, 255, 0.25);
 }
 
@@ -138,14 +137,20 @@ body::before {
 
 /*
   ========================================
-  SMOOTH THEME TRANSITIONS
+  SMOOTH THEME TRANSITIONS & GLASS UTILITIES
   ========================================
-  
-  Applies smooth transitions to all elements when switching between themes.
-  This ensures a pleasant user experience when toggling between dark and light modes.
 */
 * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Glass effect utility class to reduce duplication */
+.glass-effect {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-backdrop);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
 }
 
 
@@ -806,10 +811,7 @@ aside {
 
 
 
-/* Hover effect for aside */
-aside:hover {
-  /* No hover effects */
-}
+
 
 /*
   ========================================
