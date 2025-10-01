@@ -147,9 +147,10 @@ const observer = new IntersectionObserver((entries) => {
 // ========================================
 //
 // Find elements that should animate on scroll and add the appropriate CSS classes.
+// Excludes project preview cards and main content sections to prevent unwanted fade-ins.
 //
 function setupScrollAnimations() {
-  const scrollElements = document.querySelectorAll('.project-preview, aside, section');
+  const scrollElements = document.querySelectorAll('aside');
   scrollElements.forEach(el => {
     el.classList.add('fade-in-on-scroll');
     observer.observe(el);
