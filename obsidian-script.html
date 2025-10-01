@@ -97,7 +97,29 @@
     </header>
     <main>
       <section>
-        <h2 id="contentstart">Obsidian Markdown Converter</h2>
+        <h2 id="contentstart">Obsidian to GitHub Wiki Converter</h2>
+        
+        <p>I really wanted to use Obsidian to write documentation for my home server, but publishing it directly to GitHub Wiki doesn't quite work because of odd discrepancies between Obsidian's markdown syntax and GitHub's. This is a Git hook system that automatically transforms Obsidian's unique link syntax into GitHub Wiki format. It's as simple as writing your notes in Obsidian and committing them; the script automatically converts text to the correct format and pushes changes to the wiki!</p>
+        
+        <div class="technologies-section">
+          <h4>🛠️ Technologies Used:</h4>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Git Hooks</span>
+            <span class="tech-tag">Regular Expressions</span>
+            <span class="tech-tag">Bash/Shell Scripting</span>
+            <span class="tech-tag">Markdown</span>
+            <span class="tech-tag">GitHub Wiki</span>
+            <span class="tech-tag">Obsidian</span>
+            <span class="tech-tag">Subprocess</span>
+          </div>
+        </div>
+        
+        <p><strong>🔗 Links:</strong>
+          <a href="https://github.com/capyBearista/obsidian_git_experiment" target="_blank" rel="noopener">GitHub Repository</a> |
+          <a href="https://github.com/capyBearista/obsidian_git_experiment#readme" target="_blank" rel="noopener">Setup Guide</a>
+        </p>
+        
         <h3 id="process">My Development Process</h3>
         <figure>
           <img src="images/python.png" width="300" height="300" 
@@ -107,27 +129,31 @@
             <p>Python's logo.</p>
           </figcaption>
         </figure>
-        <p>What does this script do? Well, GitHub has an included "Wiki" feature, which lets each repository have its
-          very own... wiki! However, I wanted to be able to write the pages using something else, a note-taking
-          application called Obsidian. So I started developing this Python script, which acts as a post-commit hook in
-          Git. It essentially converts my notes written in Obsidian to a format that GitHub Wiki likes and uploads it
-          automatically. It was a sort of arduous process, but well worth it. These are the steps I took: </p>
+        <h4>Key Features:</h4>
+        <ul>
+          <li><strong>Automatic Link Conversion</strong> - Transforms Obsidian's `[[wikilink]]` syntax to GitHub Wiki format</li>
+          <li><strong>Git Integration</strong> - Seamlessly integrates with existing Git workflows through hooks</li>
+          <li><strong>Batch Processing</strong> - Efficiently handles multiple files and directory structures</li>
+          <li><strong>Error Handling</strong> - Robust error handling for various edge cases and syntax variations</li>
+          <li><strong>Bidirectional Sync</strong> - Future enhancement to sync changes from GitHub Wiki back to Obsidian</li>
+        </ul>
+
+        <p>GitHub has an included "Wiki" feature, which lets each repository have its very own... wiki! I wanted to be able to write the pages using a note-taking application called Obsidian, but with GitHub's frankly odd proprietary flavor of Markdown, it was more complicated than just pushing the Markdown files. After a search that spanned way longer than it should have, I found, forked, and began developing this Python script! Using Git's post-commit hook, it converts notes written in Obsidian to a format that GitHub Wiki likes and uploads it automatically.It was a sort of arduous process, but well worth it. These are the steps I took:
+        </p>
+        
+        <h4>Development Journey:</h4>
         <ol>
           <li>
-            <p><span class="bold">Identifying the best language to the program in. </span>I found Python to be pretty
-              great for this. It's not too hard to learn.</p>
+            <p><strong>Looking for a Language</strong> - The original maintainer chose Python, and I can see why. It's got excellent string processing capabilities and extensive regex support.</p>
           </li>
           <li>
-            <p><span class="bold">Writing the bulk of the program. </span>The whole process was admittedly kind of
-              confusing because regular expressions has never been my strong point...</p>
+            <p><strong>Writing the Core Algorithm</strong> - I ironed out the regex patterns and conversion logic to handle various markdown syntax differences. This was the most challenging part due to the complexity of edge cases. Regex has made me want to pull out my hair several times.</p>
           </li>
           <li>
-            <p><span class="bold">Troubleshooting. </span>There were quite a lot of strange errors here and there! Git
-              is finicky, so this stage had plenty of hair-pulling and looking things up on Google.</p>
+            <p><strong>Git Integration & Troubleshooting</strong> - Git can be finicky, so there were a lot of strange errors here 🥲.</p>
           </li>
           <li>
-            <p><span class="bold">Finishing! </span>Except there's always more work to be done... For example, I want to
-              make it so changes on GitHub Wiki are reflected in Obsidian.</p>
+            <p><strong>Finishing!</strong> - Except there's always more work to be done. There's a chance this page will be outdated by the time you're reading it (check the GitHub repo to see the current state o the project).</p>
           </li>
         </ol>
       </section>
