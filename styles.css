@@ -775,6 +775,27 @@ h2 {
   margin-bottom: 1em;
 }
 
+/* Main content links styling - matches project preview card links */
+.main-content section a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+
+.main-content section a:hover,
+.main-content section a:focus {
+  color: var(--text-main);
+  background: var(--accent);
+  border-color: var(--accent);
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 188, 212, 0.3);
+}
+
 /*
   ========================================
   ASIDE (CONTACT/INFO BOX)
