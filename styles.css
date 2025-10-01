@@ -1019,6 +1019,7 @@ li {
 /* Text utility classes */
 .italic {
   font-style: italic;
+  padding: 1em
 }
 
 .bold {
@@ -1267,12 +1268,3 @@ footer a:focus {
   opacity: 1;
   transform: translateY(0);
 }
-
-
-
-
-
-
-
-
-
