@@ -4,54 +4,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>capyBearista's Portfolio</title>
+  <title>Arjun Pramanik</title>
   
-  <!-- SEO and Social Media Meta Tags -->
-  <meta name="description" content="Arjun Pramanik (capyBearista) - Full-stack developer specializing in home automation, Python scripting, and modern web development. Explore my portfolio of server administration and automation projects.">
-  <meta name="keywords" content="portfolio, web developer, home server, python, automation, docker, linux, javascript, html, css">
-  <meta name="author" content="Arjun Pramanik">
-  <meta name="robots" content="index, follow">
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://capybearista.github.io/">
-  <meta property="og:title" content="capyBearista's Programming Portfolio">
-  <meta property="og:description" content="Explore my projects including home server setup, automation scripts, and modern web development work. Full-stack developer specializing in Linux system administration and Python automation.">
-  <meta property="og:image" content="https://capybearista.github.io/images/web-app-icon.png">
-  <meta property="og:site_name" content="capyBearista Portfolio">
-  
-  <!-- Additional SEO -->
-  <meta name="theme-color" content="#0891b2">
   <link rel="canonical" href="https://capybearista.github.io/">
   
-  <!-- Schema.org structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Arjun Pramanik",
-    "alternateName": "capyBearista",
-    "description": "Undergrad student looking to specialize in AI/ML",
-    "url": "https://capybearista.github.io/",
-    "sameAs": [
-      "https://github.com/capybearista"
-    ]
-  }
-  </script>
-  
   <!-- 
-      Coding Portfolio main page 
-      Filename: index.html
-      Author:   capyBearista
-      Date:     10 May 2025
-      Last Updated: 30 September 2025
-    -->
-  
-  
-  <!-- 
-    Viewport meta tag - essential for responsive design
-    This ensures the page scales properly on mobile devices
+    Website Home Page
+    Filename: index.html
+    Author:   Arjun Pramanik
+    Date:     2 October 2025
   -->
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- External Resources -->
@@ -70,7 +33,6 @@
   <link rel="icon" sizes="192x192" href="images/web-app-icon.png">
 </head>
 
-
 <body>
   <!-- Skip navigation for accessibility -->
   <p class="skipnavigation"><a href="#contentstart">Skip navigation</a></p>
@@ -79,7 +41,7 @@
   <nav class="sidebar">
     <!-- Sidebar header with site title -->
     <div class="sidebar-header">
-      <span class="sidebar-title">capyBearista</span>
+      <span class="sidebar-title">Arjun Pramanik</span>
     </div>
     
     <!-- Theme Toggle Button -->
@@ -106,14 +68,9 @@
     
     <!-- Navigation Menu -->
     <ul class="sidebar-nav">
-      <!-- Home page link -->
       <li><a href="index.html"><img src="images/icons/home.svg" alt="Home" class="sidebar-icon">Home</a></li>
-      <!-- Home Server project page link -->
-      <li><a href="home-server.html"><img src="images/icons/server_build.svg" alt="Home Server"
-            class="sidebar-icon">Home Server</a></li>
-      <!-- Obsidian Script project page link -->
-      <li><a href="obsidian-script.html"><img src="images/icons/sync_script.svg" alt="Obsidian Script"
-            class="sidebar-icon">Obsidian Script</a></li>
+      <li><a href="projects.html"><img src="images/icons/server_build.svg" alt="Projects" class="sidebar-icon">Projects</a></li>
+      <li><a href="interests.html"><img src="images/icons/sync_script.svg" alt="Interests" class="sidebar-icon">Interests</a></li>
     </ul>
     
     <!-- Sidebar Footer -->
@@ -126,108 +83,40 @@
   <!-- Main Content Area -->
   <div class="main-content">
     <header>
-      <h1>My Project Portfolio</h1>
+      <h1>Arjun Pramanik</h1>
     </header>
     
     <main>
-      <!-- Welcome Section -->
-      <section>
-        <!-- Welcome message -->
-        <p>👋 Hey there! Welcome to my project portfolio. What you see here is a collection of the projects I am most proud
-          of!</p>
+      <section id="contentstart">
+        <h2>About Me</h2>
         
-        <h2 id="contentstart">Project Previews</h2>
+        <p>
+            Hi, I'm Arjun Pramanik. I'm a computer science major at Quincy College passionate about the intersection of technology and community. I'm specializing machine learning (who isn't these days 😅), but one of the most important lessons I've learned didn't come from a textbook.
+        </p>
         
-        <!-- Home Server Project Card -->
-        <article class="project-preview">
-          <!-- Project description and details -->
-          <div class="project-preview-content">
-            <h3 id="home-server"><a href="home-server.html">Home Server</a></h3>
-            <p>My first real project! I transformed an old laptop into a powerhouse of a home server (maybe "powerhouse" is a bit of an exaggeration) that blocks ads at the network level, streams movies to my family, and hosts Minecraft servers for friends—all while learning Linux, networking, and automation along the way.</p>
-            
-            <div class="technologies-section">
-              <h4>🛠️ Technologies Used:</h4>
-              <div class="tech-tags">
-                <span class="tech-tag">Ubuntu Server</span>
-                <span class="tech-tag">Docker</span>
-                <span class="tech-tag">Docker Compose</span>
-                <span class="tech-tag">Bash/Shell Scripting</span>
-                <span class="tech-tag">Nginx</span>
-                <span class="tech-tag">Tailscale</span>
-                <span class="tech-tag">n8n</span>
-                <span class="tech-tag">Pi-hole</span>
-                <span class="tech-tag">Jellyfin</span>
-                <span class="tech-tag">Immich</span>
-                <span class="tech-tag">Portainer</span>
-                <span class="tech-tag">A whole bunch more...</span>
-              </div>
-            </div>
-            
-            <p><strong>🔗 Links:</strong> 
-              <a href="https://github.com/capyBearista/home-server" target="_blank" rel="noopener">GitHub Repository</a> |
-              <a href="https://github.com/capyBearista/home-server/wiki" target="_blank" rel="noopener">Documentation Wiki</a>
-            </p>
-          </div>
-          
-          <!-- Project image with caption -->
-          <figure>
-            <img src="images/server-sample.png" width="302" height="403"
-              loading="lazy"
-              alt="output of htop command on Ubuntu Server, showcasing programs running on the home server">
-            <figcaption>
-              <p class="italic small-caption">The output of the htop command on my server! You can see some of the
-                programs running.</p>
-            </figcaption>
-          </figure>
-        </article>
+        <p>
+            I saw it firsthand while leading a cultural organization for students trying to figure out their diaspora identity. It taught me that the strongest communities aren't built on rigid rules, but on creating a welcoming home for people who feel a little in-between. I try to carry that same idea over to my work as a technologist (a fancy new term I learned). I think of it as being "T-shaped"—you need deep technical skills to build things, sure, but you also need a wide breadth of experiences to understand the people you're building for. One really can't make an impact without the other.
+        </p>
+
+        <p>
+            It's why I love experimenting with CS projects that aim to do some social good, and why I always find myself jumping into leadership roles outside the lab. That’s where you find the messy, human challenges that code is only part of the answer for.
+        </p>
+
+        <p>
+            My journey hasn't been the smoothest, but the process of rebuilding my academic career has supplied me with a wealth of clarity and purpose. That clarity now defines my mission: to build a career at the intersection of deep AI research and big-picture questions. For me, the most meaningful work will always happen in a community that's just as interested in asking why we're building something as how. 🔬📣
+        </p>
         
-        <!-- Obsidian Script Project Card -->
-        <article class="project-preview">
-          <!-- Project description and details -->
-          <div class="project-preview-content">
-            <h3 id="obsidian-script"><a href="obsidian-script.html">Obsidian to GitHub Wiki Converter</a></h3>
-            <p>I really wanted to use Obsidian to write documentation for my home server, but publishing it directly to GitHub Wiki doesn't quite work because of odd discrepancies between Obsidian's markdown syntax and GitHub's. This is a Git hook system that automatically transforms Obsidian's unique link syntax into GitHub Wiki format. It's as simple as writing your notes in Obsidian and committing them; the script automatically converts text to the correct format and pushes changes to the wiki!</p>
-            
-            <div class="technologies-section">
-              <h4>🛠️ Technologies Used:</h4>
-              <div class="tech-tags">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Git Hooks</span>
-                <span class="tech-tag">Regular Expressions</span>
-                <span class="tech-tag">Bash/Shell Scripting</span>
-                <span class="tech-tag">Markdown</span>
-                <span class="tech-tag">GitHub Wiki</span>
-                <span class="tech-tag">Obsidian</span>
-                <span class="tech-tag">Subprocess</span>
-              </div>
-            </div>
-            
-            <p><strong>🔗 Links:</strong> 
-              <a href="https://github.com/capyBearista/obsidian_git_experiment" target="_blank" rel="noopener">GitHub Repository</a> |
-              <a href="https://github.com/capyBearista/obsidian_git_experiment#readme" target="_blank" rel="noopener">Setup Guide</a>
-            </p>
-          </div>
-          
-          <!-- Project image with caption -->
-          <figure>
-            <img src="images/obsidian.png" width="300" height="300"
-              loading="lazy"
-              alt="the logo of the note-taking app Obsidian, a purple shard with curved edges as an artistic recreation of the real-life material">
-            <figcaption>
-              <p class="italic small-caption">The logo of the note-taking app Obsidian.</p>
-            </figcaption>
-          </figure>
-        </article>
+        <h3>Learn More</h3>
+        <p>Check out my<a href="projects.html">technical projects</a>to see how I apply these ideas in practice, or visit my<a href="interests.html">interests page</a>to learn about my photography, community work, and ongoing coffee shop discoveries.</p>
       </section>
-      
-      <!-- Contact Aside -->
+
+      <!-- Contact Info -->
       <aside>
-        <p>Please feel free to contact me if you have any questions about my projects! I'd be happy to explain how they
-          work or address any bugs and concerns.</p>
+        <p>I'd love to connect! Feel free to reach out if you want to chat about AI research, my GitHub projects, community building, photography, or great local coffee spots :)</p>
       </aside>
     </main>
-    
-    <!-- Page Footer -->
+
+    <!-- Footer -->
     <footer>
       <p><span class="bold">capyBearista</span> &nbsp;|&nbsp; <span class="bold">Arjun Pramanik</span></p>
     </footer>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Projects - Arjun's Portfolio</title>
+  
+  <link rel="canonical" href="https://capybearista.github.io/">
+  
+  <!-- 
+      Coding Portfolio main page 
+      Filename: index.html
+      Author:   Arjun Pramanik
+      Date:     10 May 2025
+      Last Updated: 30 September 2025
+    -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Fonts with preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Favicons and App Icons -->
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="apple-touch-icon" href="images/web-app-icon.png">
+  <link rel="icon" sizes="192x192" href="images/web-app-icon.png">
+</head>
+
+
+<body>
+  <!-- Skip navigation for accessibility -->
+  <p class="skipnavigation"><a href="#contentstart">Skip navigation</a></p>
+  
+  <!-- Sidebar Navigation -->
+  <nav class="sidebar">
+    <!-- Sidebar header with site title -->
+    <div class="sidebar-header">
+      <span class="sidebar-title">Arjun Pramanik</span>
+    </div>
+    
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle-container">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">
+        <!-- Sun icon - visible in light theme -->
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <!-- Moon icon - visible in dark theme -->
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Navigation Menu -->
+    <ul class="sidebar-nav">
+      <li><a href="index.html"><img src="images/icons/home.svg" alt="Home" class="sidebar-icon">Home</a></li>
+      <li><a href="projects.html"><img src="images/icons/server_build.svg" alt="Projects" class="sidebar-icon">Projects</a></li>
+      <li><a href="interests.html"><img src="images/icons/sync_script.svg" alt="Interests" class="sidebar-icon">Interests</a></li>
+    </ul>
+    
+    <!-- Sidebar Footer -->
+    <div class="sidebar-footer">
+      <a href="mailto:capyBearista@gmail.com" class="sidebar-contact">Email</a>
+      <a href="https://github.com/capybearista" target="_blank" rel="noopener" class="sidebar-contact">GitHub</a>
+    </div>
+  </nav>
+
+  <!-- Main Content Area -->
+  <div class="main-content">
+    <header>
+      <h1>Technical Projects</h1>
+    </header>
+    
+    <main>
+      <!-- Welcome Section -->
+      <section>
+        <!-- Welcome message -->
+        <p>Welcome to my technical project portfolio. What you see here is a collection of the projects I am most proud of!</p>
+        
+        <h2 id="contentstart">Technical Projects</h2>
+        
+        <!-- Home Server Project Card -->
+        <article class="project-preview">
+          <!-- Project description and details -->
+          <div class="project-preview-content">
+            <h3 id="home-server"><a href="home-server.html">Home Server</a></h3>
+            <p>My first real project! I transformed an old laptop into a powerhouse of a home server (maybe "powerhouse" is a bit of an exaggeration) that blocks ads at the network level, streams movies to my family, and hosts Minecraft servers for friends—all while learning Linux, networking, and automation along the way.</p>
+            
+            <div class="technologies-section">
+              <h4>🛠️ Technologies Used:</h4>
+              <div class="tech-tags">
+                <span class="tech-tag">Ubuntu Server</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">Docker Compose</span>
+                <span class="tech-tag">Bash/Shell Scripting</span>
+                <span class="tech-tag">Nginx</span>
+                <span class="tech-tag">Tailscale</span>
+                <span class="tech-tag">n8n</span>
+                <span class="tech-tag">Pi-hole</span>
+                <span class="tech-tag">Jellyfin</span>
+                <span class="tech-tag">Immich</span>
+                <span class="tech-tag">Portainer</span>
+                <span class="tech-tag">A whole bunch more...</span>
+              </div>
+            </div>
+            
+            <p><strong>🔗 Links:</strong> 
+              <a href="https://github.com/capyBearista/home-server" target="_blank" rel="noopener">GitHub Repository</a> |
+              <a href="https://github.com/capyBearista/home-server/wiki" target="_blank" rel="noopener">Documentation Wiki</a>
+            </p>
+          </div>
+          
+          <!-- Project image with caption -->
+          <figure>
+            <img src="images/server-sample.png" width="302" height="403"
+              loading="lazy"
+              alt="output of htop command on Ubuntu Server, showcasing programs running on the home server">
+            <figcaption>
+              <p class="italic small-caption">The output of the htop command on my server! You can see some of the
+                programs running.</p>
+            </figcaption>
+          </figure>
+        </article>
+        
+        <!-- Obsidian Script Project Card -->
+        <article class="project-preview">
+          <!-- Project description and details -->
+          <div class="project-preview-content">
+            <h3 id="obsidian-script"><a href="obsidian-script.html">Obsidian to GitHub Wiki Converter</a></h3>
+            <p>I really wanted to use Obsidian to write documentation for my home server, but publishing it directly to GitHub Wiki doesn't quite work because of odd discrepancies between Obsidian's markdown syntax and GitHub's. This is a Git hook system that automatically transforms Obsidian's unique link syntax into GitHub Wiki format. It's as simple as writing your notes in Obsidian and committing them; the script automatically converts text to the correct format and pushes changes to the wiki!</p>
+            
+            <div class="technologies-section">
+              <h4>🛠️ Technologies Used:</h4>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Git Hooks</span>
+                <span class="tech-tag">Regular Expressions</span>
+                <span class="tech-tag">Bash/Shell Scripting</span>
+                <span class="tech-tag">Markdown</span>
+                <span class="tech-tag">GitHub Wiki</span>
+                <span class="tech-tag">Obsidian</span>
+                <span class="tech-tag">Subprocess</span>
+              </div>
+            </div>
+            
+            <p><strong>🔗 Links:</strong> 
+              <a href="https://github.com/capyBearista/obsidian_git_experiment" target="_blank" rel="noopener">GitHub Repository</a> |
+              <a href="https://github.com/capyBearista/obsidian_git_experiment#readme" target="_blank" rel="noopener">Setup Guide</a>
+            </p>
+          </div>
+          
+          <!-- Project image with caption -->
+          <figure>
+            <img src="images/obsidian.png" width="300" height="300"
+              loading="lazy"
+              alt="the logo of the note-taking app Obsidian, a purple shard with curved edges as an artistic recreation of the real-life material">
+            <figcaption>
+              <p class="italic small-caption">The logo of the note-taking app Obsidian.</p>
+            </figcaption>
+          </figure>
+        </article>
+      </section>
+      
+      <!-- Contact Aside -->
+      <aside>
+        <p>Please feel free to contact me if you have any questions about my projects! I'd be happy to explain how they
+          work or address any bugs and concerns.</p>
+      </aside>
+    </main>
+    
+    <!-- Page Footer -->
+    <footer>
+      <p><span class="bold">capyBearista</span> &nbsp;|&nbsp; <span class="bold">Arjun Pramanik</span></p>
+    </footer>
+  </div>
+
+  <!-- Shared JavaScript -->
+  <script src="script.js"></script>
+  
+  <!-- GoatCounter Analytics -->
+  <script data-goatcounter="https://capybearista.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>

@@ -1038,6 +1038,74 @@ li {
 
 /*
   ========================================
+  INTERESTS PAGE SPECIFIC STYLES
+  ========================================
+*/
+
+/* Photography gallery placeholder */
+.photography-gallery {
+  margin: 2em 0;
+  padding: 1.5em;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-backdrop);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--glass-shadow);
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.photo-placeholder {
+  aspect-ratio: 4/3;
+  background: var(--card-bg);
+  border: 2px dashed var(--glass-border);
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-style: italic;
+  transition: all 0.3s ease;
+}
+
+.photo-placeholder:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Coffee section */
+.coffee-section {
+  margin: 2em 0;
+  padding: 1.5em;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-backdrop);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--glass-shadow);
+}
+
+.coffee-placeholder {
+  padding: 1em;
+  background: var(--card-bg);
+  border: 2px dashed var(--glass-border);
+  border-radius: var(--border-radius);
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.coffee-placeholder:hover {
+  border-color: var(--accent);
+}
+
+/*
+  ========================================
   FOOTER STYLING
   ========================================
   

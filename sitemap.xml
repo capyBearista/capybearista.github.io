@@ -2,17 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://capybearista.github.io/</loc>
-    <lastmod>2025-09-30</lastmod>
+    <lastmod>2025-10-02</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://capybearista.github.io/home-server.html</loc>
-    <lastmod>2025-09-30</lastmod>
+    <loc>https://capybearista.github.io/projects.html</loc>
+    <lastmod>2025-10-02</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://capybearista.github.io/interests.html</loc>
+    <lastmod>2025-10-02</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://capybearista.github.io/home-server.html</loc>
+    <lastmod>2025-10-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://capybearista.github.io/obsidian-script.html</loc>
-    <lastmod>2025-09-30</lastmod>
-    <priority>0.8</priority>
+    <lastmod>2025-10-02</lastmod>
+    <priority>0.7</priority>
   </url>
 </urlset>
