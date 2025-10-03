@@ -515,7 +515,7 @@ body {
 /* Sidebar header with title */
 .sidebar-header {
   padding: 2rem 1.5rem 1rem 1.5rem;
-  font-family: 'Roboto', sans-serif;
+
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--accent);
@@ -729,12 +729,12 @@ body {
 header {
   padding: 2.5rem 2rem 1rem 2rem;
   text-align: left;
-  animation: slideInDown 0.8s ease-out 0.2s both;
+  /* animation: slideInDown 0.8s ease-out 0.2s both; */
+  /* SLIDE DOWN ANIMATION FOR HEADER*/ 
 }
 
 /* Main page title */
 h1 {
-  font-family: 'Roboto', sans-serif;
   font-size: 2.2em;
   font-weight: 700;
   color: var(--accent);
@@ -768,7 +768,6 @@ section {
 
 /* Section headings */
 h2 {
-  font-family: 'Roboto', sans-serif;
   color: var(--text-main);
   font-size: 1.5em;
   margin-top: 1.5em;
@@ -882,7 +881,6 @@ aside {
 
 /* Project card headings */
 .project-preview h3 {
-  font-family: 'Roboto', sans-serif;
   font-size: 1.3em;
   margin-top: 0;
 }
@@ -981,7 +979,6 @@ aside {
 
 .technologies-section h4 {
   margin: 0 0 0.75em 0;
-  font-family: 'Roboto', sans-serif;
   font-size: 1em;
   font-weight: 600;
   color: var(--text-main);
@@ -1004,13 +1001,11 @@ aside {
   font-weight: 600;
   border-radius: 16px;
   border: 1px solid var(--accent);
-  font-family: 'JetBrains Mono', monospace;
 }
 
 /* Regular paragraph and list text */
 p,
 li {
-  font-family: 'JetBrains Mono', monospace;
   font-size: 1em;
   color: var(--text-main);
   line-height: 1.7;
