@@ -780,6 +780,45 @@ section {
   flex: none;
 }
 
+/* Hero section with side-by-side layout */
+.hero-section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 4em;
+  margin-bottom: 2em;
+}
+
+.hero-content {
+  flex: 2 1 0;
+  min-width: 0;
+}
+
+.hero-image {
+  flex: 0 0 auto;
+  max-width: 320px;
+  margin: 0;
+  margin-top: 1.5em;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-image img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 188, 212, 0.15);
+}
+
+.hero-image figcaption {
+  text-align: center;
+  margin-top: 0.8em;
+}
+
 /* Section headings */
 h2 {
   color: var(--text-main);
@@ -1056,7 +1095,7 @@ li {
 /* Text utility classes */
 .italic {
   font-style: italic;
-  padding: 1em
+  padding-top: 0.5em;
 }
 
 .bold {
@@ -1584,6 +1623,17 @@ img[data-expandable]:hover {
     }
     .project-preview-content {
       width: 100%;
+    }
+    
+    /* Stack hero section vertically on mobile */
+    .hero-section {
+      flex-direction: column;
+      gap: 2em;
+    }
+    
+    .hero-image {
+      max-width: 100%;
+      align-self: center;
     }
   }
 
