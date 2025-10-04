@@ -560,6 +560,140 @@ const imageModal = {
 
 // 
 // ========================================
+// HERO CAROUSEL FUNCTIONALITY
+// ========================================
+//
+// Hero Image Carousel functionality
+const heroCarousel = {
+  currentSlide: 0,
+  slides: [],
+  indicators: [],
+  autoplayInterval: null,
+  autoplayDelay: 4000, // 4 seconds between slides
+  
+  init() {
+    const carousel = document.querySelector('.hero-image-carousel');
+    if (!carousel) return;
+    
+    this.slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+    this.indicators = Array.from(carousel.querySelectorAll('.indicator'));
+    
+    if (this.slides.length === 0) return;
+    
+    this.setupEventListeners();
+    this.startAutoplay();
+  },
+  
+  setupEventListeners() {
+    // Navigation buttons
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+    
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => this.goToPrevSlide());
+    }
+    
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => this.goToNextSlide());
+    }
+    
+    // Indicator buttons
+    this.indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => this.goToSlide(index));
+    });
+    
+    // Pause autoplay on hover, resume on leave
+    const container = document.querySelector('.carousel-container');
+    if (container) {
+      container.addEventListener('mouseenter', () => this.stopAutoplay());
+      container.addEventListener('mouseleave', () => this.startAutoplay());
+    }
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') this.goToPrevSlide();
+      if (e.key === 'ArrowRight') this.goToNextSlide();
+    });
+    
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let currentX = 0;
+    let threshold = 50;
+    
+    if (container) {
+      container.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+      });
+      
+      container.addEventListener('touchmove', (e) => {
+        currentX = e.touches[0].clientX;
+      });
+      
+      container.addEventListener('touchend', () => {
+        const diffX = startX - currentX;
+        if (Math.abs(diffX) > threshold) {
+          if (diffX > 0) {
+            this.goToNextSlide();
+          } else {
+            this.goToPrevSlide();
+          }
+        }
+      });
+    }
+  },
+  
+  goToSlide(index) {
+    if (index === this.currentSlide) return;
+    
+    // Remove active class from current slide and indicator
+    this.slides[this.currentSlide].classList.remove('active');
+    this.indicators[this.currentSlide].classList.remove('active');
+    
+    // Add prev class for exit animation
+    this.slides[this.currentSlide].classList.add('prev');
+    
+    // Update current slide
+    this.currentSlide = index;
+    
+    // Add active class to new slide and indicator
+    this.slides[this.currentSlide].classList.add('active');
+    this.indicators[this.currentSlide].classList.add('active');
+    
+    // Clean up prev class after animation
+    setTimeout(() => {
+      this.slides.forEach(slide => slide.classList.remove('prev'));
+    }, 500);
+  },
+  
+  goToNextSlide() {
+    const nextIndex = (this.currentSlide + 1) % this.slides.length;
+    this.goToSlide(nextIndex);
+  },
+  
+  goToPrevSlide() {
+    const prevIndex = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+    this.goToSlide(prevIndex);
+  },
+  
+  startAutoplay() {
+    if (prefersReducedMotion) return; // Respect reduced motion preference
+    
+    this.stopAutoplay(); // Clear any existing interval
+    this.autoplayInterval = setInterval(() => {
+      this.goToNextSlide();
+    }, this.autoplayDelay);
+  },
+  
+  stopAutoplay() {
+    if (this.autoplayInterval) {
+      clearInterval(this.autoplayInterval);
+      this.autoplayInterval = null;
+    }
+  }
+};
+
+// 
+// ========================================
 // INITIALIZATION FUNCTION
 // ========================================
 //
@@ -579,6 +713,9 @@ function initializePage() {
   
   // Initialize image expansion modal
   imageModal.init();
+  
+  // Initialize hero image carousel
+  heroCarousel.init();
   
   // Add ripple animation
   addRippleAnimation();
