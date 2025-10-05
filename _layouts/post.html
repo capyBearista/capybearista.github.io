@@ -30,7 +30,7 @@ layout: default
 
 <!-- Blog Post Signature -->
 <div class="post-signature">
-    <p>- Arjun :)</p>
+    <pre class="signature">- Arjun :)</pre>
 </div>
 
 <!-- Blog Post Specific Styles -->
@@ -75,7 +75,7 @@ layout: default
 .post-content {
     font-size: 1.1rem;
     line-height: 1.7;
-    margin-bottom: 3rem;
+    padding-bottom: 0em;
 }
 
 /* Blog Post Links - Match main content section styling */
@@ -147,15 +147,24 @@ layout: default
 
 /* Blog Post Signature Styling */
 .post-signature {
-    margin-top: 3rem;
+    margin-top: 1rem;
     text-align: left;
 }
 
-.post-signature p {
-    font-style: italic;
+.post-signature .signature {
+    position: unset;
+    border: none;
+    padding: 0;
+    background: none;
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: normal;
     color: var(--text-secondary);
-    font-size: 1rem;
     margin: 0;
+    margin-bottom:2em;
+    white-space: pre;
 }
 
 /* Responsive Design */
