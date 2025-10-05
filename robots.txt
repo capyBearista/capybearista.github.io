@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://capybearista.github.io/sitemap.xml
