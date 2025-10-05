@@ -699,6 +699,103 @@ const heroCarousel = {
 
 // 
 // ========================================
+// MOBILE WARNING MODAL
+// ========================================
+//
+// Modal system to warn mobile users about non-optimized experience
+//
+const mobileModal = {
+  modal: null,
+  continueBtn: null,
+  storageKey: 'mobileWarningDismissed',
+  
+  init() {
+    this.modal = document.getElementById('mobileWarningModal');
+    this.continueBtn = document.getElementById('mobileModalContinue');
+    
+    if (this.modal && this.continueBtn) {
+      this.setupEventListeners();
+      this.checkAndShow();
+    }
+  },
+  
+  setupEventListeners() {
+    // Continue button closes modal and saves preference
+    this.continueBtn.addEventListener('click', () => {
+      this.hide();
+      this.saveDismissedState();
+    });
+    
+    // Close modal when clicking backdrop
+    this.modal.addEventListener('click', (e) => {
+      if (e.target === this.modal) {
+        this.hide();
+        this.saveDismissedState();
+      }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && this.isVisible()) {
+        this.hide();
+        this.saveDismissedState();
+      }
+    });
+  },
+  
+  checkAndShow() {
+    // Only show on mobile devices and if not previously dismissed
+    if (this.isMobileDevice() && !this.isDismissed()) {
+      this.show();
+    }
+  },
+  
+  isMobileDevice() {
+    // Multiple checks to ensure we catch mobile devices
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isTouchDevice = 'ontouchstart' in window;
+    const isSmallScreen = window.innerWidth <= 900;
+    const isMobileUserAgent = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
+    
+    return (isTouchDevice && isSmallScreen) || isMobileUserAgent;
+  },
+  
+  isDismissed() {
+    return localStorage.getItem(this.storageKey) === 'true';
+  },
+  
+  saveDismissedState() {
+    localStorage.setItem(this.storageKey, 'true');
+  },
+  
+  show() {
+    if (this.modal) {
+      this.modal.classList.add('show');
+      this.modal.setAttribute('aria-hidden', 'false');
+      
+      // Focus the continue button for accessibility
+      setTimeout(() => {
+        if (this.continueBtn) {
+          this.continueBtn.focus();
+        }
+      }, 100);
+    }
+  },
+  
+  hide() {
+    if (this.modal) {
+      this.modal.classList.remove('show');
+      this.modal.setAttribute('aria-hidden', 'true');
+    }
+  },
+  
+  isVisible() {
+    return this.modal && this.modal.classList.contains('show');
+  }
+};
+
+// 
+// ========================================
 // INITIALIZATION FUNCTION
 // ========================================
 //
@@ -707,6 +804,9 @@ const heroCarousel = {
 function initializePage() {
   // Initialize theme management
   themeManager.init();
+  
+  // Initialize mobile warning modal
+  mobileModal.init();
   
   // Setup animations and interactions
   setupScrollAnimations();

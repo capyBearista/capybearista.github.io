@@ -156,7 +156,117 @@ body::before {
   box-shadow: var(--glass-shadow);
 }
 
+/*
+  ========================================
+  MOBILE WARNING MODAL
+  ========================================
+  
+  A modal that appears only on mobile devices to warn users
+  that the site wasn't optimized for mobile viewing.
+*/
+.mobile-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
 
+.mobile-modal.show {
+  display: flex;
+}
+
+.mobile-modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.mobile-modal-content {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  z-index: 1;
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+.mobile-modal-content {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-backdrop);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--border-radius);
+}
+
+.mobile-modal-content h2 {
+  color: var(--accent);
+  font-size: 1.5rem;
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+}
+
+.mobile-modal-content p {
+  color: var(--text-main);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 0 1.5rem 0;
+}
+
+.mobile-modal-btn {
+  background: var(--accent);
+  color: var(--background);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--animation-speed) ease;
+  box-shadow: var(--shadow);
+}
+
+.mobile-modal-btn:hover {
+  background: var(--accent-bright);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.mobile-modal-btn:active {
+  transform: translateY(0);
+}
+
+/* Modal animation keyframes */
+@keyframes modalSlideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Only show modal on mobile devices */
+@media (min-width: 900px) {
+  .mobile-modal {
+    display: none !important;
+  }
+}
 
 /*
   ========================================
