@@ -1,168 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: page
+title: "ObsiWiki - Obsidian to GitHub Wiki Converter"
+canonical_url: "https://capybearista.github.io/obsidian-script.html"
+description: "Git hook system that automatically transforms Obsidian's markdown syntax into GitHub Wiki format"
+---
 
-<head>
-  <meta charset="utf-8">
-  
-  <title>ObsiWiki - Arjun's Portfolio</title>
-  
-  <link rel="canonical" href="https://capybearista.github.io/obsidian-script.html">
+<section>
+  <h2 id="contentstart">ObsiWiki</h2>
 
-  <!-- 
-    Obsidian Script Project Page 
-    Filename: obsidian-script.html
-    Author:   Arjun Pramanik
-    Last Updated: 02 October 2025
-  -->
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <p>I really wanted to use Obsidian to write documentation for my home server, but publishing it directly to GitHub
+    Wiki doesn't quite work because of odd discrepancies between Obsidian's markdown syntax and GitHub's. This is a Git
+    hook system that automatically transforms Obsidian's unique link syntax into GitHub Wiki format. It's as simple as
+    writing your notes in Obsidian and committing them; the script automatically converts text to the correct format and
+    pushes changes to the wiki!</p>
 
-  <!-- Google Fonts: JetBrains Mono, Roboto -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Roboto:wght@400;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="shortcut icon" href="images/favicon.ico">
-  <link rel="apple-touch-icon" href="images/web-app-icon.png">
-  <link rel="icon" sizes="192x192" href="images/web-app-icon.png">
-</head>
-
-<body>
-  <p class="skipnavigation"><a href="#contentstart">Skip navigation</a></p>
-
-  <!-- Mobile Warning Modal -->
-  <div id="mobileWarningModal" class="mobile-modal" role="dialog" aria-labelledby="mobileModalTitle" aria-describedby="mobileModalDesc" aria-hidden="true">
-    <div class="mobile-modal-backdrop"></div>
-    <div class="mobile-modal-content">
-      <h2 id="mobileModalTitle">🐉 Here Be Dragons</h2>
-      <p id="mobileModalDesc">This website isn't optimized for mobile devices, so you might encounter some rough edges on mobile devices!</p>
-      <button id="mobileModalContinue" class="mobile-modal-btn">Continue Anyway</button>
+  <div class="technologies-section">
+    <h4>🛠️ Technologies Used:</h4>
+    <div class="tech-tags">
+      <span class="tech-tag">Python</span>
+      <span class="tech-tag">Git Hooks</span>
+      <span class="tech-tag">Regular Expressions</span>
+      <span class="tech-tag">Bash/Shell Scripting</span>
+      <span class="tech-tag">Markdown</span>
+      <span class="tech-tag">GitHub Wiki</span>
+      <span class="tech-tag">Obsidian</span>
+      <span class="tech-tag">Subprocess</span>
     </div>
   </div>
 
-  <!-- Sidebar -->
-  <nav class="sidebar">
-    <div class="sidebar-header">
-      <span class="sidebar-title">Arjun Pramanik</span>
-    </div>
-    
-    <!-- Theme Toggle -->
-    <div class="theme-toggle-container">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="5"/>
-          <line x1="12" y1="1" x2="12" y2="3"/>
-          <line x1="12" y1="21" x2="12" y2="23"/>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-          <line x1="1" y1="12" x2="3" y2="12"/>
-          <line x1="21" y1="12" x2="23" y2="12"/>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-        </svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-      </button>
-    </div>
-    
-    <ul class="sidebar-nav">
-      <li><a href="index.html"><img src="images/icons/home.svg" alt="Home" class="sidebar-icon">Home</a></li>
-      <li><a href="projects.html"><img src="images/icons/python.svg" alt="Projects" class="sidebar-icon">Projects</a></li>
-      <li><a href="interests.html"><img src="images/icons/adobe-ps.svg"  alt="Interests" class="sidebar-icon">Interests</a></li>
-    </ul>
-    <div class="sidebar-footer">
-      <a href="mailto:capyBearista@gmail.com" class="sidebar-contact">Email</a>
-      <a href="https://github.com/capybearista" target="_blank" rel="noopener" class="sidebar-contact">GitHub</a>
-    </div>
-  </nav>
-  <!-- Main content -->
-  <div class="main-content">
-    <header>
-      <h1>Technical Projects</h1>
-    </header>
-    <main>
-      <section>
-        <h2 id="contentstart">ObsiWiki</h2>
-        
-        <p>I really wanted to use Obsidian to write documentation for my home server, but publishing it directly to GitHub Wiki doesn't quite work because of odd discrepancies between Obsidian's markdown syntax and GitHub's. This is a Git hook system that automatically transforms Obsidian's unique link syntax into GitHub Wiki format. It's as simple as writing your notes in Obsidian and committing them; the script automatically converts text to the correct format and pushes changes to the wiki!</p>
-        
-        <div class="technologies-section">
-          <h4>🛠️ Technologies Used:</h4>
-          <div class="tech-tags">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">Git Hooks</span>
-            <span class="tech-tag">Regular Expressions</span>
-            <span class="tech-tag">Bash/Shell Scripting</span>
-            <span class="tech-tag">Markdown</span>
-            <span class="tech-tag">GitHub Wiki</span>
-            <span class="tech-tag">Obsidian</span>
-            <span class="tech-tag">Subprocess</span>
-          </div>
-        </div>
-        
-        <p><strong>🔗 Links:</strong>
-          <a href="https://github.com/capyBearista/obsidian_git_experiment" target="_blank" rel="noopener">GitHub Repository</a> |
-          <a href="https://github.com/capyBearista/obsidian_git_experiment#readme" target="_blank" rel="noopener">Setup Guide</a>
-        </p>
-        
-        <h3 id="process">My Development Process</h3>
-        <figure>
-          <img src="images/python.png" width="300" height="300" 
-            loading="lazy"
-            alt="the logo for the Python programming language">
-          <figcaption>
-            <p class="italic small-caption">Python's logo.</p>
-          </figcaption>
-        </figure>
-        <h4>Key Features:</h4>
-        <ul>
-          <li><strong>Automatic Link Conversion</strong> - Transforms Obsidian's `[[wikilink]]` syntax to GitHub Wiki format</li>
-          <li><strong>Git Integration</strong> - Seamlessly integrates with existing Git workflows through hooks</li>
-          <li><strong>Batch Processing</strong> - Efficiently handles multiple files and directory structures</li>
-          <li><strong>Error Handling</strong> - Robust error handling for various edge cases and syntax variations</li>
-          <li><strong>Bidirectional Sync</strong> - Future enhancement to sync changes from GitHub Wiki back to Obsidian</li>
-        </ul>
+  <p><strong>🔗 Links:</strong>
+    <a href="https://github.com/capyBearista/obsidian_git_experiment" target="_blank" rel="noopener">GitHub
+      Repository</a> |
+    <a href="https://github.com/capyBearista/obsidian_git_experiment#readme" target="_blank" rel="noopener">Setup
+      Guide</a>
+  </p>
 
-        <p>GitHub has an included "Wiki" feature, which lets each repository have its very own... wiki! I wanted to be able to write the pages using a note-taking application called Obsidian, but with GitHub's frankly odd proprietary flavor of Markdown, it was more complicated than just pushing the Markdown files. After a search that spanned way longer than it should have, I found, forked, and began developing this Python script! Using Git's post-commit hook, it converts notes written in Obsidian to a format that GitHub Wiki likes and uploads it automatically.It was a sort of arduous process, but well worth it. These are the steps I took:
-        </p>
-        
-        <h4>Development Journey:</h4>
-        <ol>
-          <li>
-            <p><strong>Looking for a Language</strong> - The original maintainer chose Python, and I can see why. It's got excellent string processing capabilities and extensive regex support.</p>
-          </li>
-          <li>
-            <p><strong>Writing the Core Algorithm</strong> - I ironed out the regex patterns and conversion logic to handle various markdown syntax differences. This was the most challenging part due to the complexity of edge cases. Regex has made me want to pull out my hair several times.</p>
-          </li>
-          <li>
-            <p><strong>Git Integration & Troubleshooting</strong> - Git can be finicky, so there were a lot of strange errors here 🥲.</p>
-          </li>
-          <li>
-            <p><strong>Finishing!</strong> - Except there's always more work to be done. There's a chance this page will be outdated by the time you're reading it (check the GitHub repo to see the current state o the project).</p>
-          </li>
-        </ol>
-      </section>
-      <!-- Aside -->
-      <aside>
-        <p>Please feel free to contact me if you have any questions about my projects! I'd be happy to explain how they
-          work or address any bugs and concerns.</p>
-      </aside>
-    </main>
-    <!-- Footer -->
-    <footer>
-      <p><span class="bold">capyBearista</span> &nbsp;|&nbsp; <span class="bold">Arjun Pramanik</span></p>
-    </footer>
-  </div>
+  <h3 id="process">My Development Process</h3>
+  <figure>
+    <img src="{{ '/images/python.png' | relative_url }}" width="300" height="300" loading="lazy"
+      alt="the logo for the Python programming language">
+    <figcaption>
+      <p class="italic small-caption">Python's logo.</p>
+    </figcaption>
+  </figure>
+  <h4>Key Features:</h4>
+  <ul>
+    <li><strong>Automatic Link Conversion</strong> - Transforms Obsidian's `[[wikilink]]` syntax to GitHub Wiki format
+    </li>
+    <li><strong>Git Integration</strong> - Seamlessly integrates with existing Git workflows through hooks</li>
+    <li><strong>Batch Processing</strong> - Efficiently handles multiple files and directory structures</li>
+    <li><strong>Error Handling</strong> - Robust error handling for various edge cases and syntax variations</li>
+    <li><strong>Bidirectional Sync</strong> - Future enhancement to sync changes from GitHub Wiki back to Obsidian</li>
+  </ul>
 
-  <!-- Shared JavaScript -->
-  <script src="script.js"></script>
-  
-  <!-- GoatCounter Analytics -->
-  <script data-goatcounter="https://capybearista.goatcounter.com/count"
-          async src="//gc.zgo.at/count.js"></script>
-</body>
+  <p>GitHub has an included "Wiki" feature, which lets each repository have its very own... wiki! I wanted to be able to
+    write the pages using a note-taking application called Obsidian, but with GitHub's frankly odd proprietary flavor of
+    Markdown, it was more complicated than just pushing the Markdown files. After a search that spanned way longer than
+    it should have, I found, forked, and began developing this Python script! Using Git's post-commit hook, it converts
+    notes written in Obsidian to a format that GitHub Wiki likes and uploads it automatically.It was a sort of arduous
+    process, but well worth it. These are the steps I took:
+  </p>
 
-</html>
+  <h4>Development Journey:</h4>
+  <ol>
+    <li>
+      <p><strong>Looking for a Language</strong> - The original maintainer chose Python, and I can see why. It's got
+        excellent string processing capabilities and extensive regex support.</p>
+    </li>
+    <li>
+      <p><strong>Writing the Core Algorithm</strong> - I ironed out the regex patterns and conversion logic to handle
+        various markdown syntax differences. This was the most challenging part due to the complexity of edge cases.
+        Regex has made me want to pull out my hair several times.</p>
+    </li>
+    <li>
+      <p><strong>Git Integration & Troubleshooting</strong> - Git can be finicky, so there were a lot of strange errors
+        here 🥲.</p>
+    </li>
+    <li>
+      <p><strong>Finishing!</strong> - Except there's always more work to be done. There's a chance this page will be
+        outdated by the time you're reading it (check the GitHub repo to see the current state o the project).</p>
+    </li>
+  </ol>
+</section>
+
+<!-- Aside -->
+<aside>
+  <p>Please feel free to contact me if you have any questions about my projects! I'd be happy to explain how they
+    work or address any bugs and concerns.</p>
+</aside>

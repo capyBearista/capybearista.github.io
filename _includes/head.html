@@ -1,0 +1,36 @@
+<meta charset="utf-8">
+
+<title>{{ page.title | default: site.title }}</title>
+
+<link rel="canonical" href="{{ page.canonical_url | default: page.url | absolute_url }}">
+
+<!-- 
+  Jekyll Template Head Section
+  Generated from: {{ page.path | default: 'unknown' }}
+  Author: Arjun Pramanik
+  Last Updated: {{ site.time | date: "%d %B %Y" }}
+-->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% if page.description %}
+<meta name="description" content="{{ page.description }}">
+{% endif %}
+
+<!-- External Resources -->
+<!-- Google Fonts with preconnect for performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+
+<!-- Favicons and App Icons -->
+<link rel="shortcut icon" href="{{ '/images/favicon.ico' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/images/web-app-icon.png' | relative_url }}">
+<link rel="icon" sizes="192x192" href="{{ '/images/web-app-icon.png' | relative_url }}">
+
+<!-- SEO and Social Media Meta Tags -->
+{% seo %}

@@ -1,226 +1,118 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: page
+title: "Arjun Pramanik"
+canonical_url: "https://capybearista.github.io/"
+description: "Portfolio showcasing technical projects and interests"
+---
 
-<head>
-  <meta charset="utf-8">
+<section id="contentstart" class="hero-section">
+  <div class="hero-content">
+    <p>
+      Hey! 👋🏽 I'm Arjun, and I'm a computer science major at Quincy College passionate about the intersection of
+      technology and social science. I'm specializing in machine learning, but I'm also fascinated by how tech
+      shapes the way we live and connect with each other. I love exploring how code can empower communities and
+      make a positive impact.
+    </p>
 
-  <title>Arjun Pramanik</title>
+    <p>
+      When I'm not hunched over at my desk coding like a maniac, I'm practicing my photography, experimenting with
+      coffee, or immersing myself in nature (while huffing and puffing).
+    </p>
 
-  <link rel="canonical" href="https://capybearista.github.io/">
-
-  <!-- 
-    Home Page
-    Filename: index.html
-    Author:   Arjun Pramanik
-    Last Updated: 02 October 2025
-  -->
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- External Resources -->
-  <!-- Google Fonts with preconnect for performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Roboto:wght@400;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-
-  <!-- Favicons and App Icons -->
-  <link rel="shortcut icon" href="images/favicon.ico">
-  <link rel="apple-touch-icon" href="images/web-app-icon.png">
-  <link rel="icon" sizes="192x192" href="images/web-app-icon.png">
-
-  <!-- Plausible analytics-->
-  <script defer data-domain="capybearista.github.io"
-    src="https://plausible.capybarista.duckdns.org/js/script.file-downloads.outbound-links.pageview-props.tagged-events.js"></script>
-  <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
-
-</head>
-
-<body>
-  <!-- Skip navigation for accessibility -->
-  <p class="skipnavigation"><a href="#contentstart">Skip navigation</a></p>
-
-  <!-- Mobile Warning Modal -->
-  <div id="mobileWarningModal" class="mobile-modal" role="dialog" aria-labelledby="mobileModalTitle" aria-describedby="mobileModalDesc" aria-hidden="true">
-    <div class="mobile-modal-backdrop"></div>
-    <div class="mobile-modal-content">
-      <h2 id="mobileModalTitle">🐉 Here Be Dragons</h2>
-      <p id="mobileModalDesc">This website isn't optimized for mobile devices, so you might encounter some rough edges on mobile devices!</p>
-      <button id="mobileModalContinue" class="mobile-modal-btn">Continue Anyway</button>
-    </div>
+    <p>
+      My journey hasn't been a straight line, but its all the more empowered me to keep going. I'm only 23, but I
+      know my mission: to build a career at the intersection of AI research and big-picture questions. For me, the
+      most meaningful work will always happen in a community that's just as interested in asking why we're
+      building something as <em>how</em>. 🔬📣
+    </p>
   </div>
 
-  <!-- Sidebar Navigation -->
-  <nav class="sidebar">
-    <!-- Sidebar header with site title -->
-    <div class="sidebar-header">
-      <span class="sidebar-title">Arjun Pramanik</span>
-    </div>
+  <div class="hero-image-carousel">
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="carousel-slide active">
+          <img src="{{ '/images/me.jpg' | relative_url }}" width="300" height="400" loading="lazy" alt="Me">
+          <div class="carousel-caption">
+            <p class="italic small-caption">Me, in the flesh</p>
+          </div>
+        </div>
 
-    <!-- Theme Toggle Button -->
-    <div class="theme-toggle-container">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">
-        <!-- Sun icon - visible in light theme -->
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="5" />
-          <line x1="12" y1="1" x2="12" y2="3" />
-          <line x1="12" y1="21" x2="12" y2="23" />
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-          <line x1="1" y1="12" x2="3" y2="12" />
-          <line x1="21" y1="12" x2="23" y2="12" />
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        <div class="carousel-slide">
+          <img src="{{ '/images/biscuit.jpeg' | relative_url }}" width="300" height="400" loading="lazy"
+            alt="My dog Biscuit">
+          <div class="carousel-caption">
+            <p class="italic small-caption">My dawg, Biscuit</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation buttons positioned relative to carousel-container -->
+      <button class="carousel-btn carousel-prev" aria-label="Previous image">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M15 18l-6-6 6-6" />
         </svg>
-        <!-- Moon icon - visible in dark theme -->
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+      </button>
+
+      <button class="carousel-btn carousel-next" aria-label="Next image">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 18l6-6-6-6" />
         </svg>
       </button>
     </div>
 
-    <!-- Navigation Menu -->
-    <ul class="sidebar-nav">
-      <li><a href="index.html"><img src="images/icons/home.svg" alt="Home" class="sidebar-icon">Home</a></li>
-      <li><a href="projects.html"><img src="images/icons/python.svg" alt="Projects" class="sidebar-icon">Projects</a>
-      </li>
-      <li><a href="interests.html"><img src="images/icons/adobe-ps.svg" alt="Interests"
-            class="sidebar-icon">Interests</a></li>
-    </ul>
-
-    <!-- Sidebar Footer -->
-    <div class="sidebar-footer">
-      <a href="mailto:capyBearista@gmail.com" class="sidebar-contact">Email</a>
-      <a href="https://github.com/capybearista" target="_blank" rel="noopener" class="sidebar-contact">GitHub</a>
+    <div class="carousel-indicators">
+      <button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
+      <button class="indicator" data-slide="1" aria-label="Go to slide 2"></button>
     </div>
-  </nav>
-
-  <!-- Main Content Area -->
-  <div class="main-content">
-    <header>
-      <h1>Arjun Pramanik</h1>
-    </header>
-
-    <main>
-      <section id="contentstart" class="hero-section">
-        <div class="hero-content">
-          <p>
-            Hey! 👋🏽 I'm Arjun, and I'm a computer science major at Quincy College passionate about the intersection of
-            technology and social science. I'm specializing in machine learning, but I'm also fascinated by how tech
-            shapes the way we live and connect with each other. I love exploring how code can empower communities and
-            make a positive impact.
-          </p>
-
-          <p>
-            When I'm not hunched over at my desk coding like a maniac, I'm practicing my photography, experimenting with
-            coffee, or immersing myself in nature (while huffing and puffing).
-          </p>
-
-          <p>
-            My journey hasn't been a straight line, but its all the more empowered me to keep going. I'm only 23, but I
-            know my mission: to build a career at the intersection of AI research and big-picture questions. For me, the
-            most meaningful work will always happen in a community that's just as interested in asking why we're
-            building something as <em>how</em>. 🔬📣
-          </p>
-        </div>
-
-        <div class="hero-image-carousel">
-          <div class="carousel-container">
-            <div class="carousel-track">
-              <div class="carousel-slide active">
-                <img src="images/me.jpg" width="300" height="400" loading="lazy" alt="Me">
-                <div class="carousel-caption">
-                  <p class="italic small-caption">Me, in the flesh</p>
-                </div>
-              </div>
-
-              <div class="carousel-slide">
-                <img src="images/biscuit.jpeg" width="300" height="400" loading="lazy" alt="My dog Biscuit">
-                <div class="carousel-caption">
-                  <p class="italic small-caption">My dawg, Biscuit</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Navigation buttons positioned relative to carousel-container -->
-            <button class="carousel-btn carousel-prev" aria-label="Previous image">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M15 18l-6-6 6-6" />
-              </svg>
-            </button>
-
-            <button class="carousel-btn carousel-next" aria-label="Next image">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 18l6-6-6-6" />
-              </svg>
-            </button>
-          </div>
-
-          <div class="carousel-indicators">
-            <button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
-            <button class="indicator" data-slide="1" aria-label="Go to slide 2"></button>
-          </div>
-        </div>
-      </section>
-      <section>
-        <h3>Learn More</h3>
-        <p>Check out my<a href="projects.html">technical projects</a>to see how I apply these ideas in practice, or
-          visit my<a href="interests.html">interests page</a>to learn about my photography, community work, and ongoing
-          coffee shop discoveries.</p>
-      </section>
-
-      <!-- Contact Card -->
-      <section data-animate="slideInUp">
-        <article class="project-preview">
-          <div class="project-preview-content">
-            <h3>Let's Connect!</h3>
-            <p>I'd love to connect! Feel free to reach out if you want to chat about research, my GitHub projects,
-              community building, photography, or great local coffee spots 🤝</p>
-
-            <div class="contact-links">
-              <div class="contact-item">
-                <strong>📧 Email:</strong>
-                <a href="mailto:capybearista@gmail.com">capybearista@gmail.com</a>
-              </div>
-
-              <div class="contact-item">
-                <strong>💼 LinkedIn:</strong>
-                <a href="https://linkedin.com/in/arjun-pramanik" target="_blank"
-                  rel="noopener">linkedin.com/in/arjun-pramanik</a>
-              </div>
-
-              <div class="contact-item">
-                <strong>😼 GitHub:</strong>
-                <a href="https://github.com/capyBearista" target="_blank" rel="noopener">github.com/capyBearista</a>
-              </div>
-
-              <div class="contact-item">
-                <strong>💬 Discord:</strong>
-                <span class="contact-username">p.raxis</span>
-              </div>
-
-              <div class="contact-item">
-                <strong>🎓 ORCID:</strong>
-                <a href="https://orcid.org/0009-0002-3578-2113" target="_blank" rel="noopener">0009-0002-3578-2113</a>
-                <p style="font-size: 14px; margin-top: 25px"><-- nothing here (yet) D:</p>
-              </div>
-            </div>
-          </div>
-        </article>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-      <p><span class="bold">capyBearista</span> &nbsp;|&nbsp; <span class="bold">Arjun Pramanik</span></p>
-    </footer>
   </div>
+</section>
 
-  <!-- Shared JavaScript -->
-  <script src="script.js"></script>
-</body>
+<section>
+  <h3>Learn More</h3>
+  <p>Check out my<a href="{{ '/projects.html' | relative_url }}">technical projects</a>to see how I apply these ideas in
+    practice, or
+    visit my<a href="{{ '/interests.html' | relative_url }}">interests page</a>to learn about my photography, community
+    work, and ongoing
+    coffee shop discoveries.</p>
+</section>
 
-</html>
+<!-- Contact Card -->
+<section data-animate="slideInUp">
+  <article class="project-preview">
+    <div class="project-preview-content">
+      <h3>Let's Connect!</h3>
+      <p>I'd love to connect! Feel free to reach out if you want to chat about research, my GitHub projects,
+        community building, photography, or great local coffee spots 🤝</p>
+
+      <div class="contact-links">
+        <div class="contact-item">
+          <strong>📧 Email:</strong>
+          <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        </div>
+
+        <div class="contact-item">
+          <strong>💼 LinkedIn:</strong>
+          <a href="https://linkedin.com/in/arjun-pramanik" target="_blank"
+            rel="noopener">linkedin.com/in/arjun-pramanik</a>
+        </div>
+
+        <div class="contact-item">
+          <strong>😼 GitHub:</strong>
+          <a href="https://github.com/{{ site.github.username }}" target="_blank" rel="noopener">github.com/{{
+            site.github.username }}</a>
+        </div>
+
+        <div class="contact-item">
+          <strong>💬 Discord:</strong>
+          <span class="contact-username">p.raxis</span>
+        </div>
+
+        <div class="contact-item">
+          <strong>🎓 ORCID:</strong>
+          <a href="https://orcid.org/0009-0002-3578-2113" target="_blank" rel="noopener">0009-0002-3578-2113</a>
+          <p style="font-size: 14px; margin-top: 25px"><-- nothing here (yet) D:</p>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

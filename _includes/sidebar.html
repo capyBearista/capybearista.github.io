@@ -1,0 +1,50 @@
+<!-- Sidebar Navigation -->
+<nav class="sidebar">
+    <!-- Sidebar header with site title -->
+    <div class="sidebar-header">
+        <span class="sidebar-title">{{ site.title | split: ' - ' | first | default: 'Arjun Pramanik' }}</span>
+    </div>
+
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle-container">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">
+            <!-- Sun icon - visible in light theme -->
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+            <!-- Moon icon - visible in dark theme -->
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Navigation Menu -->
+    <ul class="sidebar-nav">
+        {% assign current_page = page.url | remove: '/' %}
+        <li><a href="{{ '/' | relative_url }}" {% if current_page=='index.html' or current_page=='' %} class="active" {%
+                endif %}><img src="{{ '/images/icons/home.svg' | relative_url }}" alt="Home"
+                    class="sidebar-icon">Home</a></li>
+        <li><a href="{{ '/projects/' | relative_url }}" {% if current_page=='projects' %} class="active" {% endif
+                %}><img src="{{ '/images/icons/python.svg' | relative_url }}" alt="Projects"
+                    class="sidebar-icon">Projects</a></li>
+        <li><a href="{{ '/interests/' | relative_url }}" {% if current_page=='interests' %} class="active" {% endif
+                %}><img src="{{ '/images/icons/adobe-ps.svg' | relative_url }}" alt="Interests"
+                    class="sidebar-icon">Interests</a></li>
+    </ul>
+
+    <!-- Sidebar Footer -->
+    <div class="sidebar-footer">
+        <a href="mailto:{{ site.email | default: 'capyBearista@gmail.com' }}" class="sidebar-contact">Email</a>
+        <a href="https://github.com/{{ site.github.username | default: 'capybearista' }}" target="_blank" rel="noopener"
+            class="sidebar-contact">GitHub</a>
+    </div>
+</nav>

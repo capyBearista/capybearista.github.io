@@ -1,0 +1,82 @@
+# Jekyll Configuration for capyBearista Portfolio
+# GitHub Pages compatible configuration
+
+title: "Arjun Pramanik - capyBearista"
+description: "Portfolio showcasing technical projects and interests"
+author: "Arjun Pramanik"
+email: "capyBearista@gmail.com"
+
+# Site settings
+baseurl: ""
+url: "https://capybearista.github.io"
+timezone: America/New_York
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# GitHub Pages plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - plan.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .gitignore
+  - docs/
+
+# Include files that start with underscore (for GitHub Pages)
+include:
+  - _pages
+
+# Collections (for future expansion)
+collections:
+  projects:
+    output: false
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: "index.html"
+    values:
+      layout: "page"
+
+# SEO and social media
+twitter:
+  username: "capyBearista"
+github:
+  username: "capyBearista"
+
+# Google Analytics (using Plausible instead)
+# google_analytics: UA-XXXXXXXXX-X
+
+# Liquid settings
+liquid:
+  error_mode: warn
+  strict_filters: false
+  strict_variables: false
+
+# Sass settings
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Development settings
+livereload: true
+incremental: true

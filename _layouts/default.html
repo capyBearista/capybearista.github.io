@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }}</title>
-    
-    <script defer data-domain="capybarista.github.io" 
-            src="https://plausible.capybarista.duckdns.org/js/script.js">
-    </script>
 
-    <link rel="stylesheet" href="/assets/css/style.css">
+<head>
+    {% include head.html %}
+    {% include analytics.html %}
 </head>
+
 <body>
 
-    <header>
-        </header>
+    <!-- Skip navigation for accessibility -->
+    <p class="skipnavigation"><a href="#contentstart">Skip navigation</a></p>
 
-    <main>
+    {% include mobile-modal.html %}
+
+    {% include sidebar.html %}
+
+    <!-- Main Content Area -->
+    <div class="main-content">
         {{ content }}
-    </main>
 
-    <footer>
-        </footer>
+        {% include footer.html %}
+    </div>
+
+    <!-- Shared JavaScript -->
+    <script src="{{ '/script.js' | relative_url }}"></script>
 
 </body>
+
 </html>
