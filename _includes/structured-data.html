@@ -176,3 +176,65 @@
 }
 </script>
 {% endif %}
+
+{% if page.seo.type == 'SoftwareApplication' %}
+<!-- Software Application Structured Data for ObsiWiki -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "{{ page.seo.name | default: page.title }}",
+  "description": "{{ page.description }}",
+  "url": "{{ page.url | absolute_url }}",
+  "applicationCategory": "{{ page.seo.applicationCategory | default: 'DeveloperApplication' }}",
+  "operatingSystem": ["Linux", "macOS", "Windows"],
+  "programmingLanguage": "Python",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author.name | default: site.author }}"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+{% endif %}
+
+{% if page.seo.type == 'TechArticle' %}
+<!-- Technical Article Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org", 
+  "@type": "TechArticle",
+  "headline": "{{ page.title }}",
+  "description": "{{ page.description }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author.name | default: site.author }}"
+  },
+  "datePublished": "{{ site.time | date: '%Y-%m-%d' }}",
+  "dateModified": "{{ site.time | date: '%Y-%m-%d' }}",
+  "url": "{{ page.url | absolute_url }}",
+  {% if page.image %}
+  "image": "{{ page.image | absolute_url }}",
+  {% endif %}
+  "publisher": {
+    "@type": "Person",
+    "name": "{{ site.author.name | default: site.author }}"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+  "about": [
+    "Home Server",
+    "Docker",
+    "Ubuntu Server", 
+    "Network Administration",
+    "Self-Hosted Services"
+  ]
+}
+</script>
+{% endif %}
