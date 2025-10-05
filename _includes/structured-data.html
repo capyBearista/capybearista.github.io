@@ -1,0 +1,121 @@
+<!-- Structured Data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ site.author.name | default: site.author }}",
+  "url": "{{ site.url }}",
+  "sameAs": [
+    {% if site.github.username %}"https://github.com/{{ site.github.username }}",{% endif %}
+    {% if site.twitter.username %}"https://twitter.com/{{ site.twitter.username }}",{% endif %}
+    {% if site.author.linkedin %}"https://linkedin.com/in/{{ site.author.linkedin }}",{% endif %}
+    "https://orcid.org/0009-0002-3578-2113"
+  ],
+  "jobTitle": "Computer Science Student",
+  "description": "{{ site.description }}",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Quincy College"
+  },
+  "knowsAbout": [
+    "Machine Learning",
+    "Python Programming", 
+    "Home Server Administration",
+    "Docker",
+    "Jekyll",
+    "Linux System Administration",
+    "Git",
+    "Artificial Intelligence",
+    "Web Development",
+    "Software Engineering"
+  ],
+  "alumniOf": {
+    "@type": "Organization",
+    "name": "Quincy College"
+  },
+  "email": "{{ site.email | default: site.author.email }}",
+  {% if page.image %}
+  "image": "{{ page.image | absolute_url }}",
+  {% elsif site.logo %}
+  "image": "{{ site.logo | absolute_url }}",
+  {% endif %}
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Massachusetts",
+    "addressCountry": "US"
+  }
+}
+</script>
+
+{% if page.layout == 'post' %}
+<!-- Blog Post Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ page.title }}",
+  "description": "{{ page.excerpt | default: page.description | strip_html | truncatewords: 50 }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ page.author | default: site.author.name | default: site.author }}"
+  },
+  "datePublished": "{{ page.date | date: '%Y-%m-%d' }}",
+  "dateModified": "{{ page.date | date: '%Y-%m-%d' }}",
+  "url": "{{ page.url | absolute_url }}",
+  {% if page.image %}
+  "image": "{{ page.image | absolute_url }}",
+  {% endif %}
+  "publisher": {
+    "@type": "Person",
+    "name": "{{ site.author.name | default: site.author }}"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  }
+}
+</script>
+{% endif %}
+
+{% if page.seo.type == 'CollectionPage' %}
+<!-- Project Collection Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "{{ page.seo.name | default: page.title }}",
+  "description": "{{ page.description }}",
+  "url": "{{ page.url | absolute_url }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author.name | default: site.author }}"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "Technical Projects",
+    "description": "Collection of technical projects showcasing software development skills"
+  }
+}
+</script>
+{% endif %}
+
+{% if page.seo.type == 'Blog' %}
+<!-- Blog Collection Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "{{ page.seo.name | default: page.title }}",
+  "description": "{{ page.description }}",
+  "url": "{{ page.url | absolute_url }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author.name | default: site.author }}"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "{{ site.author.name | default: site.author }}"
+  }
+}
+</script>
+{% endif %}

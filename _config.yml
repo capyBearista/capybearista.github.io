@@ -1,4 +1,4 @@
-# Jekyll Configuration for capyBearista Portfolio
+# Jekyll Configuration for Arjun Pramanik Portfolio
 # GitHub Pages compatible configuration
 
 title: "Arjun Pramanik - capyBearista"
@@ -45,23 +45,60 @@ collections:
   projects:
     output: false
 
-# Default front matter
+# Default front matter with SEO enhancements
 defaults:
   - scope:
       path: ""
       type: "pages"
     values:
       layout: "page"
+      image: "/images/web-app-icon.png"
+      author: "Arjun Pramanik"
   - scope:
       path: "index.html"
     values:
       layout: "page"
+      image: "/images/me.jpg"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Arjun Pramanik"
+      image: "/images/web-app-icon.png"
 
-# SEO and social media
-twitter:
-  username: "capyBearista"
+# Enhanced SEO Configuration
+author:
+  name: "Arjun Pramanik"
+  email: "capyBearista@gmail.com"
+  twitter: "capyBearista"
+  linkedin: "arjun-pramanik"
+  github: "capyBearista"
+
+# Social media and Open Graph
+# twitter:
+#   username: "capyBearista"
+#   card: "summary_large_image"
+
 github:
   username: "capyBearista"
+
+# Site logo for rich snippets and Open Graph
+logo: "/images/web-app-icon.png"
+
+# Social profiles for structured data
+social:
+  name: "Arjun Pramanik"
+  links:
+    - https://twitter.com/capyBearista
+    - https://github.com/capyBearista
+    - https://linkedin.com/in/arjun-pramanik
+
+# Site verification (add these when you set them up)
+google_site_verification: # Add Google Search Console verification
+webmaster_verifications:
+  google: # Google Search Console
+  bing: # Bing Webmaster Tools
 
 # Google Analytics (using Plausible instead)
 # google_analytics: UA-XXXXXXXXX-X

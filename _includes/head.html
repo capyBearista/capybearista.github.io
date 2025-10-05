@@ -17,10 +17,17 @@
 <meta name="description" content="{{ page.description }}">
 {% endif %}
 
+<!-- Performance Optimization -->
+<!-- Preload critical resources -->
+<link rel="preload" href="{{ '/styles.css' | relative_url }}" as="style">
+<link rel="preload" href="{{ '/script.js' | relative_url }}" as="script">
+
 <!-- External Resources -->
 <!-- Google Fonts with preconnect for performance -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
 
 <link
     href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=JetBrains+Mono:wght@400;700&family=Roboto:wght@400;700&display=swap"
@@ -34,3 +41,6 @@
 
 <!-- SEO and Social Media Meta Tags -->
 {% seo %}
+
+<!-- Enhanced Structured Data -->
+{% include structured-data.html %}
