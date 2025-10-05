@@ -1,0 +1,177 @@
+---
+layout: default
+---
+
+<!-- Blog Post Header -->
+<header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    
+    <!-- Post Metadata -->
+    <div class="post-meta">
+        <time class="post-date" datetime="{{ page.date | date: '%Y-%m-%d' }}">
+            {{ page.date | date: "%B %d, %Y" }}
+        </time>
+        
+        <!-- Reading Time Calculation -->
+        {% assign words = content | strip_html | number_of_words %}
+        {% assign reading_time = words | divided_by: 200 %}
+        {% if reading_time == 0 %}
+            {% assign reading_time = 1 %}
+        {% endif %}
+        
+        <span class="post-reading-time">{{ reading_time }} min read</span>
+    </div>
+</header>
+
+<!-- Blog Post Content -->
+<main class="post-content">
+    {{ content }}
+</main>
+
+<!-- Blog Post Signature -->
+<div class="post-signature">
+    <p>- Arjun :)</p>
+</div>
+
+<!-- Blog Post Specific Styles -->
+<style>
+/* Blog Post Header Styling */
+.post-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--glass-border-color);
+}
+
+.post-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.post-meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
+
+.post-date {
+    font-weight: 500;
+}
+
+.post-reading-time {
+    padding: 0.25rem 0.5rem;
+    background: var(--glass-bg-light);
+    border-radius: 0.5rem;
+    border: 1px solid var(--glass-border-color);
+    font-size: 0.8rem;
+}
+
+/* Blog Post Content Styling */
+.post-content {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+}
+
+/* Blog Post Links - Match main content section styling */
+.post-content a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    margin: -0.2em -0.4em;
+    display: inline-block;
+}
+
+.post-content a:hover,
+.post-content a:focus {
+    color: var(--text-main);
+    background: var(--accent);
+    border-color: var(--accent);
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 188, 212, 0.3);
+}
+
+.post-content h2 {
+    font-size: 2rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.post-content h3 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.post-content p {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.post-content code {
+    background: var(--glass-bg-light);
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+}
+
+.post-content pre {
+    background: var(--glass-bg-dark);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid var(--glass-border-color);
+}
+
+.post-content blockquote {
+    border-left: 3px solid var(--glass-border-color);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+/* Blog Post Signature Styling */
+.post-signature {
+    margin-top: 3rem;
+    text-align: left;
+}
+
+.post-signature p {
+    font-style: italic;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .post-title {
+        font-size: 2rem;
+    }
+    
+    .post-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .post-content {
+        font-size: 1rem;
+    }
+}
+</style>

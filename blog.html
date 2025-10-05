@@ -1,0 +1,277 @@
+---
+layout: page
+title: "Blog"
+canonical_url: "https://capybearista.github.io/blog/"
+description: "Personal blog featuring technical insights, project updates, and development experiences"
+---
+
+<!-- Blog Introduction -->
+<section class="blog-intro">
+    <p>Welcome to my blog! Here I share technical insights, project updates, and thoughts on development and technology. Join me on this journey of continuous learning and building.</p>
+</section>
+
+<!-- Blog Posts Listing -->
+<section class="blog-posts">
+    {% assign posts = site.posts %}
+    
+    {% if posts.size > 0 %}
+        {% for post in posts %}
+            <a href="{{ post.url | relative_url }}" class="blog-card-link">
+                <article class="project-preview blog-card">
+                    <!-- Blog Post Content -->
+                    <div class="project-preview-content">
+                        <h3>{{ post.title }}</h3>
+                        
+                        <!-- Post Metadata -->
+                        <div class="blog-post-meta">
+                            <time class="blog-post-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">
+                                {{ post.date | date: "%B %d, %Y" }}
+                            </time>
+                            
+                            <!-- Reading Time Calculation -->
+                            {% assign words = post.content | strip_html | number_of_words %}
+                            {% assign reading_time = words | divided_by: 200 %}
+                            {% if reading_time == 0 %}
+                                {% assign reading_time = 1 %}
+                            {% endif %}
+                            
+                            <span class="blog-post-reading-time">{{ reading_time }} min read</span>
+                        </div>
+                        
+                        <!-- Post Excerpt -->
+                        <p class="blog-post-excerpt">
+                            {% if post.excerpt %}
+                                {{ post.excerpt | strip_html | truncatewords: 40 }}
+                            {% else %}
+                                {{ post.content | strip_html | truncatewords: 40 }}
+                            {% endif %}
+                        </p>
+                    </div>
+                </article>
+            </a>
+        {% endfor %}
+    {% else %}
+        <!-- Empty State -->
+        <div class="blog-empty-state">
+            <h3>No posts yet!</h3>
+            <p>Check back soon for new content. I'll be sharing technical insights, project updates, and development experiences.</p>
+        </div>
+    {% endif %}
+</section>
+
+<!-- Blog Specific Styles -->
+<style>
+/* Blog Introduction Styling */
+.blog-intro {
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background: var(--glass-bg-light);
+    border-radius: 1rem;
+    border: 1px solid var(--glass-border-color);
+    backdrop-filter: blur(16px);
+}
+
+.blog-intro p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Blog Posts Container */
+.blog-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 2em; /* Match project card spacing */
+}
+
+/* Blog Card Link Wrapper - Completely transparent link behavior */
+.blog-card-link {
+    display: block;
+    text-decoration: none !important;
+    color: inherit !important;
+    background: none !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    transition: none !important;
+}
+
+.blog-card-link:hover,
+.blog-card-link:focus,
+.blog-card-link:active,
+.blog-card-link:visited {
+    text-decoration: none !important;
+    color: inherit !important;
+    background: none !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Keyboard focus for accessibility - applied to the card, not the link */
+.blog-card-link:focus .blog-card {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Blog Card Styling - Identical to project cards */
+.blog-card-link .blog-card {
+    cursor: pointer;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 0;
+    /* Inherit all project-preview styles and add specific overrides */
+    background: var(--card-bg);
+    backdrop-filter: var(--glass-backdrop);
+    -webkit-backdrop-filter: var(--glass-backdrop);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 3em 3em 3em 3em;
+    transition: box-shadow var(--transition), transform 0.3s ease;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Liquid effect for blog cards - same as project cards */
+.blog-card-link .blog-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 188, 212, 0.03), transparent);
+    animation: liquidFlow 5s ease-in-out infinite;
+}
+
+/* Hover effect - Exact same as project cards */
+.blog-card-link:hover .blog-card {
+    box-shadow: 0 12px 40px 0 rgba(0, 188, 212, 0.15) !important;
+    transform: translateY(-8px) scale(1.00) !important;
+}
+
+/* Blog Card Content Styling */
+.blog-card .project-preview-content {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+/* Blog card titles - no link styling */
+.blog-card h3 {
+    font-size: 1.3em;
+    color: var(--text-primary) !important;
+}
+
+.blog-card h3:hover {
+    color: var(--text-primary) !important;
+}
+
+/* Blog Post Metadata */
+.blog-post-meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.blog-post-date {
+    font-weight: 500;
+}
+
+.blog-post-reading-time {
+    padding: 0.25rem 0.5rem;
+    background: var(--glass-bg-medium);
+    border-radius: 0.5rem;
+    border: 1px solid var(--glass-border-color);
+    font-size: 0.75rem;
+}
+
+/* Blog Post Excerpt */
+.blog-post-excerpt {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Empty State Styling */
+.blog-empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--glass-bg-light);
+    border-radius: 1rem;
+    border: 1px solid var(--glass-border-color);
+    backdrop-filter: blur(16px);
+}
+
+.blog-empty-state h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.blog-empty-state p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .blog-intro {
+        padding: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .blog-posts {
+        gap: 1.5em;
+    }
+    
+    .blog-card-link .blog-card {
+        padding: 1.5rem !important;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .blog-card h3 {
+        font-size: 1.2rem !important;
+    }
+    
+    .blog-post-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .blog-empty-state {
+        padding: 2rem 1rem;
+    }
+}
+
+/* Animation for blog cards */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.blog-card-link .blog-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.blog-card-link:nth-child(1) .blog-card { animation-delay: 0.1s; }
+.blog-card-link:nth-child(2) .blog-card { animation-delay: 0.2s; }
+.blog-card-link:nth-child(3) .blog-card { animation-delay: 0.3s; }
+</style>

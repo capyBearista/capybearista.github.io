@@ -39,6 +39,9 @@
         <li><a href="{{ '/interests/' | relative_url }}" {% if current_page=='interests' %} class="active" {% endif
                 %}><img src="{{ '/images/icons/adobe-ps.svg' | relative_url }}" alt="Interests"
                     class="sidebar-icon">Interests</a></li>
+        <li><a href="{{ '/blog/' | relative_url }}" {% if current_page=='blog' or page.layout=='post' %} class="active" {% endif
+                %}><img src="{{ '/images/icons/text.svg' | relative_url }}" alt="Blog"
+                    class="sidebar-icon">Blog</a></li>
     </ul>
 
     <!-- Sidebar Footer -->
