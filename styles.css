@@ -801,6 +801,8 @@ section {
   max-width: 320px;
   margin: 0;
   margin-top: 1.5em;
+  /* Ensure carousel maintains its size regardless of content */
+  contain: layout style;
 }
 
 .carousel-container {
@@ -812,13 +814,21 @@ section {
   backdrop-filter: var(--glass-backdrop);
   width: 300px;
   height: 400px;
+  /* Ensure this acts as positioning context for absolutely positioned children */
+  isolation: isolate;
+  /* Prevent any layout shifts and ensure stable dimensions */
+  contain: layout style size;
+  /* Force hardware acceleration for smoother transitions */
+  will-change: transform;
 }
 
 .carousel-track {
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 100%;
+  /* Ensure track fills container exactly */
   min-width: 300px;
+  min-height: 400px;
 }
 
 .carousel-slide {
@@ -832,6 +842,14 @@ section {
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
+  /* Ensure slide content is contained and doesn't shift */
+  align-items: stretch;
+  justify-content: flex-start;
+  overflow: hidden;
+  /* Prevent layout shifts during transitions */
+  contain: layout style;
+  /* Optimize for GPU rendering */
+  will-change: transform, opacity;
 }
 
 .carousel-slide.active {
@@ -844,11 +862,23 @@ section {
 }
 
 .carousel-slide img {
-  width: 300px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: center center; /* Ensure consistent centering */
   border-radius: var(--border-radius);
-  flex: 1 1 auto;
+  /* Remove flex properties that could cause inconsistency */
+  display: block;
+  /* Prevent any shifting by ensuring stable dimensions */
+  max-width: 300px;
+  max-height: 400px;
+  min-width: 300px;
+  min-height: 400px;
+  /* Prevent any focus/hover outlines */
+  outline: none;
+  border: none;
+  /* Disable pointer events to prevent hover states */
+  pointer-events: none;
 }
 
 .carousel-caption {
@@ -856,11 +886,14 @@ section {
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
   color: white;
   text-align: center;
-  padding: 2em 1em 1em;
+  padding: 3em 1em 0.75em;
   border-radius: 0 0 var(--border-radius) var(--border-radius);
+  /* Ensure caption stays consistent regardless of image */
+  z-index: 5;
+  pointer-events: none; /* Prevent caption from interfering with interactions */
 }
 
 .carousel-btn {
@@ -879,17 +912,35 @@ section {
   justify-content: center;
   cursor: pointer;
   transition: all var(--transition);
-  z-index: 2;
+  z-index: 10; /* Higher z-index to ensure buttons stay on top */
   opacity: 0;
+  /* Ensure buttons are anchored to container, not affected by track transforms */
+  pointer-events: auto;
+  /* Prevent any interference with button visibility */
+  visibility: visible;
+  /* Ensure buttons maintain their properties during transitions */
+  will-change: opacity, transform;
 }
 
 .carousel-container:hover .carousel-btn {
   opacity: 1;
 }
 
-.carousel-btn:hover {
+.carousel-btn:hover,
+.carousel-btn:focus,
+.carousel-btn:active {
   background: rgba(0, 188, 212, 0.8);
   transform: translateY(-50%) scale(1.1);
+  /* Prevent any positional shifts during hover */
+  transform-origin: center center;
+  opacity: 1; /* Ensure button stays visible during interaction */
+}
+
+/* Ensure buttons stay visible briefly after interaction */
+.carousel-btn:focus-visible {
+  opacity: 1;
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .carousel-btn svg {
@@ -899,10 +950,14 @@ section {
 
 .carousel-prev {
   left: 10px;
+  /* Ensure button stays in place regardless of any transforms */
+  transform-origin: center;
 }
 
 .carousel-next {
   right: 10px;
+  /* Ensure button stays in place regardless of any transforms */
+  transform-origin: center;
 }
 
 .carousel-indicators {
@@ -947,13 +1002,16 @@ section {
   }
   
   .carousel-track {
-    height: 350px;
+    height: 100%;
     min-width: 280px;
+    min-height: 350px;
   }
   
   .carousel-slide img {
-    width: 280px;
-    height: 350px;
+    max-width: 280px;
+    max-height: 350px;
+    min-width: 280px;
+    min-height: 350px;
   }
   
   .carousel-btn {
@@ -975,7 +1033,7 @@ section {
   }
   
   .carousel-caption {
-    padding: 1.5em 0.8em 0.8em;
+    padding: 2.5em 0.8em 0.6em;
     font-size: 0.9rem;
   }
 }

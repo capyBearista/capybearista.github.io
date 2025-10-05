@@ -570,6 +570,7 @@ const heroCarousel = {
   indicators: [],
   autoplayInterval: null,
   autoplayDelay: 4000, // 4 seconds between slides
+  isTransitioning: false, // Prevent rapid transitions
   
   init() {
     const carousel = document.querySelector('.hero-image-carousel');
@@ -643,13 +644,16 @@ const heroCarousel = {
   },
   
   goToSlide(index) {
-    if (index === this.currentSlide) return;
+    if (index === this.currentSlide || this.isTransitioning) return;
+    
+    this.isTransitioning = true;
+    const prevSlideIndex = this.currentSlide;
     
     // Remove active class from current slide and indicator
     this.slides[this.currentSlide].classList.remove('active');
     this.indicators[this.currentSlide].classList.remove('active');
     
-    // Add prev class for exit animation
+    // Add prev class for exit animation to current slide only
     this.slides[this.currentSlide].classList.add('prev');
     
     // Update current slide
@@ -659,9 +663,10 @@ const heroCarousel = {
     this.slides[this.currentSlide].classList.add('active');
     this.indicators[this.currentSlide].classList.add('active');
     
-    // Clean up prev class after animation
+    // Clean up prev class from the specific slide that was transitioning
     setTimeout(() => {
-      this.slides.forEach(slide => slide.classList.remove('prev'));
+      this.slides[prevSlideIndex].classList.remove('prev');
+      this.isTransitioning = false; // Allow new transitions
     }, 500);
   },
   

@@ -119,12 +119,6 @@
 
         <div class="hero-image-carousel">
           <div class="carousel-container">
-            <button class="carousel-btn carousel-prev" aria-label="Previous image">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M15 18l-6-6 6-6" />
-              </svg>
-            </button>
-
             <div class="carousel-track">
               <div class="carousel-slide active">
                 <img src="images/me.jpg" width="300" height="400" loading="lazy" alt="Me">
@@ -139,30 +133,27 @@
                   <p class="italic small-caption">My dawg, Biscuit</p>
                 </div>
               </div>
-
-              <!-- <div class="carousel-slide">
-                <img src="images/server.jpg" width="300" height="400"
-                  loading="lazy"
-                  alt="Home server setup">
-                <div class="carousel-caption">
-                  <p class="italic small-caption">My home lab</p>
-                </div>
-              </div>
-            </div> -->
-
-              <button class="carousel-btn carousel-next" aria-label="Next image">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M9 18l6-6-6-6" />
-                </svg>
-              </button>
             </div>
 
-            <div class="carousel-indicators">
-              <button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
-              <button class="indicator" data-slide="1" aria-label="Go to slide 2"></button>
-              <button class="indicator" data-slide="2" aria-label="Go to slide 3"></button>
-            </div>
+            <!-- Navigation buttons positioned relative to carousel-container -->
+            <button class="carousel-btn carousel-prev" aria-label="Previous image">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+
+            <button class="carousel-btn carousel-next" aria-label="Next image">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </button>
           </div>
+
+          <div class="carousel-indicators">
+            <button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
+            <button class="indicator" data-slide="1" aria-label="Go to slide 2"></button>
+          </div>
+        </div>
       </section>
       <section>
         <h3>Learn More</h3>
