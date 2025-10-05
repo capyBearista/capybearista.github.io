@@ -76,9 +76,9 @@ author:
   github: "capyBearista"
 
 # Social media and Open Graph
-# twitter:
-#   username: "capyBearista"
-#   card: "summary_large_image"
+twitter:
+  username: "capyBearista"
+  card: "summary_large_image"
 
 github:
   username: "capyBearista"
@@ -94,11 +94,11 @@ social:
     - https://github.com/capyBearista
     - https://linkedin.com/in/arjun-pramanik
 
-# Site verification (add these when you set them up)
-google_site_verification: # Add Google Search Console verification
+# Site verification
+google_site_verification: "LIxoMgmLr17-fDI61pQDxmy5a7R_Bb9kr8GJyzVIbRo"
 webmaster_verifications:
-  google: # Google Search Console
-  bing: # Bing Webmaster Tools
+  google: "LIxoMgmLr17-fDI61pQDxmy5a7R_Bb9kr8GJyzVIbRo"
+  bing: # Bing Webmaster Tools (add when needed)
 
 # Google Analytics (using Plausible instead)
 # google_analytics: UA-XXXXXXXXX-X

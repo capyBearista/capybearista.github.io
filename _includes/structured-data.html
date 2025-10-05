@@ -119,3 +119,60 @@
 }
 </script>
 {% endif %}
+
+{% if page.url == '/' %}
+<!-- Homepage Image Gallery Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "name": "Arjun Pramanik Portfolio Images",
+  "description": "Professional and personal photos of computer science student Arjun Pramanik",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author.name | default: site.author }}"
+  },
+  "image": [
+    {
+      "@type": "ImageObject",
+      "url": "{{ '/images/me.jpg' | absolute_url }}",
+      "description": "Professional portrait of Arjun Pramanik, computer science student",
+      "author": {
+        "@type": "Person", 
+        "name": "{{ site.author.name | default: site.author }}"
+      }
+    },
+    {
+      "@type": "ImageObject", 
+      "url": "{{ '/images/biscuit.jpeg' | absolute_url }}",
+      "description": "Biscuit, pet dog of Arjun Pramanik",
+      "author": {
+        "@type": "Person",
+        "name": "{{ site.author.name | default: site.author }}"
+      }
+    }
+  ]
+}
+</script>
+{% endif %}
+
+{% if page.url contains 'projects' %}
+<!-- Projects Page Image Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  "name": "Home Server Technical Documentation",
+  "url": "{{ '/images/server-sample.png' | absolute_url }}",
+  "description": "Terminal screenshot showing system monitoring of Docker containers in home server setup",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author.name | default: site.author }}"
+  },
+  "copyrightHolder": {
+    "@type": "Person", 
+    "name": "{{ site.author.name | default: site.author }}"
+  }
+}
+</script>
+{% endif %}

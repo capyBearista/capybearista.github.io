@@ -17,6 +17,9 @@
 <meta name="description" content="{{ page.description }}">
 {% endif %}
 
+<!-- Google Search Console Verification -->
+<meta name="google-site-verification" content="LIxoMgmLr17-fDI61pQDxmy5a7R_Bb9kr8GJyzVIbRo" />
+
 <!-- Performance Optimization -->
 <!-- Preload critical resources -->
 <link rel="preload" href="{{ '/styles.css' | relative_url }}" as="style">
@@ -28,6 +31,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="dns-prefetch" href="//fonts.gstatic.com">
+
+<!-- Preload key images for faster LCP -->
+{% if page.url == '/' %}
+<link rel="preload" href="{{ '/images/me.jpg' | relative_url }}" as="image">
+{% endif %}
+{% if page.url contains 'projects' %}
+<link rel="preload" href="{{ '/images/server-sample.png' | relative_url }}" as="image">
+{% endif %}
 
 <link
     href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=JetBrains+Mono:wght@400;700&family=Roboto:wght@400;700&display=swap"
