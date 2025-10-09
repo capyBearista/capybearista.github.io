@@ -14,11 +14,15 @@ applicationCategory: "DeveloperApplication"
 <section>
   <h2 id="contentstart">ObsiWiki</h2>
 
-  <p>I really wanted to use Obsidian to write documentation for my home server, but publishing it directly to GitHub
-    Wiki doesn't quite work because of odd discrepancies between Obsidian's markdown syntax and GitHub's. This is a Git
-    hook system that automatically transforms Obsidian's unique link syntax into GitHub Wiki format. It's as simple as
-    writing your notes in Obsidian and committing them; the script automatically converts text to the correct format and
-    pushes changes to the wiki!</p>
+  <p>
+    I really wanted to use Obsidian to write documentation for my home server,
+    but publishing it directly to GitHub Wiki doesn't quite work because of odd
+    discrepancies between Obsidian's markdown syntax and GitHub's. This is a Git
+    hook system that automatically transforms Obsidian's unique link syntax into
+    GitHub Wiki format. It's as simple as writing your notes in Obsidian and
+    committing them; the script automatically converts text to the correct
+    format and pushes changes to the wiki!
+  </p>
 
   <div class="technologies-section">
     <h4>🛠️ Technologies Used:</h4>
@@ -34,73 +38,131 @@ applicationCategory: "DeveloperApplication"
     </div>
   </div>
 
-  <p><strong>🔗 Links:</strong>
-    <a href="https://github.com/capyBearista/obsidian_git_experiment" target="_blank" rel="noopener">GitHub
-      Repository</a> |
-    <a href="https://github.com/capyBearista/obsidian_git_experiment#readme" target="_blank" rel="noopener">Setup
-      Guide</a>
+  <p>
+    <strong>🔗 Links:</strong>
+    <a
+      href="https://github.com/capyBearista/obsidian_git_experiment"
+      target="_blank"
+      rel="noopener"
+      >GitHub Repository</a
+    >
+    |
+    <a
+      href="https://github.com/capyBearista/obsidian_git_experiment#readme"
+      target="_blank"
+      rel="noopener"
+      >Setup Guide</a
+    >
   </p>
 
   <h3 id="process">My Development Process</h3>
   <figure>
-    <img src="{{ '/images/python.png' | relative_url }}" width="300" height="300" loading="lazy"
-      alt="the logo for the Python programming language">
+    <img
+      src="{{ '/images/python.png' | relative_url }}"
+      width="300"
+      height="300"
+      loading="lazy"
+      alt="the logo for the Python programming language"
+    />
     <figcaption>
       <p class="italic small-caption">Python's logo.</p>
     </figcaption>
   </figure>
   <h4>Key Features:</h4>
   <ul>
-    <li><strong>Automatic Link Conversion</strong> - Transforms Obsidian's `[[wikilink]]` syntax to GitHub Wiki format
+    <li>
+      <strong>Automatic Link Conversion</strong> - Transforms Obsidian's
+      `[[wikilink]]` syntax to GitHub Wiki format
     </li>
-    <li><strong>Git Integration</strong> - Seamlessly integrates with existing Git workflows through hooks</li>
-    <li><strong>Batch Processing</strong> - Efficiently handles multiple files and directory structures</li>
-    <li><strong>Error Handling</strong> - Robust error handling for various edge cases and syntax variations</li>
-    <li><strong>Bidirectional Sync</strong> - Future enhancement to sync changes from GitHub Wiki back to Obsidian</li>
+    <li>
+      <strong>Git Integration</strong> - Seamlessly integrates with existing Git
+      workflows through hooks
+    </li>
+    <li>
+      <strong>Batch Processing</strong> - Efficiently handles multiple files and
+      directory structures
+    </li>
+    <li>
+      <strong>Error Handling</strong> - Robust error handling for various edge
+      cases and syntax variations
+    </li>
+    <li>
+      <strong>Bidirectional Sync</strong> - Future enhancement to sync changes
+      from GitHub Wiki back to Obsidian
+    </li>
   </ul>
 
-  <p>GitHub has an included "Wiki" feature, which lets each repository have its very own... wiki! I wanted to be able to
-    write the pages using a note-taking application called Obsidian, but with GitHub's frankly odd proprietary flavor of
-    Markdown, it was more complicated than just pushing the Markdown files. After a search that spanned way longer than
-    it should have, I found, forked, and began developing this Python script! Using Git's post-commit hook, it converts
-    notes written in Obsidian to a format that GitHub Wiki likes and uploads it automatically.It was a sort of arduous
-    process, but well worth it. These are the steps I took:
+  <p>
+    GitHub has an included "Wiki" feature, which lets each repository have its
+    very own... wiki! I wanted to be able to write the pages using a note-taking
+    application called Obsidian, but with GitHub's frankly odd proprietary
+    flavor of Markdown, it was more complicated than just pushing the Markdown
+    files. After a search that spanned way longer than it should have, I found,
+    forked, and began developing this Python script! Using Git's post-commit
+    hook, it converts notes written in Obsidian to a format that GitHub Wiki
+    likes and uploads it automatically.It was a sort of arduous process, but
+    well worth it. These are the steps I took:
   </p>
 
   <h4>Development Journey:</h4>
   <ol>
     <li>
-      <p><strong>Looking for an existing solution</strong> - I couldn't for the life of me find a community plugin or
-        feature to handle this, until I came across a Reddit post by <a href="https://github.com/BjornFJohansson">a
-          professor from Portugal</a> talking about his experiment script. I
-        navigated to the GitHub repo, installed the Git hook, and it was kind of magical, seeing my home server wiki
-        written in Obsidian appear online.</p>
+      <p>
+        <strong>Looking for an existing solution</strong> - I couldn't for the
+        life of me find a community plugin or feature to handle this, until I
+        came across a Reddit post by
+        <a href="https://github.com/BjornFJohansson"
+          >a professor from Portugal</a
+        >
+        talking about his experiment script. I navigated to the GitHub repo,
+        installed the Git hook, and it was kind of magical, seeing my home
+        server wiki written in Obsidian appear online.
+      </p>
     </li>
     <li>
-      <p><strong>Becoming a maintainer</strong> - I was a total newbie to GitHub. I made a couple pull requests to the repo, but nothing happened for a while. I ended up reaching out to Björn via email, and after a while, I was able to become a maintainer!</p>
+      <p>
+        <strong>Becoming a maintainer</strong> - I was a total newbie to GitHub.
+        I made a couple pull requests to the repo, but nothing happened for a
+        while. I ended up reaching out to Björn via email, and after a while, I
+        was able to become a maintainer!
+      </p>
     </li>
     <li>
-      <p><strong>Finalizing the Language</strong> - The original maintainer chose Python, and I can see why. It's got
-        excellent string processing capabilities and extensive regex support. I ended up sticking with it.</p>
+      <p>
+        <strong>Finalizing the Language</strong> - The original maintainer chose
+        Python, and I can see why. It's got excellent string processing
+        capabilities and extensive regex support. I ended up sticking with it.
+      </p>
     </li>
     <li>
-      <p><strong>Writing the Core Algorithm</strong> - I ironed out the regex patterns and conversion logic to handle
-        various markdown syntax differences. This was the most challenging part due to the complexity of edge cases.
-        Regex has made me want to pull out my hair several times.</p>
+      <p>
+        <strong>Writing the Core Algorithm</strong> - I ironed out the regex
+        patterns and conversion logic to handle various markdown syntax
+        differences. This was the most challenging part due to the complexity of
+        edge cases. Regex has made me want to pull out my hair several times.
+      </p>
     </li>
     <li>
-      <p><strong>Git Integration & Troubleshooting</strong> - Git can be finicky, so there were a lot of strange errors
-        here 🥲.</p>
+      <p>
+        <strong>Git Integration & Troubleshooting</strong> - Git can be finicky,
+        so there were a lot of strange errors here 🥲.
+      </p>
     </li>
     <li>
-      <p><strong>Finishing!</strong> - Except there's always more work to be done. There's a chance this page will be
-        outdated by the time you're reading it (check the GitHub repo to see the current state o the project).</p>
+      <p>
+        <strong>Finishing!</strong> - Except there's always more work to be
+        done. There's a chance this page will be outdated by the time you're
+        reading it (check the GitHub repo to see the current state o the
+        project).
+      </p>
     </li>
   </ol>
 </section>
 
 <!-- Aside -->
 <aside>
-  <p>Please feel free to contact me if you have any questions about my projects! I'd be happy to explain how they
-    work or address any bugs and concerns.</p>
+  <p>
+    Please feel free to contact me if you have any questions about my projects!
+    I'd be happy to explain how they work or address any bugs and concerns.
+  </p>
 </aside>
