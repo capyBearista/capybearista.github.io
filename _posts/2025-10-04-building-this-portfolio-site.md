@@ -8,6 +8,9 @@ excerpt: "A candid talk about building this site from scratch and learning a few
 
 So here I am, writing my second blog post on a website I built from scratch. Honestly, it feels pretty cool to type these words and know they'll end up on the actual internet, not just buried in my Obsidian vault. This whole thing started innocently enough in my website design class. HTML and CSS just made sense to me, there's something satisfying about the logic of it all. You write some funny magic words (HTML), add some styling (CSS), and you've got something that looks decent.
 
+![Coding meme](/images/coding_meme.webp)   
+*Literally me*
+
 Unfortunately, I then decided to get fancy and dive into JavaScript.
 
 That's where things got interesting. And by interesting, I mean frustrating as hell. I'd think I had everything looking perfect, then refresh the page and find some weird jank that made no sense. Buttons wouldn't respond right, animations would stutter, or worse... everything would basically explode. I spent way too much time staring at my screen thinking "this should work, goddammit."
