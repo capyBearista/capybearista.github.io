@@ -1,4 +1,9 @@
-# Privacy Policy
+---
+layout: page
+title: "Privacy Policy"
+description: "Privacy policy for Arjun Pramanik's portfolio website - transparent data practices and self-hosted analytics information."
+canonical_url: "https://capybearista.github.io/PRIVACY/"
+---
 
 **Last updated: October 5, 2025**
 
