@@ -3,7 +3,7 @@ layout: post
 title: "Building This Website (And Ranting About Learning)"
 date: 2025-10-04 18:00:00 -0400
 author: "Arjun Pramanik"
-excerpt: "A candid talk about building my this site from scratch and learning a few new things along the way."
+excerpt: "A candid talk about building this site from scratch and learning a few new things along the way."
 ---
 
 So here I am, writing my second blog post on a website I built from scratch. Honestly, it feels pretty cool to type these words and know they'll end up on the actual internet, not just buried in my Obsidian vault. This whole thing started innocently enough in my website design class. HTML and CSS just made sense to me, there's something satisfying about the logic of it all. You write some funny magic words (HTML), add some styling (CSS), and you've got something that looks decent.
