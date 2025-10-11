@@ -33,13 +33,9 @@ You can expect to find a mix of content here:
 - **Personal reflections** on the development journey and career growth
 - **Who knows what else?** I'll just wing it, honestly
 
-## A Personal Touch
+While this blog will have plenty of technical content, I also want to share the human side of development. The challenges, the victories, the moments of frustration, and the joy of finally getting something to work. Programming is part coding, yes, it's also part problem-solving, creativity, and continuous learning. I hope to capture all of these aspects in my writing here.
 
-While this blog will have plenty of technical content, I also want to share the human side of development. The challenges, the victories, the moments of frustration, and the joy of finally getting something to work. 
-
-Programming is part coding, yes, it's also part problem-solving, creativity, and continuous learning. I hope to capture all of these aspects in my writing here.
-
-## Looking Forward
+## Looking Forward...
 
 Whether you're a fellow developer, someone just starting their coding journey, or simply curious about technology, I hope you'll find something valuable here.
 

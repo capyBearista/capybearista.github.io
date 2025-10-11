@@ -1,0 +1,25 @@
+---
+layout: post
+title: "Building This Website (And Ranting About Learning)"
+date: 2025-10-04 18:00:00 -0400
+author: "Arjun Pramanik"
+excerpt: "A candid talk about building my this site from scratch and learning a few new things along the way."
+---
+
+So here I am, writing my second blog post on a website I built from scratch. Honestly, it feels pretty cool to type these words and know they'll end up on the actual internet, not just buried in my Obsidian vault. This whole thing started innocently enough in my website design class. HTML and CSS just made sense to me, there's something satisfying about the logic of it all. You write some funny magic words (HTML), add some styling (CSS), and you've got something that looks decent.
+
+Unfortunately, I then decided to get fancy and dive into JavaScript.
+
+That's where things got interesting. And by interesting, I mean frustrating as hell. I'd think I had everything looking perfect, then refresh the page and find some weird jank that made no sense. Buttons wouldn't respond right, animations would stutter, or worse... everything would basically explode. I spent way too much time staring at my screen thinking "this should work, goddammit."
+
+Around that time though, I started using GitHub Copilot not to get answers necessarily, but to actually understand what was happening. Instead of just copying code, I'd ask it why something worked the way it did, and that made all the difference. I began experimenting with different themes and styles, from super minimal designs to heavily-styled "diegetic" interfaces. Each experiment taught me something new about how these languages actually interact with each other. Eventually, I settled on this design you're looking at now. I'm aiming for a glassmorphic, almost diegetic feel where you can actually feel like you're interacting with physical buttons. There's something satisfying about buttons that respond to your touch, even if it's just visual feedback.
+
+Initially, this was just going to be a simple projects page. Something to show off the cool stuff I'd built. About a month ago though, I had some sort of epiphany; I've always wanted my own corner of the internet. Not LinkedIn where I have to be ultra-professional, not Instagram where I feel compelled to make my life look perfect, not Reddit where even small communities get overrun by bots. Just a space where I can share whatever I want with whoever stumbles across it. So I expanded it. Added a home page, built out an interests section where I can rant about my hobbies, started thinking about this as a "portfolio of who I am," not just what I do. If someone wants to learn about my projects, great. But if they also want to know what I think about random stuff or what I've been learning lately, that's here too.
+
+While working on this project, I across a unique type of pain that made me start hating web development. *The copy-paste nightmare.* Every time I wanted to make a small change to the sidebar or footer, I had to update it across multiple pages. I had heard that Jekyll was some sort of tool to help generate static page, but being the kind of person who's kind of skeptical of new tech, I kept putting off learning about it. Eventually though, the frustration won out. Jekyll absolutely blew my mind. I'm talking a basically life-changing, "why didn't I try this sooner" kind of revelation. Suddenly, I could make a change to my sidebar once and have it update everywhere. Want to add a new blog post? Just write some markdown and Jekyll handles the rest. It's one more thing—just like using LLMs to learn—that has made me realize I shouldn't be so quick to dismiss new tools. Sure, they might not work out, but when they do, they can make everything so much better.
+
+The whole process taught me something important about learning. I used to think I had to figure everything out on my own, but working with generative AI tools like Gemini really hit home how effective they can be at helping the actual *learning* process instead of generating slop.
+
+Looking back, this project evolved way beyond what I originally envisioned. What started as a bonus page for people interested in my projects became this authentic space where I can share not just what I've built and actually talk about what I've learned along the way (beyond just a README on a repo). Web development really is part-engineering, part-art—you're writing code while making aesthetic decisions that affect how people experience your creation. And there's something truly magical about writing something and having it appear on the real internet, in a space that's completely yours. No algorithms deciding who sees it, no character limits, no pressure to make it look perfect for social media. Just authentic thoughts in an authentic space.
+
+I don't expect to become some grand source of truth, but if someone can learn something from what I write here, that would be pretty awesome. More selfishly, it's just cool as hell to have created something that exists out there in the digital world, waiting for whoever might find it.
