@@ -1675,6 +1675,44 @@ li {
   color: var(--accent);
 }
 
+/* Empty state when no photos are available */
+.gallery-empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  padding: 3rem 2rem;
+}
+
+.empty-state-content {
+  text-align: center;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-backdrop);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--glass-shadow);
+  padding: 2rem;
+  max-width: 500px;
+}
+
+.empty-state-content h3 {
+  margin: 0 0 1rem 0;
+  color: var(--accent);
+  font-size: 1.5rem;
+}
+
+.empty-state-content p {
+  margin: 0 0 1rem 0;
+  color: var(--text-main);
+}
+
+.empty-state-note {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
 /* Enhanced modal for Biscuit photos */
 .biscuit-enhanced.image-modal .image-modal-content {
   max-width: 95vw;

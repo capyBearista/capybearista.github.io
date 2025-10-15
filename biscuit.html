@@ -14,8 +14,9 @@ image: "/images/biscuit.jpeg"
 
   <!-- Biscuit Photo Gallery -->
   <div class="biscuit-gallery" role="img" aria-label="Photo gallery of Biscuit the dog">
-    {% assign sorted_photos = site.data.biscuit.photos | sort: 'date' | reverse %}
-    {% for photo in sorted_photos %}
+    {% if site.data.biscuit.photos and site.data.biscuit.photos.size > 0 %}
+      {% assign sorted_photos = site.data.biscuit.photos | sort: 'date' | reverse %}
+      {% for photo in sorted_photos %}
       <div class="biscuit-photo biscuit-photo--{{ photo.aspect_ratio | default: 'square' }}" 
            data-photo-src="{{ '/images/biscuit/full/' | append: photo.filename | relative_url }}"
            data-photo-caption="{{ photo.caption | escape }}"
@@ -40,18 +41,30 @@ image: "/images/biscuit.jpeg"
           </div>
         </div>
       </div>
-    {% endfor %}
+      {% endfor %}
+    {% else %}
+      <!-- Empty state when no photos are available -->
+      <div class="gallery-empty-state">
+        <div class="empty-state-content">
+          <h3>🐕 Gallery Loading...</h3>
+          <p>Biscuit's photos will appear here once they're processed!</p>
+          <p class="empty-state-note">Photos are automatically processed when added to the repository. Check back in a few minutes.</p>
+        </div>
+      </div>
+    {% endif %}
   </div>
 
   <!-- Gallery Stats -->
-  <div class="gallery-footer">
-    <p class="gallery-stats">
-      <strong>{{ site.data.biscuit.photos | size }} photos</strong> spanning 
-      <strong>{{ site.data.biscuit.photos | map: 'date' | sort | first | date: '%B %Y' }}</strong> to 
-      <strong>{{ site.data.biscuit.photos | map: 'date' | sort | last | date: '%B %Y' }}</strong>
-    </p>
-    <p class="gallery-love">Made with ❤️ for the best dog in the world</p>
-  </div>
+  {% if site.data.biscuit.photos and site.data.biscuit.photos.size > 0 %}
+    <div class="gallery-footer">
+      <p class="gallery-stats">
+        <strong>{{ site.data.biscuit.photos | size }} photos</strong> spanning 
+        <strong>{{ site.data.biscuit.photos | map: 'date' | sort | first | date: '%B %Y' }}</strong> to 
+        <strong>{{ site.data.biscuit.photos | map: 'date' | sort | last | date: '%B %Y' }}</strong>
+      </p>
+      <p class="gallery-love">Made with ❤️ for the best dog in the world</p>
+    </div>
+  {% endif %}
 </section>
 
 <!-- Enhanced Modal Structure for Biscuit Photos -->
