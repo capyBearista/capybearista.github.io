@@ -162,14 +162,7 @@ for original_file in images/biscuit/originals/*.{jpg,jpeg,JPG,JPEG,png,PNG}; do
             -strip \
             "$thumbnail_path"
     else
-        convert "$original_file" \
-            -auto-orient \
-            -resize 400x400^ \
-            -gravity center \
-            -extent 400x400 \
-            -quality 85 \
-            -strip \
-            "$thumbnail_path"
+        convert "$original_file" -auto-orient -resize 400x400^ -gravity center -extent 400x400 -quality 85 -strip "$thumbnail_path"
     fi
     
     # Create full-size version (1200px max width/height, maintain aspect ratio)
@@ -182,12 +175,7 @@ for original_file in images/biscuit/originals/*.{jpg,jpeg,JPG,JPEG,png,PNG}; do
             -strip \
             "$full_path"
     else
-        convert "$original_file" \
-            -auto-orient \
-            -resize 1200x1200> \
-            -quality 90 \
-            -strip \
-            "$full_path"
+        convert "$original_file" -auto-orient -resize 1200x1200\> -quality 90 -strip "$full_path"
     fi
     
     # Add to array of new photos
