@@ -3,6 +3,9 @@
 # Each photo can have optional caption and story fields
 # The automation system will automatically add photos from images/biscuit/originals/
 
-photos: []
-  # Photos will be automatically added here by the GitHub Actions workflow
-  # when you add images to images/biscuit/originals/ and commit/push
+photos:
+  - filename: "biscuit.jpg"
+    date: "2025-10-15"
+    caption: "Meet Biscuit!"
+    story: "The star of the show - my amazing companion Biscuit! This little guy brings joy to every day."
+    aspect_ratio: "portrait"
