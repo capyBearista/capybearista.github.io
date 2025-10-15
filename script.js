@@ -560,6 +560,226 @@ const imageModal = {
 
 // 
 // ========================================
+// BISCUIT GALLERY FUNCTIONALITY
+// ========================================
+//
+// Enhanced modal functionality specifically for Biscuit photo gallery
+// Handles the display of photos with descriptions and dates
+const biscuitGallery = {
+  modal: null,
+  modalImage: null,
+  modalCaption: null,
+  modalDate: null,
+  modalStory: null,
+  modalClose: null,
+  
+  init() {
+    // Use existing modal or create new one
+    this.modal = document.getElementById('biscuit-modal') || this.createBiscuitModal();
+    
+    if (this.modal) {
+      this.setupModalElements();
+      this.setupBiscuitEventListeners();
+      this.makeBiscuitPhotosClickable();
+    }
+  },
+  
+  // Create Biscuit-specific modal if it doesn't exist
+  createBiscuitModal() {
+    const modal = document.createElement('div');
+    modal.id = 'biscuit-modal';
+    modal.className = 'image-modal biscuit-enhanced';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-labelledby', 'biscuit-modal-title');
+    
+    modal.innerHTML = `
+      <div class="image-modal-content biscuit-modal-content">
+        <button class="image-modal-close" aria-label="Close photo">×</button>
+        <div class="biscuit-modal-image-container">
+          <img id="biscuit-modal-image" src="" alt="" class="biscuit-modal-image">
+        </div>
+        <div class="biscuit-modal-info">
+          <h2 id="biscuit-modal-title" class="biscuit-modal-caption"></h2>
+          <time class="biscuit-modal-date"></time>
+          <div class="biscuit-modal-story"></div>
+        </div>
+      </div>
+    `;
+    
+    document.body.appendChild(modal);
+    return modal;
+  },
+  
+  // Set up references to modal elements
+  setupModalElements() {
+    this.modalImage = this.modal.querySelector('#biscuit-modal-image');
+    this.modalCaption = this.modal.querySelector('.biscuit-modal-caption');
+    this.modalDate = this.modal.querySelector('.biscuit-modal-date');
+    this.modalStory = this.modal.querySelector('.biscuit-modal-story');
+    this.modalClose = this.modal.querySelector('.image-modal-close');
+  },
+  
+  // Set up event listeners for Biscuit modal
+  setupBiscuitEventListeners() {
+    // Close modal when clicking close button
+    this.modalClose.addEventListener('click', () => this.closeBiscuitModal());
+    
+    // Close modal when clicking outside content
+    this.modal.addEventListener('click', (e) => {
+      if (e.target === this.modal) {
+        this.closeBiscuitModal();
+      }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && this.modal.classList.contains('active')) {
+        this.closeBiscuitModal();
+      }
+    });
+    
+    // Prevent modal content clicks from closing modal
+    const modalContent = this.modal.querySelector('.image-modal-content');
+    modalContent.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  },
+  
+  // Make Biscuit gallery photos clickable
+  makeBiscuitPhotosClickable() {
+    const biscuitPhotos = document.querySelectorAll('.biscuit-photo');
+    
+    biscuitPhotos.forEach((photo, index) => {
+      // Add loading states and optimize aspect ratio handling
+      const img = photo.querySelector('.biscuit-photo-img');
+      
+      if (img) {
+        img.addEventListener('load', () => {
+          // If no aspect ratio data, calculate it dynamically
+          if (!photo.dataset.aspectRatio) {
+            const aspectRatio = img.naturalWidth / img.naturalHeight;
+            let aspectCategory = 'square';
+            
+            if (aspectRatio > 1.5) {
+              aspectCategory = 'panorama';
+            } else if (aspectRatio > 1.2) {
+              aspectCategory = 'landscape';
+            } else if (aspectRatio < 0.8) {
+              aspectCategory = 'portrait';
+            }
+            
+            // Apply aspect ratio class dynamically
+            photo.classList.add(`biscuit-photo--${aspectCategory}`);
+            photo.setAttribute('data-aspect-ratio', aspectCategory);
+          }
+          
+          // Add fade-in animation once loaded
+          photo.style.opacity = '1';
+        });
+        
+        // Start with slight transparency until loaded
+        photo.style.opacity = '0.8';
+        photo.style.transition = 'opacity 0.3s ease';
+      }
+      
+      // Handle click events
+      photo.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.openBiscuitModal(photo);
+      });
+      
+      // Handle keyboard navigation (Enter and Space)
+      photo.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.openBiscuitModal(photo);
+        }
+      });
+      
+      // Add focus indicators for keyboard users
+      photo.addEventListener('focus', () => {
+        if (!prefersReducedMotion) {
+          photo.style.outline = `2px solid var(--accent)`;
+          photo.style.outlineOffset = '2px';
+        }
+      });
+      
+      photo.addEventListener('blur', () => {
+        photo.style.outline = '';
+        photo.style.outlineOffset = '';
+      });
+    });
+  },
+  
+  // Open Biscuit modal with photo data
+  openBiscuitModal(photoElement) {
+    // Store reference to source element for focus restoration
+    this.sourcePhoto = photoElement;
+    
+    // Extract data from photo element
+    const imageSrc = photoElement.dataset.photoSrc;
+    const caption = photoElement.dataset.photoCaption;
+    const story = photoElement.dataset.photoStory;
+    const dateStr = photoElement.dataset.photoDate;
+    
+    // Set modal image
+    this.modalImage.src = imageSrc;
+    this.modalImage.alt = caption;
+    
+    // Set caption
+    this.modalCaption.textContent = caption || 'Biscuit Photo';
+    
+    // Format and set date
+    if (dateStr) {
+      const date = new Date(dateStr);
+      const formattedDate = date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+      this.modalDate.textContent = formattedDate;
+      this.modalDate.setAttribute('datetime', dateStr);
+    }
+    
+    // Set story/description
+    if (story) {
+      this.modalStory.textContent = story;
+      this.modalStory.style.display = 'block';
+    } else {
+      this.modalStory.style.display = 'none';
+    }
+    
+    // Show modal
+    this.modal.classList.add('active');
+    
+    // Focus management for accessibility
+    setTimeout(() => {
+      this.modalClose.focus();
+    }, 100);
+    
+    // Prevent body scrolling
+    document.body.style.overflow = 'hidden';
+  },
+  
+  // Close Biscuit modal
+  closeBiscuitModal() {
+    this.modal.classList.remove('active');
+    
+    // Restore body scrolling
+    document.body.style.overflow = '';
+    
+    // Return focus to source photo
+    if (this.sourcePhoto) {
+      setTimeout(() => {
+        this.sourcePhoto.focus();
+      }, 100);
+    }
+  }
+};
+
+// 
+// ========================================
 // HERO CAROUSEL FUNCTIONALITY
 // ========================================
 //
@@ -818,6 +1038,9 @@ function initializePage() {
   
   // Initialize image expansion modal
   imageModal.init();
+  
+  // Initialize Biscuit photo gallery
+  biscuitGallery.init();
   
   // Initialize hero image carousel
   heroCarousel.init();

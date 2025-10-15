@@ -1,0 +1,8 @@
+# Biscuit Photo Gallery Data
+# Photos are displayed in chronological order (newest first)
+# Each photo can have optional caption and story fields
+# The automation system will automatically add photos from images/biscuit/originals/
+
+photos:
+  # Photos will be automatically added here by the GitHub Actions workflow
+  # when you add images to images/biscuit/originals/ and commit/push
