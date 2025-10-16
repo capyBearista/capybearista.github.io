@@ -8,8 +8,8 @@ image: "/images/biscuit.jpeg"
 
 <section id="contentstart">
   <div class="page-intro">
-    <p>Welcome to Biscuit's world! This little guy has been my shadow, adventure buddy, and daily source of joy. From his first day home to his latest shenanigans, here are some of my favorite moments with the goodest boy.</p>
-    <p class="gallery-note">📸 Click any photo to see the full story behind the moment</p>
+    <p>Welcome to this archive of dog photos (because why not? It's <em>my</em> website)! This little creature is my daily source of joy.</p>
+    <!-- <p class="gallery-note">📸 Click any photo to see the full story behind the moment</p> -->
   </div>
 
   <!-- Biscuit Photo Gallery -->
@@ -18,14 +18,7 @@ image: "/images/biscuit.jpeg"
       {% assign sorted_photos = site.data.biscuit.photos | sort: 'date' | reverse %}
       {% for photo in sorted_photos %}
       <div class="biscuit-photo biscuit-photo--{{ photo.aspect_ratio | default: 'square' }}" 
-           data-photo-src="{{ '/images/biscuit/full/' | append: photo.filename | relative_url }}"
-           data-photo-caption="{{ photo.caption | escape }}"
-           data-photo-story="{{ photo.story | escape }}"
-           data-photo-date="{{ photo.date }}"
-           data-aspect-ratio="{{ photo.aspect_ratio | default: 'square' }}"
-           tabindex="0"
-           role="button"
-           aria-label="View {{ photo.caption }} - taken {{ photo.date | date: '%B %d, %Y' }}">
+           data-aspect-ratio="{{ photo.aspect_ratio | default: 'square' }}">
         
         <img src="{{ '/images/biscuit/thumbnails/' | append: photo.filename | relative_url }}" 
              alt="{{ photo.caption }}"
@@ -62,12 +55,13 @@ image: "/images/biscuit.jpeg"
         <strong>{{ site.data.biscuit.photos | map: 'date' | sort | first | date: '%B %Y' }}</strong> to 
         <strong>{{ site.data.biscuit.photos | map: 'date' | sort | last | date: '%B %Y' }}</strong>
       </p>
-      <p class="gallery-love">Made with ❤️ for the best dog in the world</p>
+      <p class="gallery-love">For my goofy creature.</p>
     </div>
   {% endif %}
 </section>
 
-<!-- Enhanced Modal Structure for Biscuit Photos -->
+<!-- Enhanced Modal Structure for Biscuit Photos - COMMENTED OUT FOR LATER?? -->
+<!--
 <div id="biscuit-modal" class="image-modal biscuit-enhanced" role="dialog" aria-modal="true" aria-labelledby="biscuit-modal-title">
   <div class="image-modal-content biscuit-modal-content">
     <button class="image-modal-close" aria-label="Close photo">×</button>
@@ -83,3 +77,4 @@ image: "/images/biscuit.jpeg"
     </div>
   </div>
 </div>
+-->

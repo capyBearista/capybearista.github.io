@@ -565,6 +565,13 @@ const imageModal = {
 //
 // Enhanced modal functionality specifically for Biscuit photo gallery
 // Handles the display of photos with descriptions and dates
+// ========================================
+// BISCUIT GALLERY MODAL FUNCTIONALITY (DISABLED)
+// ========================================
+// Modal functionality for Biscuit photo gallery - commented out for simpler static display
+// Can be re-enabled by uncommenting this section and re-adding data attributes to photos
+
+/*
 const biscuitGallery = {
   modal: null,
   modalImage: null,
@@ -777,6 +784,7 @@ const biscuitGallery = {
     }
   }
 };
+*/
 
 // 
 // ========================================
@@ -1039,8 +1047,8 @@ function initializePage() {
   // Initialize image expansion modal
   imageModal.init();
   
-  // Initialize Biscuit photo gallery
-  biscuitGallery.init();
+  // Initialize Biscuit photo gallery (disabled for simpler static display)
+  // biscuitGallery.init();
   
   // Initialize hero image carousel
   heroCarousel.init();
