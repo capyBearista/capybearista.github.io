@@ -190,30 +190,52 @@ done
 if [ ${#NEW_PHOTOS[@]} -gt 0 ]; then
     echo "📝 Updating _data/biscuit.yml with $PROCESSED_COUNT new photo(s)..."
     
-    # Create backup of existing file
+    # Create backup of existing file and prepare new YAML content
     if [ -f "_data/biscuit.yml" ]; then
         cp "_data/biscuit.yml" "_data/biscuit.yml.backup"
+        
+        # Create temporary file with new photos to append
+        temp_file=$(mktemp)
+        
+        # Add new photos to temp file
+        for photo_data in "${NEW_PHOTOS[@]}"; do
+            IFS='|' read -r filename photo_date caption aspect_category <<< "$photo_data"
+            
+            echo "  - filename: \"$filename\"" >> "$temp_file"
+            echo "    date: \"$photo_date\"" >> "$temp_file"
+            echo "    caption: \"$caption\"" >> "$temp_file"
+            echo "    story: \"\"" >> "$temp_file"
+            echo "    aspect_ratio: \"$aspect_category\"" >> "$temp_file"
+            
+            echo "   ✅ Added: $filename ($photo_date)"
+        done
+        
+        # Append new photos to existing YAML file
+        cat "$temp_file" >> "_data/biscuit.yml"
+        rm "$temp_file"
+        
     else
         # Create initial structure if file doesn't exist
         echo "# Biscuit Photo Gallery Data" > _data/biscuit.yml
         echo "# Photos are displayed in chronological order (newest first)" >> _data/biscuit.yml
+        echo "# Each photo can have optional caption and story fields" >> _data/biscuit.yml
+        echo "# The automation system will automatically add photos from images/biscuit/originals/" >> _data/biscuit.yml
         echo "" >> _data/biscuit.yml
         echo "photos:" >> _data/biscuit.yml
+        
+        # Add new photos to the YAML file
+        for photo_data in "${NEW_PHOTOS[@]}"; do
+            IFS='|' read -r filename photo_date caption aspect_category <<< "$photo_data"
+            
+            echo "  - filename: \"$filename\"" >> _data/biscuit.yml
+            echo "    date: \"$photo_date\"" >> _data/biscuit.yml
+            echo "    caption: \"$caption\"" >> _data/biscuit.yml
+            echo "    story: \"\"" >> _data/biscuit.yml
+            echo "    aspect_ratio: \"$aspect_category\"" >> _data/biscuit.yml
+            
+            echo "   ✅ Added: $filename ($photo_date)"
+        done
     fi
-    
-    # Add new photos to the YAML file
-    for photo_data in "${NEW_PHOTOS[@]}"; do
-        IFS='|' read -r filename photo_date caption aspect_category <<< "$photo_data"
-        
-        echo "  - filename: \"$filename\"" >> _data/biscuit.yml
-        echo "    date: \"$photo_date\"" >> _data/biscuit.yml
-        echo "    caption: \"$caption\"" >> _data/biscuit.yml
-        echo "    story: \"\"" >> _data/biscuit.yml
-        echo "    aspect_ratio: \"$aspect_category\"" >> _data/biscuit.yml
-        echo "" >> _data/biscuit.yml
-        
-        echo "   ✅ Added: $filename ($photo_date)"
-    done
     
     echo "📊 Summary:"
     echo "   - Processed: $PROCESSED_COUNT photos"
