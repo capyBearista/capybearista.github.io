@@ -1,3 +1,4 @@
+{% if page.url == '/' %}
 <!-- Structured Data for SEO -->
 <script type="application/ld+json">
 {
@@ -19,7 +20,7 @@
   },
   "knowsAbout": [
     "Machine Learning",
-    "Python Programming", 
+    "Python Programming",
     "Home Server Administration",
     "Docker",
     "Jekyll",
@@ -46,6 +47,7 @@
   }
 }
 </script>
+{% endif %}
 
 {% if page.layout == 'post' %}
 <!-- Blog Post Structured Data -->
