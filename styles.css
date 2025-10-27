@@ -598,6 +598,19 @@ body {
 .skipnavigation a:focus {
   top: 0;
 }
+/* Accessibility: Focus-visible outlines for keyboard users */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Ensure sidebar links show a clear keyboard focus ring */
+.sidebar-nav a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
 
 /*
   ========================================
